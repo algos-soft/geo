@@ -1,14 +1,14 @@
-package it.algos.vbase.backend.modules.geografia.provincia;
+package it.algos.geo.provincia;
 
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.combobox.*;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.spring.annotation.*;
+import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.components.*;
 import it.algos.vbase.backend.list.*;
-import it.algos.vbase.backend.modules.geografia.regione.*;
 import it.algos.vbase.ui.dialog.*;
 import static org.springframework.beans.factory.config.BeanDefinition.*;
 import org.springframework.context.annotation.Scope;

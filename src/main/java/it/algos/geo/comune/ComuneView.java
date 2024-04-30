@@ -1,4 +1,4 @@
-package it.algos.geo.provincia;
+package it.algos.geo.comune;
 
 import com.vaadin.flow.router.*;
 import it.algos.vbase.backend.annotation.*;
@@ -11,14 +11,14 @@ import org.springframework.beans.factory.annotation.*;
  * Created by Algos
  * User: gac
  * Date: Sat, 03-Feb-2024
- * Time: 09:48
+ * Time: 09:13
  *
- * @Route chiamata dal menu generale o dalla barra del browser <br>
+ * @Route chiamata dal menu generale oppure dalla barra del browser <br>
  */
-@PageTitle("Province italiane")
-@Route(value = "provincia", layout = MainLayout.class)
-@AView(menuGroup = MenuGroup.geografia)
-public class ProvinciaView extends CrudView {
+@PageTitle("Comuni italiani")
+@Route(value = "comune", layout = MainLayout.class)
+@AView(menuGroup = MenuGroup.altro)
+public class ComuneView extends CrudView {
 
 
     /**
@@ -27,8 +27,8 @@ public class ProvinciaView extends CrudView {
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
      */
-    public ProvinciaView(@Autowired ProvinciaService moduloCrudService) {
-        super(moduloCrudService, ProvinciaList.class, ProvinciaForm.class);
+    public ComuneView(@Autowired ComuneService moduloCrudService) {
+        super(moduloCrudService, ComuneList.class, ComuneForm.class);
     }
 
 }// end of @Route CrudView class

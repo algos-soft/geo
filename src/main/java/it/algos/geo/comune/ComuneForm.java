@@ -1,4 +1,4 @@
-package it.algos.geo.provincia;
+package it.algos.geo.comune;
 
 import com.vaadin.flow.spring.annotation.*;
 import it.algos.vbase.backend.entity.*;
@@ -10,16 +10,16 @@ import org.springframework.context.annotation.*;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
-public class ProvinciaForm extends CrudForm {
+public class ComuneForm extends CrudForm {
 
 
     //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public ProvinciaForm() {
+    public ComuneForm() {
         super();
     }
 
     //--new entityBean and update existing entityBean
-    public ProvinciaForm(final CrudList parentCrudList, AbstractEntity entityBean, CrudOperation operation) {
+    public ComuneForm(final CrudList parentCrudList, AbstractEntity entityBean, CrudOperation operation) {
         super(parentCrudList, entityBean, operation);
     }
 
