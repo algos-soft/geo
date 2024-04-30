@@ -1,4 +1,4 @@
-package it.algos.vbase.backend.modules.geografia.provincia;
+package it.algos.geo.provincia;
 
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.enumeration.*;
