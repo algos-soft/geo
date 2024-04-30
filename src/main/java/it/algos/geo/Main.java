@@ -1,4 +1,6 @@
-package it.algos.geo;public class Main {
+package it.algos.geo;
+
+public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
