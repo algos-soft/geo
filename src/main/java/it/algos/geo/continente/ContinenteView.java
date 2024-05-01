@@ -1,5 +1,6 @@
 package it.algos.geo.continente;
 
+import com.vaadin.flow.component.applayout.*;
 import com.vaadin.flow.router.*;
 import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.enumeration.*;
