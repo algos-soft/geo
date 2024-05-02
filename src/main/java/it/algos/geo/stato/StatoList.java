@@ -45,44 +45,20 @@ public class StatoList extends CrudList {
         Anchor anchor1;
         Anchor anchor2;
         Anchor anchor3;
-        String link;
-        String caption;
         String alfa3 = "ISO 3166-1 alpha-3";
         String capitali = "Capitali degli Stati del mondo";
         String alfa2 = "ISO 3166-1";
 
-        link = String.format("%s%s", TAG_WIKI, alfa3);
-        anchor1 = WAnchor.build(link, textService.setQuadre(alfa3)).bold();
+        anchor1 = WAnchor.build(alfa3, textService.setQuadre(alfa3)).bold();
+        anchor2 = WAnchor.build(capitali, textService.setQuadre(capitali)).bold();
+        anchor3 = WAnchor.build(alfa2, textService.setQuadre(alfa2)).bold();
 
-//        caption = String.format("%s%s%s", QUADRA_INI, alfa3, QUADRA_END);
-//        anchor1 = new Anchor(link, caption);
-//        anchor1.getElement().getStyle().set(FontWeight.HTML, FontWeight.bold.getTag());
-
-        link = String.format("%s%s", TAG_WIKI, capitali);
-        anchor2 = WAnchor.build(link, textService.setQuadre(capitali)).bold();
-//        caption = String.format("%s%s%s", QUADRA_INI, capitali, QUADRA_END);
-//        anchor2 = new Anchor(link, caption);
-//        anchor2.getElement().getStyle().set(FontWeight.HTML, FontWeight.bold.getTag());
-
-        link = String.format("%s%s", TAG_WIKI, alfa2);
-        anchor3 = WAnchor.build(link, textService.setQuadre(alfa2)).bold();
-//        caption = String.format("%s%s%s", QUADRA_INI, alfa2, QUADRA_END);
-//        anchor3 = new Anchor(link, caption);
-//        anchor3.getElement().getStyle().set(FontWeight.HTML, FontWeight.bold.getTag());
         BSpan testo = BSpan.text( TEXT_WIKI).bold().verde();
         headerPlaceHolder.add(new Span(testo, new Text(SPAZIO), anchor1,new Text(SPAZIO), anchor2,new Text(SPAZIO), anchor3));
-
-//        Span testo = new Span(typeList.getInfoScopo());
-//        testo.getStyle().set(FontWeight.HTML, FontWeight.bold.getTag());
-//        testo.getStyle().set(TAG_HTML_COLOR, TypeColor.verde.getTag());
 
         super.infoScopo = VUOTA;
         super.infoCreazione = TEXT_HARD;
         super.infoReset = TEXT_RESET_DELETE;
-
-
-//        headerPlaceHolder.add(new Span(testo, anchor1, new Text(VIRGOLA_SPAZIO), anchor2, new Text(VIRGOLA_SPAZIO), anchor3));
-//        headerPlaceHolder.add(new Span(testo, new Text(SPAZIO), anchor));
 
         super.fixHeaderPost();
     }
