@@ -28,6 +28,7 @@ import java.util.*;
  */
 @EnableScheduling
 @SpringBootApplication(scanBasePackages = {"it.algos"})
+@Theme(value = "geo")
 @NpmPackage(value = "line-awesome", version = "1.3.0")
 @NpmPackage(value = "@vaadin-component-factory/vcf-nav", version = "1.0.6")
 public class Application implements AppShellConfigurator {

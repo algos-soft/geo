@@ -4,21 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/config/algos_index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/boot/GeoBoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="...">
+      <change afterPath="$PROJECT_DIR$/frontend/themes/geo/main-layout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/themes/geo/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/themes/geo/theme.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/ui/view/MainLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/ui/view/MainLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/boot/GeoBoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/boot/GeoBoot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +32,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GeoApplication.executor": "Run",
+    "Application.GeoApplication.executor": "Debug",
     "Application.Unnamed.executor": "Debug",
     "Maven.geo [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -51,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.Application.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/gac/Documents/IdeaProjects/geo",
+    "last_opened_file_path": "/Users/gac/Documents/IdeaProjects/geo/frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -63,6 +55,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
@@ -97,6 +90,23 @@
       <option name="presentableId" value="Default" />
       <updated>1714478128369</updated>
     </task>
+    <task id="LOCAL-00001" summary="...">
+      <option name="closed" value="true" />
+      <created>1714577105601</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714577105601</updated>
+    </task>
+    <task id="LOCAL-00002" summary="...">
+      <option name="closed" value="true" />
+      <created>1714577380327</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714577380327</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,5 +122,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
 </project>

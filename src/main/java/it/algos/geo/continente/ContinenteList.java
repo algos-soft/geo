@@ -23,8 +23,9 @@ public class ContinenteList extends CrudList {
     }
 
 
-    @Override
-    protected void override() {
+    protected void fixPreferenze() {
+        super.fixPreferenze();
+
         super.usaBottoneShow = false;
     }
 

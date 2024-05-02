@@ -1,11 +1,14 @@
 package it.algos.geo.boot;
 
+import it.algos.geo.continente.*;
+import it.algos.geo.provincia.*;
 import it.algos.vbase.backend.boot.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import static it.algos.vbase.backend.boot.BaseVar.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.interfaces.*;
 import it.algos.vbase.backend.logic.*;
+import it.algos.vbase.backend.modules.crono.mese.*;
 import it.algos.vbase.backend.wrapper.*;
 import it.algos.vbase.ui.view.*;
 import org.springframework.stereotype.*;
@@ -65,7 +68,7 @@ public class GeoBoot extends BaseBoot {
             }
         }
         else {
-//            viewClazzListProject.add(AttSingolareView.class);
+            viewClazzListProject.add(ContinenteView.class);
         }
     }
 
