@@ -3,12 +3,14 @@ package it.algos.geo.stato;
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.combobox.*;
 import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.spring.annotation.*;
 import it.algos.geo.continente.*;
+import it.algos.geo.list.*;
+import it.algos.vbase.backend.boot.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.components.*;
 import it.algos.vbase.backend.importexport.*;
-import it.algos.vbase.backend.list.*;
 import it.algos.vbase.ui.dialog.*;
 import org.springframework.beans.factory.annotation.*;
 import static org.springframework.beans.factory.config.BeanDefinition.*;
@@ -18,13 +20,35 @@ import java.util.*;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
-public class StatoList extends CrudList {
+public class StatoList extends GeoList {
+
+    static final String FIELD_CAPITALE = "capitale";
+
+    static final String FIELD_ALFA_3 = "alfa3";
+
+    static final String FIELD_ALFA_2 = "alfa2";
+
+    static final String FIELD_NUMERICO = "numerico";
+
+    static final String FIELD_CONTINENTE = "continente";
+
+    //--searchField locale per selezionare la property
+    private TextField searchCapitale;
+
+    //--searchField locale per selezionare la property
+    private TextField searchAlfa3;
+
+    //--searchField locale per selezionare la property
+    private TextField searchAlfa2;
+
+    //--searchField locale per selezionare la property
+    private TextField searchNumerico;
+
+    //--comboBox locale per selezionare la property
+    ComboBox<ContinenteEntity> comboContinente;
 
     @Autowired
     public ContinenteService continenteModulo;
-
-    private ComboBox comboContinente;
-
 
 
     //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
@@ -39,6 +63,11 @@ public class StatoList extends CrudList {
         super(parentCrudView);
     }
 
+    protected void fixPreferenze() {
+        super.fixPreferenze();
+
+        super.usaBottoneEdit = true;
+    }
 
     @Override
     public void syncHeader() {
@@ -53,46 +82,54 @@ public class StatoList extends CrudList {
         anchor2 = WAnchor.build(capitali, textService.setQuadre(capitali)).bold();
         anchor3 = WAnchor.build(alfa2, textService.setQuadre(alfa2)).bold();
 
-        BSpan testo = BSpan.text( TEXT_WIKI).bold().verde();
-        headerPlaceHolder.add(new Span(testo, new Text(SPAZIO), anchor1,new Text(SPAZIO), anchor2,new Text(SPAZIO), anchor3));
+        BSpan testo = BSpan.text(TEXT_WIKI).bold().verde();
+        headerPlaceHolder.add(new Span(testo, new Text(SPAZIO), anchor1, new Text(SPAZIO), anchor2, new Text(SPAZIO), anchor3));
 
         super.infoScopo = VUOTA;
         super.infoCreazione = TEXT_HARD;
         super.infoReset = TEXT_RESET_DELETE;
 
         super.fixHeaderPost();
+        super.fixAdmin();
     }
 
     /**
      * Aggiunge componenti al Top della Lista <br>
-     * Può essere sovrascritto, invocando PRIMA il metodo della superclasse se si vogliono aggiungere componenti IN CODA <br>
-     * Può essere sovrascritto, SENZA invocare il metodo della superclasse se si vogliono aggiungere componenti in ordine diverso <br>
      */
     @Override
-    protected void fixTop() {
-        super.fixTop();
+    protected void addTop() {
+        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
+        searchCapitale = super.creaFiltroText(FIELD_CAPITALE);
 
-        comboContinente = new ComboBox<>();
-        comboContinente.setPlaceholder("Continenti...");
-        comboContinente.setClearButtonVisible(true);
-        comboContinente.setWidth("14rem");
-        comboContinente.setItems(continenteModulo.findAll());
-        comboContinente.addValueChangeListener(event -> sync());
-        topPlaceHolder.add(comboContinente);
+        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
+        searchAlfa3 = super.creaFiltroText(FIELD_ALFA_3);
+
+        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
+        searchAlfa2 = super.creaFiltroText(FIELD_ALFA_2);
+
+        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
+        searchNumerico = super.creaFiltroText(FIELD_NUMERICO);
+
+        //--creazione 'ad hoc' di un comboBox (semistandard) per selezionare la property nome
+        comboContinente = super.creaFiltroCombo(FIELD_CONTINENTE, continenteModulo.findAll());
     }
 
     @Override
     protected void syncFiltri() {
-        if (comboContinente != null) {
-            if (comboContinente.getValue() != null) {
-                if (comboContinente.getValue() instanceof ContinenteEntity continente) {
-                    filtri.uguale("continente", continente);
-                }
-            }
-            else {
-                filtri.remove("continente");
-            }
-        }
+        //--filtraggio del database in funzione del valore della property (inizio del testo)
+        super.filtroInizioText(searchCapitale, FIELD_CAPITALE);
+
+        //--filtraggio del database in funzione del valore della property (inizio del testo)
+        super.filtroInizioText(searchAlfa3, FIELD_ALFA_3);
+
+        //--filtraggio del database in funzione del valore della property (inizio del testo)
+        super.filtroInizioText(searchAlfa2, FIELD_ALFA_2);
+
+        //--filtraggio del database in funzione del valore della property (inizio del testo)
+        super.filtroInizioText(searchNumerico, FIELD_NUMERICO);
+
+        //--filtraggio del database in funzione del valore della property
+        super.filtroComboClazz(comboContinente, FIELD_CONTINENTE);
     }
 
 

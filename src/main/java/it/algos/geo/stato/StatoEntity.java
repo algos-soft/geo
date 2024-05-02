@@ -7,13 +7,9 @@ import it.algos.vbase.backend.enumeration.*;
 import lombok.*;
 import org.springframework.stereotype.*;
 
-@Component
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@EqualsAndHashCode(callSuper = true)
-@AEntity(collectionName = "stato", keyPropertyName = "nome", typeList = TypeList.hardWiki)
+@AEntity(collectionName = "stato", keyPropertyName = "nome")
 public class StatoEntity extends AbstractEntity {
 
     @AField(type = TypeField.ordine)

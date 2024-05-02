@@ -1,14 +1,17 @@
 package it.algos.geo.continente;
 
 import com.vaadin.flow.spring.annotation.*;
+import it.algos.geo.list.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
+import it.algos.vbase.backend.boot.*;
 import it.algos.vbase.backend.list.*;
+import it.algos.vbase.ui.wrapper.*;
 import static org.springframework.beans.factory.config.BeanDefinition.*;
 import org.springframework.context.annotation.*;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
-public class ContinenteList extends CrudList {
+public class ContinenteList extends GeoList {
 
     //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
     public ContinenteList() {
@@ -23,15 +26,6 @@ public class ContinenteList extends CrudList {
     }
 
 
-    protected void fixPreferenze() {
-        super.fixPreferenze();
-
-        super.usaBottoneNew = false;
-        super.usaBottoneEdit = false;
-        super.usaBottoneShow = false;
-        super.usaBottoneDeleteEntity = false;
-    }
-
 
     @Override
     public void syncHeader() {
@@ -43,6 +37,7 @@ public class ContinenteList extends CrudList {
         super.infoReset = TEXT_HARD_2;
 
         super.fixHeaderPost();
+        super.fixAdmin();
     }
 
 

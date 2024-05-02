@@ -84,18 +84,19 @@ public class StatoService extends CrudService {
             String numerico,
             ContinenteEntity continente,
             String divisioni) {
-        StatoEntity newEntityBean = StatoEntity.builder()
-                .ordine(ordine == 0 ? nextOrdine() : ordine)
-                .nome(textService.isValid(nome) ? nome : null)
-                .capitale(textService.isValid(capitale) ? capitale : null)
-                .alfa3(textService.isValid(alfa3) ? alfa3 : null)
-                .alfa2(textService.isValid(alfa2) ? alfa2 : null)
-                .numerico(textService.isValid(numerico) ? numerico : null)
-                .continente(continente)
-                .divisioni(textService.isValid(divisioni) ? divisioni : null)
-                .build();
+//        StatoEntity newEntityBean = StatoEntity.builder()
+//                .ordine(ordine == 0 ? nextOrdine() : ordine)
+//                .nome(textService.isValid(nome) ? nome : null)
+//                .capitale(textService.isValid(capitale) ? capitale : null)
+//                .alfa3(textService.isValid(alfa3) ? alfa3 : null)
+//                .alfa2(textService.isValid(alfa2) ? alfa2 : null)
+//                .numerico(textService.isValid(numerico) ? numerico : null)
+//                .continente(continente)
+//                .divisioni(textService.isValid(divisioni) ? divisioni : null)
+//                .build();
 
-        return (StatoEntity) fixKey(newEntityBean);
+//        return (StatoEntity) fixKey(newEntityBean);
+        return null;
     }
 
     public List<StatoEntity> findAll() {
