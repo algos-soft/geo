@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="...">
-      <change afterPath="$PROJECT_DIR$/frontend/themes/geo/main-layout.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/themes/geo/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/themes/geo/theme.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/boot/GeoBoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/boot/GeoBoot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/vbase" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="ProjectColorInfo">{
@@ -32,7 +27,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GeoApplication.executor": "Debug",
+    "Application.GeoApplication.executor": "Run",
     "Application.Unnamed.executor": "Debug",
     "Maven.geo [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -60,8 +55,8 @@
       <recent name="$PROJECT_DIR$/src/main" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="it.algos.geo.boot" />
       <recent name="it.algos.geo" />
+      <recent name="it.algos.geo.boot" />
     </key>
   </component>
   <component name="RunManager">
@@ -106,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714577380327</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="...">
+      <option name="closed" value="true" />
+      <created>1714636014007</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714636014007</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
