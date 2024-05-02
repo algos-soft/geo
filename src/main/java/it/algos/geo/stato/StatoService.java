@@ -1,6 +1,7 @@
 package it.algos.geo.stato;
 
 import it.algos.geo.continente.*;
+import it.algos.geo.enumeration.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.boot.*;
 import it.algos.vbase.backend.enumeration.*;

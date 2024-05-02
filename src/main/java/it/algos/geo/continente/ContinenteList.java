@@ -26,17 +26,21 @@ public class ContinenteList extends CrudList {
     protected void fixPreferenze() {
         super.fixPreferenze();
 
+        super.usaBottoneNew = false;
+        super.usaBottoneEdit = false;
         super.usaBottoneShow = false;
+        super.usaBottoneDeleteEntity = false;
     }
 
 
     @Override
     public void syncHeader() {
-        String enumeration = "Continente";
+        String enumeration = "ContinenteEnum";
+        String service = "Continente";
 
-        super.infoScopo = String.format(TEXT_TAVOLA + SPAZIO + TEXT_ENUM, enumeration, enumeration); ;
+        super.infoScopo = String.format(TEXT_TAVOLA + SPAZIO + TEXT_ENUM, enumeration, service); ;
         super.infoCreazione = TEXT_HARD;
-        super.infoReset = TEXT_RESET_DELETE;
+        super.infoReset = TEXT_HARD_2;
 
         super.fixHeaderPost();
     }

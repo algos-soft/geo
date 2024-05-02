@@ -1,5 +1,6 @@
 package it.algos.geo.continente;
 
+import it.algos.geo.enumeration.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.exception.*;
@@ -48,10 +49,10 @@ public class ContinenteService extends CrudService {
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
     public ContinenteEntity newEntity(final int ordine, final String nome) {
-        ContinenteEntity newEntityBean = ContinenteEntity.builder()
-                .ordine(ordine == 0 ? nextOrdine() : ordine)
-                .nome(textService.isValid(nome) ? nome : null)
-                .build();
+        ContinenteEntity newEntityBean = new ContinenteEntity();
+
+        newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
+        newEntityBean.setNome(textService.isValid(nome) ? nome : null);
 
         return (ContinenteEntity) fixKey(newEntityBean);
     }

@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="...">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/enumeration/ContinenteEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/boot/BaseCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/boot/BaseCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/enumeration/ContinenteEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/list/CrudList.java" beforeDir="false" afterPath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/list/CrudList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/logic/CrudService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/logic/CrudService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +39,7 @@
   "keyToString": {
     "Application.GeoApplication.executor": "Run",
     "Application.Unnamed.executor": "Debug",
+    "JUnit.ContinenteServiceTest.executor": "Run",
     "Maven.geo [install].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -38,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.Application.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/gac/Documents/IdeaProjects/geo/frontend",
+    "last_opened_file_path": "/Users/gac/Documents/IdeaProjects/geo/src",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -50,16 +61,19 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/src/test/java/it/algos" />
+      <recent name="$PROJECT_DIR$/src/test/java" />
+      <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="it.algos.geo.enumeration" />
       <recent name="it.algos.geo" />
       <recent name="it.algos.geo.boot" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.GeoApplication">
     <configuration name="GeoApplication" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="it.algos.geo.Application" />
       <module name="geo" />
@@ -67,6 +81,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ContinenteServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="geo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.algos.geo.modulo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.algos.geo.modulo" />
+      <option name="MAIN_CLASS_NAME" value="it.algos.geo.modulo.ContinenteServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ContinenteServiceTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -109,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714636014007</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="...">
+      <option name="closed" value="true" />
+      <created>1714639394312</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714639394312</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
