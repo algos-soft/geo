@@ -92,7 +92,7 @@ public class RegioneService extends CrudService {
         query.addCriteria(Criteria.where("type").in(TypeRegione.regione,TypeRegione.regioneSpeciale));
         query.with(sort);
 
-        List<AbstractEntity> lista= mongoService.mongoOp.find(query, moduloCrudEntityClazz, "regione");
+        List<AbstractEntity> lista= mongoService.mongoTemplate.find(query, moduloCrudEntityClazz, "regione");
         return lista.stream().map(bean -> (RegioneEntity) bean).toList();
     }
 

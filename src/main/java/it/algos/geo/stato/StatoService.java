@@ -84,19 +84,19 @@ public class StatoService extends CrudService {
             String numerico,
             ContinenteEntity continente,
             String divisioni) {
-//        StatoEntity newEntityBean = StatoEntity.builder()
-//                .ordine(ordine == 0 ? nextOrdine() : ordine)
-//                .nome(textService.isValid(nome) ? nome : null)
-//                .capitale(textService.isValid(capitale) ? capitale : null)
-//                .alfa3(textService.isValid(alfa3) ? alfa3 : null)
-//                .alfa2(textService.isValid(alfa2) ? alfa2 : null)
-//                .numerico(textService.isValid(numerico) ? numerico : null)
-//                .continente(continente)
-//                .divisioni(textService.isValid(divisioni) ? divisioni : null)
-//                .build();
 
-//        return (StatoEntity) fixKey(newEntityBean);
-        return null;
+        StatoEntity newEntityBean = new StatoEntity();
+        newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
+        newEntityBean.setNome(textService.isValid(nome) ? nome : null);
+
+        newEntityBean.setCapitale(textService.isValid(capitale) ? capitale : null);
+        newEntityBean.setAlfa3(textService.isValid(alfa3) ? alfa3 : null);
+        newEntityBean.setAlfa2(textService.isValid(alfa2) ? alfa2 : null);
+        newEntityBean.setNumerico(textService.isValid(numerico) ? numerico : null);
+        newEntityBean.setContinente(continente);
+        newEntityBean.setDivisioni(textService.isValid(divisioni) ? divisioni : null);
+
+        return (StatoEntity) fixKey(newEntityBean);
     }
 
     public List<StatoEntity> findAll() {
@@ -134,11 +134,6 @@ public class StatoService extends CrudService {
     //    }
 
     public RisultatoReset reset() {
-        if (!BaseVar.creaDirectoryGeografia) {
-            creaIfNotExists("Italia", "Roma", "ITA", "IT");
-            return RisultatoReset.vuotoMaCostruito;
-        }
-
         this.leggeAlfa3();
         this.leggeCapitali();
         this.leggeAlfa2();
