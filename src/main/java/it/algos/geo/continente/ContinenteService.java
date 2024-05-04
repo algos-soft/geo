@@ -1,14 +1,9 @@
 package it.algos.geo.continente;
 
 import it.algos.geo.enumeration.*;
-import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.enumeration.*;
-import it.algos.vbase.backend.exception.*;
 import it.algos.vbase.backend.logic.*;
-import it.algos.vbase.backend.wrapper.*;
 import org.springframework.stereotype.*;
-
-import java.util.*;
 
 /**
  * Project base24
@@ -20,6 +15,7 @@ import java.util.*;
 @Service
 public class ContinenteService extends CrudService {
 
+
     /**
      * Regola la entityClazz associata a questo Modulo e la passa alla superclasse <br>
      * Regola la viewClazz @Route associata a questo Modulo e la passa alla superclasse <br>
@@ -30,44 +26,39 @@ public class ContinenteService extends CrudService {
     }
 
 
-    /**
-     * Creazione in memoria di una nuova entity che NON viene salvata <br>
-     *
-     * @return la nuova entity appena creata (con keyID ma non salvata)
-     */
-    @Override
-    public ContinenteEntity newEntity() {
-        return newEntity(0, VUOTA);
+    public ContinenteEntity creaIfNotExists(int ordine, String code) {
+        if (existByCode(code)) {
+            return null;
+        }
+        else {
+            return (ContinenteEntity) insert(newEntity(ordine, code));
+        }
     }
 
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
      *
      * @param ordine (opzionale, unico)
-     * @param nome   (obbligatorio, unico)
+     * @param code   (obbligatorio, unico)
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public ContinenteEntity newEntity(final int ordine, final String nome) {
-        ContinenteEntity newEntityBean = new ContinenteEntity();
+    public ContinenteEntity newEntity(final int ordine, final String code) {
+        ContinenteEntity newEntityBean = ContinenteEntity.builder()
+                .ordine(ordine == 0 ? nextOrdine() : ordine)
+                .code(textService.isValid(code) ? code : null)
+                .build();
 
-        newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
-        newEntityBean.setNome(textService.isValid(nome) ? nome : null);
-
-        return (ContinenteEntity) fixKey(newEntityBean);
+        return newEntityBean;
     }
 
-    @Override
-    //casting only dalla superclasse
-    public List<ContinenteEntity> findAll() {
-        return super.findAll();
-    }
 
     @Override
     //casting only dalla superclasse
     public ContinenteEntity findByKey(final Object keyPropertyValue) {
         return (ContinenteEntity) super.findByKey(keyPropertyValue);
     }
+
 
     /**
      * Metodo invocato:
@@ -80,21 +71,10 @@ public class ContinenteService extends CrudService {
      */
     @Override
     public RisultatoReset reset() {
-        ContinenteEntity newBean;
-        String message;
-
         for (ContinenteEnum contEnum : ContinenteEnum.values()) {
-            newBean = newEntity(contEnum.ordinal() + 1, contEnum.getTag());
-            if (newBean != null) {
-                mappaBeans.put(contEnum.getTag(), newBean);
-            }
-            else {
-                message = String.format("La entity %s non è stata salvata", contEnum.getTag());
-                logger.error(new WrapLog().exception(new AlgosException(message)).usaDb().type(TypeLog.startup));
-            }
+            creaIfNotExists(contEnum.ordinal() + 1, contEnum.getTag());
         }
 
-        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
         return RisultatoReset.vuotoMaCostruito;
     }
 

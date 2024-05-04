@@ -9,6 +9,8 @@ import it.algos.vbase.ui.wrapper.*;
 import static org.springframework.beans.factory.config.BeanDefinition.*;
 import org.springframework.context.annotation.*;
 
+import java.util.*;
+
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
 public class ContinenteList extends GeoList {
@@ -25,7 +27,13 @@ public class ContinenteList extends GeoList {
         super(parentCrudView);
     }
 
+    @Override
+    protected void fixPreferenze() {
+        super.fixPreferenze();
 
+        super.usaBottoneNew = true;
+        super.usaBottoneSearchField = false;
+    }
 
     @Override
     public void syncHeader() {
@@ -38,6 +46,7 @@ public class ContinenteList extends GeoList {
 
         super.fixHeaderPost();
         super.fixAdmin();
+
     }
 
 

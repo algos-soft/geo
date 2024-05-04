@@ -7,19 +7,22 @@ import lombok.*;
 
 @Data
 @NoArgsConstructor
-@AEntity(collectionName = "continente", searchPropertyName = "nome", sortPropertyName = "ordine")
+@AllArgsConstructor
+@Builder
+@AEntity(collectionName = "continente", sortPropertyName = "ordine")
 public class ContinenteEntity extends AbstractEntity {
 
     @AField(type = TypeField.ordine, headerText = "#")
     private int ordine;
 
-    @AField(type = TypeField.text)
-    private String nome;
+    @ASearch()
+    @AField(type = TypeField.text,headerText = "nome")
+    private String code;
 
 
     @Override
     public String toString() {
-        return nome;
+        return code;
     }
 
 }// end of Entity class

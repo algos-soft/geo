@@ -107,7 +107,7 @@ public class StatoService extends CrudService {
     public List<StatoEntity> findAllEuropa() {
         return findAll()
                 .stream()
-                .filter(stato -> stato.getContinente() != null ? stato.getContinente().getNome().equals(ContinenteEnum.europa.getTag()) : false)
+                .filter(stato -> stato.getContinente() != null ? stato.getContinente().getCode().equals(ContinenteEnum.europa.getTag()) : false)
                 .toList();
     }
 
@@ -361,7 +361,7 @@ public class StatoService extends CrudService {
                         mappaBeans.put(alfa3, entityBean);
                     }
                     else {
-                        message = String.format("Non ho trovato %s nella riga %s della mappa - leggeContinente() di %s", alfa3, parte, continente.getNome());
+                        message = String.format("Non ho trovato %s nella riga %s della mappa - leggeContinente() di %s", alfa3, parte, continente.getCode());
                         logger.warn(new WrapLog().message(message).type(TypeLog.reset));
                     }
                 }
