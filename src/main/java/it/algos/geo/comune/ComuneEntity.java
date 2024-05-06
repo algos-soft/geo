@@ -17,8 +17,11 @@ import org.springframework.stereotype.*;
 @AEntity(collectionName = "comune")
 public class ComuneEntity extends AbstractEntity {
 
-    @AField(type = TypeField.text, widthList = 14)
-    private String nome;
+
+    @ASearch(type = TypeSearch.textStartsWith)
+    @AField(type = TypeField.text, headerText = "Nome", caption = "Nome",widthList = 14)
+    private String code;
+
 
     @AField(type = TypeField.linkDBRef, widthList = 10, linkClazz = ProvinciaEntity.class)
     private ProvinciaEntity provincia;
@@ -29,9 +32,10 @@ public class ComuneEntity extends AbstractEntity {
     @AField(type = TypeField.linkDBRef, widthList = 10, linkClazz = RegioneEntity.class)
     private RegioneEntity regione;
 
+
     @Override
     public String toString() {
-        return nome;
+        return code;
     }
 
 }// end of Entity class

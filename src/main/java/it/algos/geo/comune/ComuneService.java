@@ -1,6 +1,5 @@
 package it.algos.geo.comune;
 
-import it.algos.crono.anno.*;
 import it.algos.geo.provincia.*;
 import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
@@ -50,9 +49,9 @@ public class ComuneService extends ModuloService {
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public ComuneEntity newEntity(String nome, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
+    public ComuneEntity newEntity(String code, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
         ComuneEntity newEntityBean = ComuneEntity.builder()
-                .nome(textService.isValid(nome) ? nome : null)
+                .code(textService.isValid(code) ? code : null)
                 .provincia(provincia)
                 .cap(textService.isValid(cap) ? cap : null)
                 .regione(regione)

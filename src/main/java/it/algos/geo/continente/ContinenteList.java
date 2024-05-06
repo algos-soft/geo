@@ -15,10 +15,6 @@ import java.util.*;
 @Scope(value = SCOPE_PROTOTYPE)
 public class ContinenteList extends GeoList {
 
-    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public ContinenteList() {
-        super();
-    }
 
     /**
      * @param parentCrudView che crea questa istanza
@@ -27,12 +23,10 @@ public class ContinenteList extends GeoList {
         super(parentCrudView);
     }
 
+
     @Override
     protected void fixPreferenze() {
         super.fixPreferenze();
-
-        super.usaBottoneNew = true;
-//        super.usaBottoneSearchField = false;
     }
 
     @Override
@@ -42,11 +36,10 @@ public class ContinenteList extends GeoList {
 
         super.infoScopo = String.format(TEXT_TAVOLA + SPAZIO + TEXT_ENUM, enumeration, service); ;
         super.infoCreazione = TEXT_HARD;
-        super.infoReset = TEXT_HARD_2;
+        super.infoReset = TEXT_RESET_DELETE;
 
         super.fixHeaderPost();
         super.fixAdmin();
-
     }
 
 

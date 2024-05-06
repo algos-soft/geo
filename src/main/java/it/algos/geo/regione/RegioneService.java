@@ -25,6 +25,8 @@ import java.util.*;
 @Service
 public class RegioneService extends ModuloService {
 
+    @Value("${algos.project.crea.directory.geo:false}")
+    private String creaDirectoryGeoTxt;
 
     @Autowired
     public StatoService statoModulo;

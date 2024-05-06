@@ -5,13 +5,14 @@ import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import lombok.*;
+import org.springframework.stereotype.*;
 
 @Data
 @NoArgsConstructor
 @AEntity(collectionName = "stato")
 public class StatoEntity extends AbstractEntity {
 
-    @AField(type = TypeField.ordine)
+    @AField(type = TypeField.ordine, headerText = "#")
     private int ordine;
 
     @AField(type = TypeField.wikiAnchor)

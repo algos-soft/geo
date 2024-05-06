@@ -6,6 +6,7 @@ import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.logic.*;
 import it.algos.vbase.backend.modules.anagrafica.via.*;
 import it.algos.vbase.backend.wrapper.*;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
 import javax.inject.*;
@@ -20,6 +21,9 @@ import java.util.*;
  */
 @Service
 public class ProvinciaService extends ModuloService {
+
+    @Value("${algos.project.crea.directory.geo:false}")
+    private String creaDirectoryGeoTxt;
 
     @Inject
     RegioneService regioneModulo;

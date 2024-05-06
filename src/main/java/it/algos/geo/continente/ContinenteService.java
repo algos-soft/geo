@@ -6,6 +6,8 @@ import it.algos.vbase.backend.logic.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
+import java.util.*;
+
 /**
  * Project base24
  * Created by Algos
@@ -16,8 +18,10 @@ import org.springframework.stereotype.*;
 @Service
 public class ContinenteService extends ModuloService {
 
-    @Value("${algos.project.crea.directory.geo}")
+
+    @Value("${algos.project.crea.directory.geo:false}")
     private String creaDirectoryGeoTxt;
+
 
     /**
      * Regola la entityClazz associata a questo Modulo e la passa alla superclasse <br>
@@ -28,15 +32,6 @@ public class ContinenteService extends ModuloService {
         super(ContinenteEntity.class, ContinenteView.class);
     }
 
-
-    public ContinenteEntity creaIfNotExists(int ordine, String code) {
-        if (existByCode(code)) {
-            return null;
-        }
-        else {
-            return (ContinenteEntity) insert(newEntity(ordine, code));
-        }
-    }
 
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
@@ -57,9 +52,14 @@ public class ContinenteService extends ModuloService {
 
 
     @Override
-    //casting only dalla superclasse
-    public ContinenteEntity findByCode(final String keyPropertyValue) {
-        return (ContinenteEntity) super.findByCode(keyPropertyValue);
+    public List<ContinenteEntity> findAll() {
+        return super.findAll();
+    }
+
+
+    @Override
+    public ContinenteEntity findByCode(final String keyCodeValue) {
+        return (ContinenteEntity) super.findByCode(keyCodeValue);
     }
 
 
@@ -74,14 +74,25 @@ public class ContinenteService extends ModuloService {
      */
     @Override
     public RisultatoReset reset() {
+        ContinenteEntity newBean;
+        int ordine;
+        String code;
+
         if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
             return RisultatoReset.nonCostruito;
         }
 
         for (ContinenteEnum contEnum : ContinenteEnum.values()) {
-            creaIfNotExists(contEnum.ordinal() + 1, contEnum.getTag());
+            ordine = contEnum.ordinal() + 1;
+            code = contEnum.getTag();
+            newBean = newEntity(ordine, code);
+
+            if (newBean != null) {
+                mappaBeans.put(code, newBean);
+            }
         }
 
+        mappaBeans.values().stream().forEach(bean -> creaIfNotExists(bean));
         return RisultatoReset.vuotoMaCostruito;
     }
 
