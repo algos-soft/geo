@@ -1,5 +1,6 @@
 package it.algos.geo.comune;
 
+import it.algos.crono.anno.*;
 import it.algos.geo.provincia.*;
 import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
@@ -36,25 +37,8 @@ public class ComuneService extends ModuloService {
     }
 
 
-    public ComuneEntity creaIfNotExists(String nome, ProvinciaEntity provincia, RegioneEntity regione) {
-        if (existByKey(nome)) {
-            return null;
-        }
-        else {
-            return (ComuneEntity) insert(newEntity(nome, provincia, VUOTA, regione));
-        }
-    }
 
 
-    /**
-     * Creazione in memoria di una nuova entity che NON viene salvata <br>
-     *
-     * @return la nuova entity appena creata (con keyID ma non salvata)
-     */
-    @Override
-    public ComuneEntity newEntity() {
-        return newEntity(VUOTA, null, VUOTA, null);
-    }
 
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
@@ -74,7 +58,7 @@ public class ComuneService extends ModuloService {
                 .regione(regione)
                 .build();
 
-        return (ComuneEntity) fixKey(newEntityBean);
+        return newEntityBean;
     }
 
     @Override
@@ -82,10 +66,12 @@ public class ComuneService extends ModuloService {
         return super.findAll();
     }
 
+
     @Override
-    public ComuneEntity findByCode(final String keyPropertyValue) {
-        return (ComuneEntity) super.findByCode(keyPropertyValue);
+    public ComuneEntity findByCode(final String keyCodeValue) {
+        return (ComuneEntity) super.findByCode(keyCodeValue);
     }
+
 
     @Override
     public void download() {
