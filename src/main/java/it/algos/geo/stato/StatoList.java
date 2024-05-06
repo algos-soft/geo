@@ -67,6 +67,7 @@ public class StatoList extends GeoList {
         super.fixPreferenze();
 
         super.usaBottoneEdit = true;
+        super.usaBottoneShow = false;
     }
 
     @Override
@@ -99,37 +100,37 @@ public class StatoList extends GeoList {
     @Override
     protected void addTop() {
         //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
-        searchCapitale = super.creaFiltroText(FIELD_CAPITALE);
+//        searchCapitale = super.creaFiltroText(FIELD_CAPITALE);
 
         //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
-        searchAlfa3 = super.creaFiltroText(FIELD_ALFA_3);
+//        searchAlfa3 = super.creaFiltroText(FIELD_ALFA_3);
 
         //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
-        searchAlfa2 = super.creaFiltroText(FIELD_ALFA_2);
+//        searchAlfa2 = super.creaFiltroText(FIELD_ALFA_2);
 
         //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
-        searchNumerico = super.creaFiltroText(FIELD_NUMERICO);
+//        searchNumerico = super.creaFiltroText(FIELD_NUMERICO);
 
         //--creazione 'ad hoc' di un comboBox (semistandard) per selezionare la property nome
-        comboContinente = super.creaFiltroCombo(FIELD_CONTINENTE, continenteModulo.findAll());
+//        comboContinente = super.creaFiltroCombo(FIELD_CONTINENTE, continenteModulo.findAll());
     }
 
     @Override
     protected void syncFiltri() {
         //--filtraggio del database in funzione del valore della property (inizio del testo)
-        super.filtroInizioText(searchCapitale, FIELD_CAPITALE);
+//        super.filtroInizioText(searchCapitale, FIELD_CAPITALE);
 
         //--filtraggio del database in funzione del valore della property (inizio del testo)
-        super.filtroInizioText(searchAlfa3, FIELD_ALFA_3);
+//        super.filtroInizioText(searchAlfa3, FIELD_ALFA_3);
 
         //--filtraggio del database in funzione del valore della property (inizio del testo)
-        super.filtroInizioText(searchAlfa2, FIELD_ALFA_2);
+//        super.filtroInizioText(searchAlfa2, FIELD_ALFA_2);
 
         //--filtraggio del database in funzione del valore della property (inizio del testo)
-        super.filtroInizioText(searchNumerico, FIELD_NUMERICO);
+//        super.filtroInizioText(searchNumerico, FIELD_NUMERICO);
 
         //--filtraggio del database in funzione del valore della property
-        super.filtroComboClazz(comboContinente, FIELD_CONTINENTE);
+//        super.filtroComboClazz(comboContinente, FIELD_CONTINENTE);
     }
 
 

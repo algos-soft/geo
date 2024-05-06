@@ -57,29 +57,29 @@ public class StatoService extends ModuloService {
         return newEntity(0, VUOTA, VUOTA, VUOTA, VUOTA, VUOTA, null, VUOTA);
     }
 
-    public StatoEntity newEntity(String nome, String capitale, String alfa3, String alfa2) {
-        return newEntity(0, nome, capitale, alfa3, alfa2, VUOTA, null, VUOTA);
+    public StatoEntity newEntity(String code, String capitale, String alfa3, String alfa2) {
+        return newEntity(0, code, capitale, alfa3, alfa2, VUOTA, null, VUOTA);
     }
 
-    public StatoEntity newEntity(int ordine, String nome, String alfa3) {
-        return newEntity(ordine, nome, VUOTA, alfa3, VUOTA, VUOTA, null, VUOTA);
+    public StatoEntity newEntity(int ordine, String code, String alfa3) {
+        return newEntity(ordine, code, VUOTA, alfa3, VUOTA, VUOTA, null, VUOTA);
     }
 
-    public StatoEntity newEntity(int ordine, String nome, String alfa3, String linkDivisioni) {
-        return newEntity(ordine, nome, VUOTA, alfa3, VUOTA, VUOTA, null, linkDivisioni);
+    public StatoEntity newEntity(int ordine, String code, String alfa3, String linkDivisioni) {
+        return newEntity(ordine, code, VUOTA, alfa3, VUOTA, VUOTA, null, linkDivisioni);
     }
 
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
      *
-     * @param nome     (obbligatorio)
+     * @param code     (obbligatorio)
      * @param capitale (facoltativo)
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
     public StatoEntity newEntity(
             int ordine,
-            String nome,
+            String code,
             String capitale,
             String alfa3,
             String alfa2,
@@ -89,7 +89,7 @@ public class StatoService extends ModuloService {
 
         StatoEntity newEntityBean = new StatoEntity();
         newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
-        newEntityBean.setNome(textService.isValid(nome) ? nome : null);
+        newEntityBean.setCode(textService.isValid(code) ? code : null);
 
         newEntityBean.setCapitale(textService.isValid(capitale) ? capitale : null);
         newEntityBean.setAlfa3(textService.isValid(alfa3) ? alfa3 : null);
@@ -98,7 +98,7 @@ public class StatoService extends ModuloService {
         newEntityBean.setContinente(continente);
         newEntityBean.setDivisioni(textService.isValid(divisioni) ? divisioni : null);
 
-        return (StatoEntity) fixKey(newEntityBean);
+        return newEntityBean;
     }
 
     public List<StatoEntity> findAll() {
@@ -123,26 +123,17 @@ public class StatoService extends ModuloService {
         reset();
     }
 
-    //    @Override
-    //    public RisultatoReset resetDelete() {
-    //        RisultatoReset typeReset = super.resetDelete();
-    //        return resetBase(typeReset);
-    //    }
-
-    //    @Override
-    //    public RisultatoReset resetAdd() {
-    //        RisultatoReset typeReset = super.resetAdd();
-    //        return resetBase(typeReset);
-    //    }
 
     public RisultatoReset reset() {
+        if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
+            return RisultatoReset.nonCostruito;
+        }
         this.leggeAlfa3();
         this.leggeCapitali();
         this.leggeAlfa2();
         this.leggeContinenti();
 
         mappaBeans.values().stream().forEach(bean -> insertSave(bean));
-
         return RisultatoReset.vuotoMaCostruito;
     }
 
@@ -336,7 +327,7 @@ public class StatoService extends ModuloService {
         String message;
         StatoEntity entityBean;
 
-//        continente = (ContinenteEntity) continenteModulo.findOneByKey(contEnum.getTag());//@todo rimettere
+        continente = continenteModulo.findByCode(contEnum.getTag());
         if (continente != null && textService.isValid(contEnum.getTemplate())) {
             nomeTemplate = prefix + contEnum.getTemplate();
             testoLeggibile = webService.leggeWikiParse(nomeTemplate);

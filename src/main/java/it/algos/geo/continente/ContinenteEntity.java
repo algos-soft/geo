@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.index.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@AEntity(collectionName = "continente", usaResetStartup = true, sortPropertyName = "ordine")
+@AEntity(collectionName = "continente", sortPropertyName = "ordine", usaResetStartup = true)
 public class ContinenteEntity extends AbstractEntity {
 
     @Indexed(unique = true)
