@@ -3,6 +3,7 @@ package it.algos.geo.continente;
 import it.algos.geo.enumeration.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.logic.*;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
 /**
@@ -13,8 +14,10 @@ import org.springframework.stereotype.*;
  * Time: 06:59
  */
 @Service
-public class ContinenteService extends CrudService {
+public class ContinenteService extends ModuloService {
 
+    @Value("${algos.project.crea.directory.geo}")
+    private String creaDirectoryGeoTxt;
 
     /**
      * Regola la entityClazz associata a questo Modulo e la passa alla superclasse <br>
@@ -55,8 +58,8 @@ public class ContinenteService extends CrudService {
 
     @Override
     //casting only dalla superclasse
-    public ContinenteEntity findByKey(final Object keyPropertyValue) {
-        return (ContinenteEntity) super.findByKey(keyPropertyValue);
+    public ContinenteEntity findByCode(final String keyPropertyValue) {
+        return (ContinenteEntity) super.findByCode(keyPropertyValue);
     }
 
 
@@ -71,6 +74,10 @@ public class ContinenteService extends CrudService {
      */
     @Override
     public RisultatoReset reset() {
+        if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
+            return RisultatoReset.nonCostruito;
+        }
+
         for (ContinenteEnum contEnum : ContinenteEnum.values()) {
             creaIfNotExists(contEnum.ordinal() + 1, contEnum.getTag());
         }

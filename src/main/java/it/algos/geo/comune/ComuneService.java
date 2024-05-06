@@ -18,7 +18,7 @@ import java.util.*;
  * Time: 09:13
  */
 @Service
-public class ComuneService extends CrudService {
+public class ComuneService extends ModuloService {
 
     @Inject
     ProvinciaService provinciaModulo;
@@ -83,8 +83,8 @@ public class ComuneService extends CrudService {
     }
 
     @Override
-    public ComuneEntity findByKey(final Object keyPropertyValue) {
-        return (ComuneEntity) super.findByKey(keyPropertyValue);
+    public ComuneEntity findByCode(final String keyPropertyValue) {
+        return (ComuneEntity) super.findByCode(keyPropertyValue);
     }
 
     @Override

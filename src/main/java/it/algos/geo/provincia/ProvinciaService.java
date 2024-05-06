@@ -19,7 +19,7 @@ import java.util.*;
  * Time: 09:48
  */
 @Service
-public class ProvinciaService extends CrudService {
+public class ProvinciaService extends ModuloService {
 
     @Inject
     RegioneService regioneModulo;
@@ -85,8 +85,8 @@ public class ProvinciaService extends CrudService {
     }
 
     @Override
-    public ProvinciaEntity findByKey(final Object keyPropertyValue) {
-        return (ProvinciaEntity) super.findByKey(keyPropertyValue);
+    public ProvinciaEntity findByCode(final String keyPropertyValue) {
+        return (ProvinciaEntity) super.findByCode(keyPropertyValue);
     }
 
     public ProvinciaEntity findByNomeBreve(String nomeBreve) {

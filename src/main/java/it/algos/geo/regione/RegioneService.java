@@ -23,7 +23,7 @@ import java.util.*;
  * Time: 16:47
  */
 @Service
-public class RegioneService extends CrudService {
+public class RegioneService extends ModuloService {
 
 
     @Autowired
@@ -81,7 +81,7 @@ public class RegioneService extends CrudService {
     }
 
     public List<RegioneEntity> findAllItalia() {
-        StatoEntity italia = statoModulo.findByKey("Italia");
+        StatoEntity italia = statoModulo.findByCode("Italia");
         if (italia == null) {
             return new ArrayList<>();
         }
@@ -97,8 +97,8 @@ public class RegioneService extends CrudService {
     }
 
     @Override
-    public RegioneEntity findByKey(final Object keyPropertyValue) {
-        return (RegioneEntity) super.findByKey(keyPropertyValue);
+    public RegioneEntity findByCode(final String keyPropertyValue) {
+        return (RegioneEntity) super.findByCode(keyPropertyValue);
     }
 
     public RegioneEntity findByNome(String nome) {

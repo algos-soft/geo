@@ -32,7 +32,7 @@ public class ContinenteList extends GeoList {
         super.fixPreferenze();
 
         super.usaBottoneNew = true;
-        super.usaBottoneSearchField = false;
+//        super.usaBottoneSearchField = false;
     }
 
     @Override

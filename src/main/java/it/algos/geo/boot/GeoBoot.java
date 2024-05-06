@@ -8,7 +8,7 @@ import static it.algos.vbase.backend.boot.BaseVar.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.interfaces.*;
 import it.algos.vbase.backend.logic.*;
-import it.algos.vbase.backend.modules.crono.mese.*;
+import it.algos.vbase.backend.pref.*;
 import it.algos.vbase.backend.wrapper.*;
 import it.algos.vbase.ui.view.*;
 import org.springframework.stereotype.*;
@@ -75,7 +75,7 @@ public class GeoBoot extends BaseBoot {
 
     protected boolean checkResetStartup() {
         if (super.checkResetStartup()) {
-            for (CrudService modulo : crudServiceListProject) {
+            for (ModuloService modulo : moduloServiceListProject) {
                 modulo.checkResetStartup();
             }
         }

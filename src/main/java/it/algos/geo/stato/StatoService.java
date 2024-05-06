@@ -21,7 +21,7 @@ import java.util.*;
  * Time: 11:42
  */
 @Service
-public class StatoService extends CrudService {
+public class StatoService extends ModuloService {
 
     @Autowired
     public ContinenteService continenteModulo;
@@ -112,8 +112,8 @@ public class StatoService extends CrudService {
     }
 
     @Override
-    public StatoEntity findByKey(final Object keyPropertyValue) {
-        return (StatoEntity) super.findByKey(keyPropertyValue);
+    public StatoEntity findByCode(final String keyPropertyValue) {
+        return (StatoEntity) super.findByCode(keyPropertyValue);
     }
 
     @Override
