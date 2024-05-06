@@ -13,7 +13,7 @@ import org.springframework.stereotype.*;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-@AEntity(collectionName = "provincia", keyPropertyName = "sigla", typeList = TypeList.hardCsv, usaIdPrimaMinuscola = false)
+@AEntity(collectionName = "provincia")
 public class ProvinciaEntity extends AbstractEntity {
 
     @AField(type = TypeField.text, widthList = 6)

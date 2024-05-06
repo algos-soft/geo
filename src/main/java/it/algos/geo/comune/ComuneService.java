@@ -120,7 +120,7 @@ public class ComuneService extends ModuloService {
             regioneTxt = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
             regioneBean = regioneModulo.findByNome(regioneTxt);
 
-            creaIfNotExists(nome, provinciaBean, regioneBean);
+//            creaIfNotExists(nome, provinciaBean, regioneBean);
         }
     }
 

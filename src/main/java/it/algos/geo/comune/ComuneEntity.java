@@ -14,7 +14,7 @@ import org.springframework.stereotype.*;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-@AEntity(collectionName = "comune", keyPropertyName = "nome", typeList = TypeList.hardWiki)
+@AEntity(collectionName = "comune")
 public class ComuneEntity extends AbstractEntity {
 
     @AField(type = TypeField.text, widthList = 14)

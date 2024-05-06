@@ -205,7 +205,7 @@ public class RegioneService extends ModuloService {
         StatoEntity stato = this.getStato(nomeStato);
 
         if (stato == null) {
-            stato = statoModulo.creaIfNotExists("Italia", "Roma", "ITA", "IT");
+//            stato = statoModulo.creaIfNotExists("Italia", "Roma", "ITA", "IT"); //@todo rimettere
         }
 
         //--regioni
@@ -495,7 +495,7 @@ public class RegioneService extends ModuloService {
             return stato;
         }
         nomeStato = textService.primaMaiuscola(nomeStato);
-        stato = (StatoEntity) statoModulo.findOneByKey(nomeStato);
+//        stato = (StatoEntity) statoModulo.findOneByKey(nomeStato); //@todo rimettere
 
         if (stato == null) {
             message = String.format("Non ho trovato lo stato [%s]", nomeStato);

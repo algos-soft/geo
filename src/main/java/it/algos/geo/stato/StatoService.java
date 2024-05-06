@@ -3,7 +3,6 @@ package it.algos.geo.stato;
 import it.algos.geo.continente.*;
 import it.algos.geo.enumeration.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
-import it.algos.vbase.backend.boot.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.logic.*;
 import it.algos.vbase.backend.wrapper.*;
@@ -36,14 +35,14 @@ public class StatoService extends ModuloService {
     }
 
 
-    public StatoEntity creaIfNotExists(String nome, String capitale, String alfa3, String alfa2) {
-        if (existByKey(nome)) {
-            return null;
-        }
-        else {
-            return (StatoEntity) insert(newEntity(nome, capitale, alfa3, alfa2));
-        }
-    }
+//    public StatoEntity creaIfNotExists(String nome, String capitale, String alfa3, String alfa2) {
+//        if (existByKey(nome)) {
+//            return null;
+//        }
+//        else {
+//            return (StatoEntity) insert(newEntity(nome, capitale, alfa3, alfa2));
+//        }
+//    }
 
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
@@ -321,7 +320,7 @@ public class StatoService extends ModuloService {
      * Caricamento del singolo template stati/continente <br>
      */
     public void leggeContinente(ContinenteEnum contEnum) {
-        ContinenteEntity continente;
+        ContinenteEntity continente=null;
         String nomeTemplate;
         String testoLeggibile = VUOTA;
         String testoUtile;
@@ -334,7 +333,7 @@ public class StatoService extends ModuloService {
         String message;
         StatoEntity entityBean;
 
-        continente = (ContinenteEntity) continenteModulo.findOneByKey(contEnum.getTag());
+//        continente = (ContinenteEntity) continenteModulo.findOneByKey(contEnum.getTag());//@todo rimettere
         if (continente != null && textService.isValid(contEnum.getTemplate())) {
             nomeTemplate = prefix + contEnum.getTemplate();
             testoLeggibile = webService.leggeWikiParse(nomeTemplate);

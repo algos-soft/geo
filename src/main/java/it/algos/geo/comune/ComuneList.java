@@ -55,10 +55,11 @@ public class ComuneList extends CrudList {
         anchor = new Anchor(link, caption);
         anchor.getElement().getStyle().set(FontWeight.HTML, FontWeight.bold.getTag());
 
-        Span testo = new Span(typeList.getInfoScopo());
-        testo.getStyle().set(FontWeight.HTML, FontWeight.bold.getTag());
-        testo.getStyle().set(TAG_HTML_COLOR, TypeColor.verde.getTag());
-        headerPlaceHolder.add(new Span(testo, anchor));
+//        Span testo = new Span(typeList.getInfoScopo());
+//        testo.getStyle().set(FontWeight.HTML, FontWeight.bold.getTag());
+//        testo.getStyle().set(TAG_HTML_COLOR, TypeColor.verde.getTag());
+//        headerPlaceHolder.add(new Span(testo, anchor));
+        headerPlaceHolder.add(new Span( anchor));
 
         super.fixHeaderPost();
     }

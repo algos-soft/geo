@@ -34,14 +34,14 @@ public class ProvinciaService extends ModuloService {
     }
 
 
-    public ProvinciaEntity creaIfNotExists(String sigla, String nomeBreve, String nomeCompleto, RegioneEntity regione) {
-        if (existByKey(sigla)) {
-            return null;
-        }
-        else {
-            return (ProvinciaEntity) insert(newEntity(sigla, nomeBreve, nomeCompleto, regione));
-        }
-    }
+//    public ProvinciaEntity creaIfNotExists(String sigla, String nomeBreve, String nomeCompleto, RegioneEntity regione) {
+//        if (existByKey(sigla)) {
+//            return null;
+//        }
+//        else {
+//            return (ProvinciaEntity) insert(newEntity(sigla, nomeBreve, nomeCompleto, regione));
+//        }
+//    }
 
 
     /**
@@ -132,7 +132,7 @@ public class ProvinciaService extends ModuloService {
                 nomeCompleto = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
                 regioneTxt = rigaUnValore.size() > 3 ? rigaUnValore.get(3) : VUOTA;
                 regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findByNome(regioneTxt) : null;
-                creaIfNotExists(sigla, nomeBreve, nomeCompleto, regioneBean);
+//                creaIfNotExists(sigla, nomeBreve, nomeCompleto, regioneBean); //@todo rimettere
             }
         }
         else {
