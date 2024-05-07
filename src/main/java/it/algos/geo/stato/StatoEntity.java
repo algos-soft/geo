@@ -17,12 +17,12 @@ public class StatoEntity extends AbstractEntity {
     private int ordine;
 
     @Indexed(unique = true)
-    //    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(type = TypeSearch.textStartsWith)
     @AField(type = TypeField.wikiAnchor, headerText = "Nome", caption = "Nome")
     private String code;
 
     @Indexed()
-    //    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(type = TypeSearch.textStartsWith)
     @AField(type = TypeField.wikiAnchor)
     private String capitale;
 
