@@ -27,17 +27,17 @@ public class StatoEntity extends AbstractEntity {
     private String capitale;
 
     @Indexed(unique = true)
-    //    @ASearch(type = TypeSearch.textStartsWith)
+        @ASearch(type = TypeSearch.textStartsWith)
     @AField(type = TypeField.text, widthList = 6)
     private String alfa3;
 
     @Indexed(unique = true)
-    //    @ASearch(type = TypeSearch.textStartsWith)
+        @ASearch(type = TypeSearch.textStartsWith)
     @AField(type = TypeField.text, widthList = 6)
     private String alfa2;
 
     @Indexed(unique = true)
-    //    @ASearch(type = TypeSearch.textStartsWith)
+        @ASearch(type = TypeSearch.textStartsWith)
     @AField(type = TypeField.text, headerText = "cod.", widthList = 6)
     private String numerico;
 
