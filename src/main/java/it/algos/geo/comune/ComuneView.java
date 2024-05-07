@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.*;
  *
  * @Route chiamata dal menu generale oppure dalla barra del browser <br>
  */
-@PageTitle("Comuni italiani")
+@PageTitle("Comuni")
 @Route(value = "comune", layout = MainLayout.class)
 @AView(menuGroup = MenuGroup.geografia)
 public class ComuneView extends CrudView {

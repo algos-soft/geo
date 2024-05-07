@@ -18,6 +18,7 @@ import org.springframework.stereotype.*;
 public class RegioneEntity extends OrdineEntity {
 
 
+    @Indexed(unique = true)
     @AField(type = TypeField.text)
     private String sigla;
 

@@ -72,6 +72,15 @@ public class RegioneService extends ModuloService {
         return super.findAll();
     }
 
+    @Override
+    public RegioneEntity findByCode(final String keyPropertyValue) {
+        return (RegioneEntity) super.findByCode(keyPropertyValue);
+    }
+
+    public RegioneEntity findOneByProperty(String keyPropertyName, Object keyPropertyValue) {
+        return (RegioneEntity) super.findOneByProperty(keyPropertyName, keyPropertyValue);
+    }
+
     public List<RegioneEntity> findAllItalia() {
         StatoEntity italia = statoModulo.findByCode("Italia");
         if (italia == null) {
@@ -88,18 +97,6 @@ public class RegioneService extends ModuloService {
         return lista.stream().map(bean -> (RegioneEntity) bean).toList();
     }
 
-    @Override
-    public RegioneEntity findByCode(final String keyPropertyValue) {
-        return (RegioneEntity) super.findByCode(keyPropertyValue);
-    }
-
-    public RegioneEntity findByNome(String nome) {
-        return this.findOneByProperty(FIELD_NAME_NOME, nome);
-    }
-
-    public RegioneEntity findOneByProperty(String keyPropertyName, Object keyPropertyValue) {
-        return (RegioneEntity) super.findOneByProperty(keyPropertyName, keyPropertyValue);
-    }
 
     @Override
     public void download() {

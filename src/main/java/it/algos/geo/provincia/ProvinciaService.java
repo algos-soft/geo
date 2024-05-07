@@ -4,8 +4,8 @@ import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.logic.*;
-import it.algos.vbase.backend.modules.anagrafica.via.*;
 import it.algos.vbase.backend.wrapper.*;
+import org.apache.commons.lang3.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -28,6 +28,8 @@ public class ProvinciaService extends ModuloService {
     @Inject
     RegioneService regioneModulo;
 
+    private ProvinciaEntity entityBean;
+
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con due parametri <br>
      * Regola la entityClazz associata a questo Modulo <br>
@@ -37,50 +39,27 @@ public class ProvinciaService extends ModuloService {
         super(ProvinciaEntity.class, ProvinciaView.class);
     }
 
-
-//    public ProvinciaEntity creaIfNotExists(String sigla, String nomeBreve, String nomeCompleto, RegioneEntity regione) {
-//        if (existByKey(sigla)) {
-//            return null;
-//        }
-//        else {
-//            return (ProvinciaEntity) insert(newEntity(sigla, nomeBreve, nomeCompleto, regione));
-//        }
-//    }
-
-
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
      *
-     * @return la nuova entity appena creata (con keyID ma non salvata)
-     */
-    @Override
-    public ProvinciaEntity newEntity() {
-        return newEntity(VUOTA, VUOTA, VUOTA, null);
-    }
-
-    public ProvinciaEntity newEntity(final String sigla, final String nomeBreve) {
-        return newEntity(sigla, nomeBreve, VUOTA, null);
-    }
-
-    /**
-     * Creazione in memoria di una nuova entity che NON viene salvata <br>
-     *
-     * @param sigla        (obbligatorio)
-     * @param nomeBreve    (obbligatorio)
+     * @param code         (obbligatorio)
+     * @param nome         (obbligatorio)
      * @param nomeCompleto (facoltativa)
      * @param regione      (facoltativa)
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public ProvinciaEntity newEntity(final String sigla, final String nomeBreve, String nomeCompleto, RegioneEntity regione) {
+    public ProvinciaEntity newEntity(int ordine, String code, String nome, String nomeCompleto, String cap, RegioneEntity regione) {
         ProvinciaEntity newEntityBean = ProvinciaEntity.builder()
-                .sigla(textService.isValid(sigla) ? sigla : null)
-                .nomeBreve(textService.isValid(nomeBreve) ? nomeBreve : null)
+                .code(textService.isValid(code) ? code : null)
+                .nome(textService.isValid(nome) ? nome : null)
                 .nomeCompleto(textService.isValid(nomeCompleto) ? nomeCompleto : null)
+                .cap(cap)
                 .regione(regione)
                 .build();
 
-        return (ProvinciaEntity) fixKey(newEntityBean);
+        newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
+        return newEntityBean;
     }
 
     @Override
@@ -89,12 +68,12 @@ public class ProvinciaService extends ModuloService {
     }
 
     @Override
-    public ProvinciaEntity findByCode(final String keyPropertyValue) {
-        return (ProvinciaEntity) super.findByCode(keyPropertyValue);
+    public ProvinciaEntity findByCode(final String keyCodeValue) {
+        return (ProvinciaEntity) super.findByCode(keyCodeValue);
     }
 
-    public ProvinciaEntity findByNomeBreve(String nomeBreve) {
-        return this.findOneByProperty("nomeBreve", nomeBreve);
+    public ProvinciaEntity findByNome(String nome) {
+        return this.findOneByProperty("nome", nome);
     }
 
     public ProvinciaEntity findOneByProperty(String keyPropertyName, Object keyPropertyValue) {
@@ -107,63 +86,88 @@ public class ProvinciaService extends ModuloService {
         reset();
     }
 
-//    @Override
-//    public RisultatoReset resetDelete() {
-//        RisultatoReset typeReset = super.resetDelete();
-//        return resetBase(typeReset);
-//    }
-
 
     public RisultatoReset reset() {
-        String nomeFileCSV = "province";
-        String message;
-        String sigla;
-        String nomeBreve;
-        String nomeCompleto;
-        String regioneTxt;
-        RegioneEntity regioneBean = null;
-        ViaEntity newBean;
-
+        if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
+            return RisultatoReset.nonCostruito;
+        }
         if (regioneModulo.count() < 1) {
             regioneModulo.addItaliaOnly();
         }
 
+        this.leggeProvince();
+        this.leggeCap();
+
+        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
+        return RisultatoReset.vuotoMaCostruito;
+    }
+
+
+    private void leggeProvince() {
+        String nomeFileCSV = "province";
+        String message;
+        String code;
+        String nome;
+        String nomeCompleto;
+        String regioneTxt;
+        RegioneEntity regioneBean;
+        int cont = 0;
+
         Map<String, List<String>> mappaSource = resourceService.leggeMappa(nomeFileCSV);
         if (mappaSource != null && mappaSource.size() > 0) {
             for (List<String> rigaUnValore : mappaSource.values()) {
-                sigla = rigaUnValore.get(0);
-                nomeBreve = rigaUnValore.get(1);
+                code = rigaUnValore.get(0);
+                nome = rigaUnValore.get(1);
                 nomeCompleto = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
                 regioneTxt = rigaUnValore.size() > 3 ? rigaUnValore.get(3) : VUOTA;
-                regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findByNome(regioneTxt) : null;
-//                creaIfNotExists(sigla, nomeBreve, nomeCompleto, regioneBean); //@todo rimettere
+                regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findByCode(regioneTxt) : null;
+                entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
+                mappaBeans.put(code, entityBean);
             }
         }
         else {
             message = String.format("Manca il file [%s] nella directory /config o sul server", nomeFileCSV);
             logger.warn(new WrapLog().message(message).type(TypeLog.startup));
-            return RisultatoReset.nonCostruito;
         }
-
-        return RisultatoReset.vuotoMaCostruito;
     }
 
 
-    //    @Deprecated
-    //   private RisultatoReset resetBase() {
-    //        String nomePaginaWiki = "Province d'Italia";
-    //        List<List<String>> mappa = webService.getWikiTable(nomePaginaWiki);
-    //        String sigla;
-    //        String nomeBreve;
-    //        String nomeCompleto;
-    //
-    //        for (List<String> riga : mappa) {
-    //            sigla = riga.get(2);
-    //            nomeBreve = webService.getNomeDaLink(sigla);
-    //            insert(newEntity(sigla, nomeBreve));
-    //        }
-    //
-    //        return null;
-    //    }
+    private void leggeCap() {
+        String nomePaginaWiki = "Codice di avviamento postale";
+        String testoTable;
+        String tagTable = "\\|-";
+        String[] righeTable;
+        String[] partiRiga;
+        String tag1 = "align=center";
+        String tag2 = "align=left";
+        String sigla;
+        String cap;
+        String sep = CAPO_SPLIT + PIPE;
+
+        testoTable = webService.leggeWikiTable(nomePaginaWiki, 2);
+        testoTable = webService.estraeTable(testoTable);
+        righeTable = testoTable.split(tagTable);
+
+        if (righeTable != null) {
+            for (String riga : righeTable) {
+                partiRiga = StringUtils.splitByWholeSeparator(riga, sep);
+                sigla = partiRiga[1].trim();
+                sigla = textService.levaTesta(sigla, tag1).trim();
+                sigla = textService.levaTesta(sigla, PIPE).trim();
+
+                cap = partiRiga[4].trim();
+                cap = textService.levaTesta(cap, tag2).trim();
+                cap = textService.levaTesta(cap, PIPE).trim();
+                cap = textService.levaCodaDaPrimo(cap, PARENTESI_TONDA_INI).trim();
+                if (textService.isValid(sigla) && textService.isValid(cap)) {
+                    if (mappaBeans.containsKey(sigla)) {
+                        entityBean = (ProvinciaEntity) mappaBeans.get(sigla);
+                        entityBean.setCap(cap);
+                        mappaBeans.put(sigla, entityBean);
+                    }
+                }
+            }
+        }
+    }
 
 }// end of CrudService class

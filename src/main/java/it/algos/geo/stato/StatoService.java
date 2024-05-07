@@ -86,18 +86,18 @@ public class StatoService extends ModuloService {
             ContinenteEntity continente,
             String divisioni) {
 
-        StatoEntity newEntityBean = new StatoEntity();
+        StatoEntity newEntityBean = StatoEntity.builder()
+                .code(textService.isValid(code) ? code : null)
+                .capitale(textService.isValid(capitale) ? capitale : null)
+                .alfa3(textService.isValid(alfa3) ? alfa3 : null)
+                .alfa2(textService.isValid(alfa2) ? alfa2 : null)
+                .numerico(textService.isValid(numerico) ? numerico : null)
+                .continente(continente)
+                .divisioni(textService.isValid(divisioni) ? divisioni : null)
+                .unioneEuropea(false)
+                .build();
+
         newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
-        newEntityBean.setCode(textService.isValid(code) ? code : null);
-
-        newEntityBean.setCapitale(textService.isValid(capitale) ? capitale : null);
-        newEntityBean.setAlfa3(textService.isValid(alfa3) ? alfa3 : null);
-        newEntityBean.setAlfa2(textService.isValid(alfa2) ? alfa2 : null);
-        newEntityBean.setNumerico(textService.isValid(numerico) ? numerico : null);
-        newEntityBean.setContinente(continente);
-        newEntityBean.setDivisioni(textService.isValid(divisioni) ? divisioni : null);
-        newEntityBean.setUnioneEuropea(false);
-
         return newEntityBean;
     }
 

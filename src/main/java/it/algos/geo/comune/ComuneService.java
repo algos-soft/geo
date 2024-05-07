@@ -5,6 +5,7 @@ import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.logic.*;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
 import javax.inject.*;
@@ -20,11 +21,16 @@ import java.util.*;
 @Service
 public class ComuneService extends ModuloService {
 
+    @Value("${algos.project.crea.directory.geo:false}")
+    private String creaDirectoryGeoTxt;
+
     @Inject
     ProvinciaService provinciaModulo;
 
     @Inject
     RegioneService regioneModulo;
+
+    private ComuneEntity entityBean;
 
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con due parametri <br>
@@ -36,20 +42,17 @@ public class ComuneService extends ModuloService {
     }
 
 
-
-
-
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
      *
-     * @param nome      (obbligatorio)
+     * @param code      (obbligatorio)
      * @param provincia (facoltativo)
      * @param cap       (facoltativo)
      * @param regione   (facoltativo)
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public ComuneEntity newEntity(String code, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
+    public ComuneEntity newEntity(int ordine, String code, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
         ComuneEntity newEntityBean = ComuneEntity.builder()
                 .code(textService.isValid(code) ? code : null)
                 .provincia(provincia)
@@ -57,6 +60,7 @@ public class ComuneService extends ModuloService {
                 .regione(regione)
                 .build();
 
+        newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
         return newEntityBean;
     }
 
@@ -77,50 +81,57 @@ public class ComuneService extends ModuloService {
         reset();
     }
 
-    //    @Override
-    //    public RisultatoReset resetDelete() {
-    //        RisultatoReset typeReset = super.resetDelete();
-    //        return resetBase();
-    //    }
 
     public RisultatoReset reset() {
-        String tag = "Comuni d'Italia";
-        List<String> lettere = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H-J", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z");
-        String wikiTitle;
-
+        if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
+            return RisultatoReset.nonCostruito;
+        }
         if (provinciaModulo.count() < 1) {
             provinciaModulo.resetDelete();
         }
 
+        String tag = "Comuni d'Italia";
+        List<String> lettere = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H-J", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "Z");
+        String wikiTitle;
+        int cont = 0;
+
         for (String key : lettere) {
             wikiTitle = String.format("%s%s%s%s%s", tag, SPAZIO, PARENTESI_TONDA_INI, key, PARENTESI_TONDA_END);
-            addComuniPerLettera(wikiTitle);
+            cont = addComuniPerLettera(cont, wikiTitle);
         }
 
+        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
         return RisultatoReset.vuotoMaCostruito;
     }
 
 
-    private void addComuniPerLettera(String wikiTitle) {
+    private int addComuniPerLettera(int cont, String wikiTitle) {
         List<List<String>> mappa = webService.getWikiTable(wikiTitle);
-        String nome;
+        String code;
         String provinciaTxt;
-        ProvinciaEntity provinciaBean;
+        ProvinciaEntity provinciaBean = null;
         String regioneTxt;
-        RegioneEntity regioneBean;
+        RegioneEntity regioneBean = null;
         String cap;
 
         for (List<String> rigaUnValore : mappa) {
-            nome = rigaUnValore.get(0);
+            code = rigaUnValore.get(0);
 
             provinciaTxt = rigaUnValore.size() > 1 ? rigaUnValore.get(1) : VUOTA;
-            provinciaBean = provinciaModulo.findByNomeBreve(provinciaTxt);
+            if (textService.isValid(provinciaTxt)) {
+                provinciaBean = provinciaModulo.findByNome(provinciaTxt);
+            }
 
             regioneTxt = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
-            regioneBean = regioneModulo.findByNome(regioneTxt);
+            if (textService.isValid(regioneTxt)) {
+                regioneBean = regioneModulo.findByCode(regioneTxt);
+            }
 
-//            creaIfNotExists(nome, provinciaBean, regioneBean);
+            entityBean = newEntity(++cont, code, provinciaBean, VUOTA, regioneBean);
+            mappaBeans.put(code, entityBean);
         }
+
+        return cont;
     }
 
     /**
