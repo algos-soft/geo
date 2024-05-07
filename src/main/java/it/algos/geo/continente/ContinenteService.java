@@ -43,10 +43,10 @@ public class ContinenteService extends ModuloService {
      */
     public ContinenteEntity newEntity(final int ordine, final String code) {
         ContinenteEntity newEntityBean = ContinenteEntity.builder()
-                .ordine(ordine == 0 ? nextOrdine() : ordine)
                 .code(textService.isValid(code) ? code : null)
                 .build();
 
+        newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
         return newEntityBean;
     }
 

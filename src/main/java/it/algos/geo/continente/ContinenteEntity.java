@@ -11,11 +11,8 @@ import org.springframework.data.mongodb.core.index.*;
 @AllArgsConstructor
 @Builder
 @AEntity(collectionName = "continente", sortPropertyName = "ordine", usaResetStartup = true)
-public class ContinenteEntity extends AbstractEntity {
+public class ContinenteEntity extends OrdineEntity {
 
-    @Indexed(unique = true)
-    @AField(type = TypeField.ordine, headerText = "#")
-    private int ordine;
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)

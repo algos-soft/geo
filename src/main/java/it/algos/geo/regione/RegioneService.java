@@ -54,27 +54,17 @@ public class RegioneService extends ModuloService {
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    @Override
-    public RegioneEntity newEntity() {
-        return newEntity(0, VUOTA, VUOTA, null, VUOTA, null);
-    }
-
-    /**
-     * Creazione in memoria di una nuova entity che NON viene salvata <br>
-     *
-     * @return la nuova entity appena creata (con keyID ma non salvata)
-     */
-    public RegioneEntity newEntity(int ordine, String nome, String sigla, StatoEntity stato, String pagina, TypeRegione type) {
+    public RegioneEntity newEntity(int ordine, String code, String sigla, StatoEntity stato, String pagina, TypeRegione type) {
         RegioneEntity newEntityBean = RegioneEntity.builder()
-                .ordine(ordine == 0 ? nextOrdine() : ordine)
-                .nome(textService.isValid(nome) ? nome : null)
+                .code(textService.isValid(code) ? code : null)
                 .sigla(textService.isValid(sigla) ? sigla : null)
                 .stato(stato)
                 .pagina(textService.isValid(pagina) ? pagina : null)
                 .type(type)
                 .build();
 
-        return (RegioneEntity) fixKey(newEntityBean);
+        newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
+        return newEntityBean;
     }
 
     @Override
@@ -91,10 +81,10 @@ public class RegioneService extends ModuloService {
         Query query = new Query();
         Sort sort = Sort.by(Sort.Direction.ASC, "ordine");
         query.addCriteria(Criteria.where("stato").is(italia));
-        query.addCriteria(Criteria.where("type").in(TypeRegione.regione,TypeRegione.regioneSpeciale));
+        query.addCriteria(Criteria.where("type").in(TypeRegione.regione, TypeRegione.regioneSpeciale));
         query.with(sort);
 
-        List<AbstractEntity> lista= mongoService.mongoTemplate.find(query, moduloCrudEntityClazz, "regione");
+        List<AbstractEntity> lista = mongoService.mongoTemplate.find(query, moduloCrudEntityClazz, "regione");
         return lista.stream().map(bean -> (RegioneEntity) bean).toList();
     }
 
@@ -116,25 +106,15 @@ public class RegioneService extends ModuloService {
         reset();
     }
 
-//    @Override
-//    public RisultatoReset resetDelete() {
-//        RisultatoReset typeReset = super.resetDelete();
-//        return resetBase(typeReset);
-//    }
-
-//    @Override
-//    public RisultatoReset resetAdd() {
-//        RisultatoReset typeReset = super.resetAdd();
-//        return resetBase(typeReset);
-//    }
-
 
     public RisultatoReset reset() {
-//        if (BaseVar.creaDirectoryGeografia == false) {
-//            return null;
-//        }
+        if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
+            return RisultatoReset.nonCostruito;
+        }
+
         if (!BaseVar.creaDirectoryGeografia) {
             addItaliaOnly();
+            mappaBeans.values().stream().forEach(bean -> insertSave(bean));
             return RisultatoReset.vuotoMaCostruito;
         }
 
@@ -207,13 +187,17 @@ public class RegioneService extends ModuloService {
         StatoEntity stato = this.getStato(nomeStato);
 
         if (stato == null) {
-//            stato = statoModulo.creaIfNotExists("Italia", "Roma", "ITA", "IT"); //@todo rimettere
+            stato = (StatoEntity) statoModulo.creaIfNotExists(statoModulo.newEntity("Italia", "Roma", "ITA", "IT"));
         }
 
         //--regioni
         listaBean = this.getLista(stato, 1);
         add(stato, listaBean, 0, TypeRegione.regione);
-        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
+        for (RegioneSpeciali regio : RegioneSpeciali.values()) {
+            entityBean = (RegioneEntity) mappaBeans.get(regio.getSigla());
+            entityBean.setType(TypeRegione.regioneSpeciale);
+            mappaBeans.put(regio.getSigla(), entityBean);
+        }
     }
 
 
@@ -234,16 +218,16 @@ public class RegioneService extends ModuloService {
             entityBean.setType(TypeRegione.regioneSpeciale);
             mappaBeans.put(regio.getSigla(), entityBean);
         }
-        entityBean = (RegioneEntity) mappaBeans.get("IT-36");
-        entityBean.setType(TypeRegione.regioneSpeciale);
+        //        entityBean = (RegioneEntity) mappaBeans.get("IT-36");
+        //        entityBean.setType(TypeRegione.regioneSpeciale);
 
-        //--città metropolitane
-        listaBean = this.getLista(stato, 2);
-        pos = add(stato, listaBean, pos, TypeRegione.cittaMetropolitana);
+        //        //--città metropolitane
+        //        listaBean = this.getLista(stato, 2);
+        //        pos = add(stato, listaBean, pos, TypeRegione.cittaMetropolitana);
 
-        //--province
-        listaBean = this.getLista(stato, 3);
-        pos = add(stato, listaBean, pos, TypeRegione.provincia);
+        //        //--province
+        //        listaBean = this.getLista(stato, 3);
+        //        pos = add(stato, listaBean, pos, TypeRegione.provincia);
 
         return pos;
     }
@@ -497,7 +481,7 @@ public class RegioneService extends ModuloService {
             return stato;
         }
         nomeStato = textService.primaMaiuscola(nomeStato);
-//        stato = (StatoEntity) statoModulo.findOneByKey(nomeStato); //@todo rimettere
+        stato = statoModulo.findByCode(nomeStato);
 
         if (stato == null) {
             message = String.format("Non ho trovato lo stato [%s]", nomeStato);

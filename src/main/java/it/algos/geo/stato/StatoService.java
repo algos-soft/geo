@@ -37,15 +37,14 @@ public class StatoService extends ModuloService {
         super(StatoEntity.class, StatoView.class);
     }
 
-
-//    public StatoEntity creaIfNotExists(String nome, String capitale, String alfa3, String alfa2) {
-//        if (existByKey(nome)) {
-//            return null;
-//        }
-//        else {
-//            return (StatoEntity) insert(newEntity(nome, capitale, alfa3, alfa2));
-//        }
-//    }
+    //    public StatoEntity creaIfNotExists(String nome, String capitale, String alfa3, String alfa2) {
+    //        if (existByKey(nome)) {
+    //            return null;
+    //        }
+    //        else {
+    //            return (StatoEntity) insert(newEntity(nome, capitale, alfa3, alfa2));
+    //        }
+    //    }
 
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
@@ -97,6 +96,7 @@ public class StatoService extends ModuloService {
         newEntityBean.setNumerico(textService.isValid(numerico) ? numerico : null);
         newEntityBean.setContinente(continente);
         newEntityBean.setDivisioni(textService.isValid(divisioni) ? divisioni : null);
+        newEntityBean.setUnioneEuropea(false);
 
         return newEntityBean;
     }
@@ -132,6 +132,7 @@ public class StatoService extends ModuloService {
         this.leggeCapitali();
         this.leggeAlfa2();
         this.leggeContinenti();
+        this.leggeUnioneEuropea();
 
         mappaBeans.values().stream().forEach(bean -> insertSave(bean));
         return RisultatoReset.vuotoMaCostruito;
@@ -314,7 +315,7 @@ public class StatoService extends ModuloService {
      * Caricamento del singolo template stati/continente <br>
      */
     public void leggeContinente(ContinenteEnum contEnum) {
-        ContinenteEntity continente=null;
+        ContinenteEntity continente = null;
         String nomeTemplate;
         String testoLeggibile = VUOTA;
         String testoUtile;
@@ -362,5 +363,34 @@ public class StatoService extends ModuloService {
         }
     }
 
+    /**
+     * Controllo flag appartenenza Unione Europea <br>
+     * DEVE esserci già il codice iso3 <br>
+     */
+    public void leggeUnioneEuropea() {
+        String nomePaginaWiki = "Stati membri dell'Unione europea";
+        List<List<String>> lista;
+        String alfa3;
+        String message;
+        StatoEntity entityBean;
+
+        lista = webService.getWikiTable(nomePaginaWiki);
+
+        if (lista != null) {
+            for (List<String> rigaEntity : lista) {
+                alfa3 = rigaEntity.get(0);
+
+                if (mappaBeans.containsKey(alfa3)) {
+                    entityBean = (StatoEntity) mappaBeans.get(alfa3);
+                    entityBean.setUnioneEuropea(true);
+                    mappaBeans.put(alfa3, entityBean);
+                }
+                else {
+                    message = String.format("Non ho trovato %s nella mappa - leggeUnioneEuropea()", alfa3);
+                    logger.warn(new WrapLog().message(message).type(TypeLog.reset));
+                }
+            }
+        }
+    }
 
 }// end of CrudService class

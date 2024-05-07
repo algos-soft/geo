@@ -1,18 +1,14 @@
 package it.algos.geo.stato;
 
 import com.vaadin.flow.component.*;
-import com.vaadin.flow.component.combobox.*;
+import com.vaadin.flow.component.grid.*;
 import com.vaadin.flow.component.html.*;
-import com.vaadin.flow.component.textfield.*;
 import com.vaadin.flow.spring.annotation.*;
-import it.algos.geo.continente.*;
 import it.algos.geo.list.*;
-import it.algos.vbase.backend.boot.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.components.*;
 import it.algos.vbase.backend.importexport.*;
 import it.algos.vbase.ui.dialog.*;
-import org.springframework.beans.factory.annotation.*;
 import static org.springframework.beans.factory.config.BeanDefinition.*;
 import org.springframework.context.annotation.*;
 
@@ -22,41 +18,13 @@ import java.util.*;
 @Scope(value = SCOPE_PROTOTYPE)
 public class StatoList extends GeoList {
 
-    static final String FIELD_CAPITALE = "capitale";
-
-    static final String FIELD_ALFA_3 = "alfa3";
-
-    static final String FIELD_ALFA_2 = "alfa2";
-
-    static final String FIELD_NUMERICO = "numerico";
-
-    static final String FIELD_CONTINENTE = "continente";
-
-    //--searchField locale per selezionare la property
-    private TextField searchCapitale;
-
-    //--searchField locale per selezionare la property
-    private TextField searchAlfa3;
-
-    //--searchField locale per selezionare la property
-    private TextField searchAlfa2;
-
-    //--searchField locale per selezionare la property
-    private TextField searchNumerico;
-
-    //--comboBox locale per selezionare la property
-    ComboBox<ContinenteEntity> comboContinente;
-
-    @Autowired
-    public ContinenteService continenteModulo;
-
 
     //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
     public StatoList() {
         super();
     }
 
-    /**
+    /*
      * @param parentCrudView che crea questa istanza
      */
     public StatoList(final StatoView parentCrudView) {
@@ -66,8 +34,10 @@ public class StatoList extends GeoList {
     protected void fixPreferenze() {
         super.fixPreferenze();
 
+        super.gridSelection = Grid.SelectionMode.MULTI;
         super.usaBottoneEdit = true;
         super.usaBottoneShow = false;
+        super.usaBottoneExport = true;
     }
 
     @Override
@@ -92,45 +62,6 @@ public class StatoList extends GeoList {
 
         super.fixHeaderPost();
         super.fixAdmin();
-    }
-
-    /**
-     * Aggiunge componenti al Top della Lista <br>
-     */
-    @Override
-    protected void addTop() {
-        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
-//        searchCapitale = super.creaFiltroText(FIELD_CAPITALE);
-
-        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
-//        searchAlfa3 = super.creaFiltroText(FIELD_ALFA_3);
-
-        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
-//        searchAlfa2 = super.creaFiltroText(FIELD_ALFA_2);
-
-        //--creazione 'ad hoc' di un textSearch (semistandard) per selezionare l'inizio del testo della property -> descrizione
-//        searchNumerico = super.creaFiltroText(FIELD_NUMERICO);
-
-        //--creazione 'ad hoc' di un comboBox (semistandard) per selezionare la property nome
-//        comboContinente = super.creaFiltroCombo(FIELD_CONTINENTE, continenteModulo.findAll());
-    }
-
-    @Override
-    protected void syncFiltri() {
-        //--filtraggio del database in funzione del valore della property (inizio del testo)
-//        super.filtroInizioText(searchCapitale, FIELD_CAPITALE);
-
-        //--filtraggio del database in funzione del valore della property (inizio del testo)
-//        super.filtroInizioText(searchAlfa3, FIELD_ALFA_3);
-
-        //--filtraggio del database in funzione del valore della property (inizio del testo)
-//        super.filtroInizioText(searchAlfa2, FIELD_ALFA_2);
-
-        //--filtraggio del database in funzione del valore della property (inizio del testo)
-//        super.filtroInizioText(searchNumerico, FIELD_NUMERICO);
-
-        //--filtraggio del database in funzione del valore della property
-//        super.filtroComboClazz(comboContinente, FIELD_CONTINENTE);
     }
 
 

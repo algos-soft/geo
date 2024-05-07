@@ -5,6 +5,7 @@ import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import lombok.*;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.stereotype.*;
 
 @Component
@@ -13,17 +14,17 @@ import org.springframework.stereotype.*;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(callSuper = true)
-@AEntity(collectionName = "regione")
-public class RegioneEntity extends AbstractEntity {
+@AEntity(collectionName = "regione", usaResetStartup = true)
+public class RegioneEntity extends OrdineEntity {
 
-    @AField(type = TypeField.ordine, widthList = 5)
-    private int ordine;
 
     @AField(type = TypeField.text)
     private String sigla;
 
-    @AField(type = TypeField.text, widthList = 14)
-    private String nome;
+    @Indexed(unique = true)
+    @ASearch(type = TypeSearch.textStartsWith)
+    @AField(type = TypeField.wikiAnchor, headerText = "Nome", caption = "Nome")
+    private String code;
 
     //    @DBRef //@todo perché non funziona?
     @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = StatoEntity.class)
@@ -32,12 +33,15 @@ public class RegioneEntity extends AbstractEntity {
     @AField(type = TypeField.linkWiki)
     private String pagina;
 
+    @Indexed()
+    @ASearch(type = TypeSearch.comboClazz)
     @AField(type = TypeField.enumType, enumClazz = TypeRegione.class, widthList = 20)
     private TypeRegione type;
 
+
     @Override
     public String toString() {
-        return nome;
+        return code;
     }
 
 }// end of Entity class

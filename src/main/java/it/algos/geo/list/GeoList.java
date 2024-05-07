@@ -1,5 +1,6 @@
 package it.algos.geo.list;
 
+import com.vaadin.flow.component.grid.*;
 import it.algos.vbase.backend.boot.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.list.*;
@@ -33,6 +34,7 @@ public abstract class GeoList extends CrudList {
 
         super.basicSort = Sort.by(Sort.Direction.ASC, FIELD_NAME_ORDINE);
 
+        super.usaSelettoreColonne = true;
         super.usaVariantCompact = false;
         super.usaBottoneResetDelete = true;
         super.usaBottoneNew = false;

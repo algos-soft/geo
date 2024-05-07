@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="combo selezione iniziale">
+    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="width minima">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneItaliaList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneItaliaView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/list/GeoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/list/GeoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/components/ListButtonBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/components/ListButtonBar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +33,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/vbase" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="ProjectColorInfo">{
@@ -37,7 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GeoApplication.executor": "Debug",
+    "Application.GeoApplication.executor": "Run",
     "Application.Unnamed.executor": "Debug",
     "JUnit.ContinenteServiceTest.executor": "Run",
     "Maven.geo [install].executor": "Run",
@@ -69,6 +79,7 @@
       <recent name="$PROJECT_DIR$/src/test" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="it.algos.geo.regione" />
       <recent name="it.algos.geo.enumeration" />
       <recent name="it.algos.geo" />
       <recent name="it.algos.geo.boot" />
@@ -240,7 +251,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715023637437</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="width">
+      <option name="closed" value="true" />
+      <created>1715056520685</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1715056520685</updated>
+    </task>
+    <task id="LOCAL-00017" summary="width minima">
+      <option name="closed" value="true" />
+      <created>1715056781067</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1715056781067</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +294,9 @@
     <MESSAGE value="fix bug" />
     <MESSAGE value="..." />
     <MESSAGE value="combo selezione iniziale" />
-    <option name="LAST_COMMIT_MESSAGE" value="combo selezione iniziale" />
+    <MESSAGE value="width" />
+    <MESSAGE value="width minima" />
+    <option name="LAST_COMMIT_MESSAGE" value="width minima" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

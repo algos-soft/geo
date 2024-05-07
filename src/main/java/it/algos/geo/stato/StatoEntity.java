@@ -10,11 +10,8 @@ import org.springframework.data.mongodb.core.index.*;
 @Data
 @NoArgsConstructor
 @AEntity(collectionName = "stato", usaResetStartup = true)
-public class StatoEntity extends AbstractEntity {
+public class StatoEntity extends OrdineEntity {
 
-    @Indexed(unique = true)
-    @AField(type = TypeField.ordine, headerText = "#")
-    private int ordine;
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
@@ -27,17 +24,15 @@ public class StatoEntity extends AbstractEntity {
     private String capitale;
 
     @Indexed(unique = true)
-        @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(type = TypeSearch.textContains)
     @AField(type = TypeField.text, widthList = 6)
     private String alfa3;
 
     @Indexed(unique = true)
-        @ASearch(type = TypeSearch.textStartsWith)
     @AField(type = TypeField.text, widthList = 6)
     private String alfa2;
 
     @Indexed(unique = true)
-        @ASearch(type = TypeSearch.textStartsWith)
     @AField(type = TypeField.text, headerText = "cod.", widthList = 6)
     private String numerico;
 
@@ -49,6 +44,9 @@ public class StatoEntity extends AbstractEntity {
     @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = ContinenteEntity.class)
     private ContinenteEntity continente;
 
+    @ASearch(type = TypeSearch.checkBox, typeCheckIniziale = TypeCheckBox.vero)
+    @AField(type = TypeField.booleano)
+    private boolean unioneEuropea;
 
     @Override
     public String toString() {
