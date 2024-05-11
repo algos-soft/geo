@@ -5,7 +5,6 @@ import it.algos.geo.provincia.*;
 import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.enumeration.*;
-import it.algos.vbase.backend.logic.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -77,12 +76,6 @@ public class ComuneService extends GeoModuloService {
     }
 
 
-    @Override
-    public void download() {
-        reset();
-    }
-
-
     public RisultatoReset reset() {
         if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
             return RisultatoReset.nonCostruito;
@@ -133,6 +126,54 @@ public class ComuneService extends GeoModuloService {
         }
 
         return cont;
+    }
+
+
+    public void elabora() {
+        String nomePaginaWiki;
+        String sorgentePaginaWiki;
+        String sorgentePaginaWikiData;
+        String tagWikiData = "wgWikibaseItemId";
+        String wikiDataPage;
+        String tagUno = "P281";
+        String tagDue = "wikibase-snakview-variation-valuesnak";
+        int posIni;
+        int posEnd;
+        String tagWikiDataPage="https://www.wikidata.org/wiki/";
+        String cap;
+
+        for (ComuneEntity comune : findAll().subList(0, 100)) {
+            if (textService.isValid(comune.getCap())) {
+                continue;
+            }
+
+            nomePaginaWiki = comune.getCode();
+            sorgentePaginaWiki = leggeWiki(nomePaginaWiki);
+            posIni = sorgentePaginaWiki.indexOf(tagWikiData) + tagWikiData.length();
+            posEnd = sorgentePaginaWiki.indexOf(VIRGOLA, posIni);
+            wikiDataPage = sorgentePaginaWiki.substring(posIni, posEnd);
+            wikiDataPage = textService.setNoDoppiApici(wikiDataPage);
+            wikiDataPage = textService.levaTesta(wikiDataPage, DUE_PUNTI);
+            wikiDataPage = textService.levaTesta(wikiDataPage, APICETTI);
+
+            sorgentePaginaWikiData=webService.legge(tagWikiDataPage+wikiDataPage);
+            posIni = sorgentePaginaWikiData.indexOf(tagUno);
+            posIni = sorgentePaginaWikiData.indexOf(tagDue,posIni)+tagDue.length();
+            cap = sorgentePaginaWikiData.substring(posIni);
+            cap = textService.levaTesta(cap, APICETTI);
+            cap = textService.levaTesta(cap, ">");
+            cap = textService.levaCodaDaPrimo(cap, "<");
+
+            if (textService.isValid(cap)) {
+                comune.setCap(cap);
+                save(comune);
+            }
+        }
+    }
+
+    public String leggeWiki(final String wikiTitleGrezzo) {
+        String urlDomain = TAG_WIKI + wikiTitleGrezzo;
+        return webService.legge(urlDomain);
     }
 
     /**

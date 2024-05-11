@@ -30,7 +30,7 @@ public class ComuneEntity extends OrdineEntity {
 
     @Indexed()
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.text, widthList = 5)
+    @AField(type = TypeField.text, widthList = 6)
     private String cap;
 
     @DBRef()

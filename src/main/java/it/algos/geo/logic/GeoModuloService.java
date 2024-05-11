@@ -3,8 +3,11 @@ package it.algos.geo.logic;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.logic.*;
+import it.algos.vbase.backend.service.*;
 import it.algos.vbase.backend.wrapper.*;
 import org.bson.types.*;
+
+import javax.inject.*;
 
 /**
  * Project geo
@@ -14,6 +17,9 @@ import org.bson.types.*;
  * Time: 07:18
  */
 public abstract class GeoModuloService extends ModuloService {
+
+    @Inject
+    protected WebService webService;
 
     public GeoModuloService(final Class entityClazz, final Class viewClazz) {
         super(entityClazz, viewClazz);

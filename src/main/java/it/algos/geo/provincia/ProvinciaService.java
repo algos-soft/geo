@@ -82,11 +82,6 @@ public class ProvinciaService extends GeoModuloService {
     }
 
 
-    @Override
-    public void download() {
-        reset();
-    }
-
 
     public RisultatoReset reset() {
         if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
