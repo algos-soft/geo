@@ -1,6 +1,7 @@
 package it.algos.geo.comune;
 
 import com.vaadin.flow.component.combobox.*;
+import com.vaadin.flow.component.grid.*;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.spring.annotation.*;
 import it.algos.geo.list.*;
@@ -33,6 +34,14 @@ public class ComuneList extends GeoList {
         super(parentCrudView);
     }
 
+    protected void fixPreferenze() {
+        super.fixPreferenze();
+
+        super.gridSelection = Grid.SelectionMode.MULTI;
+        super.usaBottoneEdit = true;
+        super.usaBottoneShow = false;
+        super.usaBottoneExport = true;
+    }
 
     @Override
     public void syncHeader() {

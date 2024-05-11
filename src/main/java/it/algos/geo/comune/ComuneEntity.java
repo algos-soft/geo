@@ -20,7 +20,7 @@ public class ComuneEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.text, headerText = "Nome", caption = "Nome", widthList = 18)
+    @AField(type = TypeField.wikiAnchor, headerText = "Nome", caption = "Nome", widthList = 18)
     private String code;
 
     @DBRef()
