@@ -114,9 +114,9 @@ public class ComuneService extends GeoModuloService {
             code = pagina.contains(PIPE) ? textService.levaPrimaAncheTag(pagina, PIPE) : pagina;
 
             provinciaTxt = rigaUnValore.size() > 1 ? rigaUnValore.get(1) : VUOTA;
-            provinciaTxt = provinciaTxt.contains(PIPE) ? textService.levaCodaDaUltimo(provinciaTxt, PIPE) : provinciaTxt;
+            provinciaTxt = provinciaTxt.contains(PIPE) ? textService.levaPrimaAncheTag(provinciaTxt, PIPE) : provinciaTxt;
             if (textService.isValid(provinciaTxt)) {
-                provinciaBean = provinciaModulo.findByNomeCompleto(provinciaTxt);
+                provinciaBean = provinciaModulo.findByNome(provinciaTxt);
             }
 
             regioneTxt = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;

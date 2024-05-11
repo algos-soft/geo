@@ -30,7 +30,7 @@ public class ComuneEntity extends OrdineEntity {
 
     @DBRef()
     @ASearch(type = TypeSearch.comboClazz)
-    @AField(type = TypeField.linkDBRef, widthList = 10, linkClazz = ProvinciaEntity.class)
+    @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = ProvinciaEntity.class)
     private ProvinciaEntity provincia;
 
     @Indexed()
