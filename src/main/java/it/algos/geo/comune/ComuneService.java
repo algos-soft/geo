@@ -1,5 +1,6 @@
 package it.algos.geo.comune;
 
+import it.algos.geo.logic.*;
 import it.algos.geo.provincia.*;
 import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
@@ -19,7 +20,7 @@ import java.util.*;
  * Time: 09:13
  */
 @Service
-public class ComuneService extends ModuloService {
+public class ComuneService extends GeoModuloService {
 
     @Value("${algos.project.crea.directory.geo:false}")
     private String creaDirectoryGeoTxt;

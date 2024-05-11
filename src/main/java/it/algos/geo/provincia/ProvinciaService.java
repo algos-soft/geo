@@ -1,5 +1,6 @@
 package it.algos.geo.provincia;
 
+import it.algos.geo.logic.*;
 import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.enumeration.*;
@@ -20,7 +21,7 @@ import java.util.*;
  * Time: 09:48
  */
 @Service
-public class ProvinciaService extends ModuloService {
+public class ProvinciaService extends GeoModuloService {
 
     @Value("${algos.project.crea.directory.geo:false}")
     private String creaDirectoryGeoTxt;

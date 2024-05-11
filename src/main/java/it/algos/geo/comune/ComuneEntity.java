@@ -6,16 +6,15 @@ import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import lombok.*;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.stereotype.*;
+import org.springframework.data.mongodb.core.index.*;
+import org.springframework.data.mongodb.core.mapping.*;
 
-@Component
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(callSuper = true)
-@AEntity(collectionName = "comune", usaResetStartup = true)
+@Document(collection = "comune")
+@AEntity(usaResetStartup = true)
 public class ComuneEntity extends OrdineEntity {
 
 
@@ -24,7 +23,7 @@ public class ComuneEntity extends OrdineEntity {
     @AField(type = TypeField.text, headerText = "Nome", caption = "Nome", widthList = 18)
     private String code;
 
-    @Indexed()
+    @DBRef()
     @ASearch(type = TypeSearch.comboClazz)
     @AField(type = TypeField.linkDBRef, widthList = 10, linkClazz = ProvinciaEntity.class)
     private ProvinciaEntity provincia;
@@ -34,7 +33,7 @@ public class ComuneEntity extends OrdineEntity {
     @AField(type = TypeField.text, widthList = 5)
     private String cap;
 
-    @Indexed()
+    @DBRef()
     @ASearch(type = TypeSearch.comboClazz)
     @AField(type = TypeField.linkDBRef, widthList = 10, linkClazz = RegioneEntity.class)
     private RegioneEntity regione;

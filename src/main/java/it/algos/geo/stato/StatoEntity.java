@@ -6,16 +6,14 @@ import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.*;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.stereotype.*;
+import org.springframework.data.mongodb.core.mapping.*;
 
-@Component
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(callSuper = true)
-@AEntity(collectionName = "stato", usaResetStartup = true)
+@Document(collection = "stato")
+@AEntity(keyPropertyName = "alfa3", usaResetStartup = true)
 public class StatoEntity extends OrdineEntity {
 
 
@@ -45,7 +43,7 @@ public class StatoEntity extends OrdineEntity {
     @AField(type = TypeField.linkWiki)
     private String divisioni;
 
-    @Indexed()
+    @DBRef()
     @ASearch(type = TypeSearch.comboClazz, comboStartProperty = "code", comboStartValue = "Europa")
     @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = ContinenteEntity.class)
     private ContinenteEntity continente;

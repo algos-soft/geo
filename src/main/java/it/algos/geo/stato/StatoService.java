@@ -2,11 +2,14 @@ package it.algos.geo.stato;
 
 import it.algos.geo.continente.*;
 import it.algos.geo.enumeration.*;
+import it.algos.geo.logic.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
+import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.logic.*;
 import it.algos.vbase.backend.wrapper.*;
 import org.apache.commons.lang3.*;
+import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -20,7 +23,7 @@ import java.util.*;
  * Time: 11:42
  */
 @Service
-public class StatoService extends ModuloService {
+public class StatoService extends GeoModuloService {
 
     @Value("${algos.project.crea.directory.geo:false}")
     private String creaDirectoryGeoTxt;
@@ -101,6 +104,14 @@ public class StatoService extends ModuloService {
         return newEntityBean;
     }
 
+
+//    @Override
+//    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+//        return getSubObjectId(newEntityBean);
+//    }
+
+
+
     public List<StatoEntity> findAll() {
         return super.findAll();
     }
@@ -133,8 +144,17 @@ public class StatoService extends ModuloService {
         this.leggeAlfa2();
         this.leggeContinenti();
         this.leggeUnioneEuropea();
+int cont=0;
+        for (String key : mappaBeans.keySet()) {
+            cont++;
+            if (cont>55) {
+                int a=87;
+            }
 
-        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
+            insertSave(mappaBeans.get(key));
+        }
+
+//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
         return RisultatoReset.vuotoMaCostruito;
     }
 

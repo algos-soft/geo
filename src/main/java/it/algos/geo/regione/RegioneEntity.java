@@ -5,16 +5,15 @@ import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import lombok.*;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.stereotype.*;
+import org.springframework.data.mongodb.core.index.*;
+import org.springframework.data.mongodb.core.mapping.*;
 
-@Component
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(callSuper = true)
-@AEntity(collectionName = "regione", usaResetStartup = true)
+@Document(collection = "regione")
+@AEntity(keyPropertyName = "code", usaResetStartup = true)
 public class RegioneEntity extends OrdineEntity {
 
 
@@ -27,7 +26,7 @@ public class RegioneEntity extends OrdineEntity {
     @AField(type = TypeField.wikiAnchor, headerText = "Nome", caption = "Nome")
     private String code;
 
-    //    @DBRef //@todo perché non funziona?
+    @DBRef()
     @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = StatoEntity.class)
     private StatoEntity stato;
 

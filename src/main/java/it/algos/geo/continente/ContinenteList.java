@@ -24,10 +24,6 @@ public class ContinenteList extends GeoList {
     }
 
 
-    @Override
-    protected void fixPreferenze() {
-        super.fixPreferenze();
-    }
 
     @Override
     public void syncHeader() {

@@ -1,8 +1,12 @@
 package it.algos.geo.continente;
 
 import it.algos.geo.enumeration.*;
+import it.algos.geo.logic.*;
+import static it.algos.vbase.backend.boot.BaseCost.*;
+import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.logic.*;
+import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -16,7 +20,7 @@ import java.util.*;
  * Time: 06:59
  */
 @Service
-public class ContinenteService extends ModuloService {
+public class ContinenteService extends GeoModuloService {
 
 
     @Value("${algos.project.crea.directory.geo:false}")

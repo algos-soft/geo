@@ -5,12 +5,14 @@ import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.*;
+import org.springframework.data.mongodb.core.mapping.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@AEntity(collectionName = "continente", sortPropertyName = "ordine", usaResetStartup = true)
+@Document(collection = "continente")
+@AEntity( keyPropertyName = "code", sortPropertyName = "ordine", usaResetStartup = true)
 public class ContinenteEntity extends OrdineEntity {
 
 

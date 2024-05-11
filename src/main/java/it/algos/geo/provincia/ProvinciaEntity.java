@@ -5,16 +5,15 @@ import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import lombok.*;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.stereotype.*;
+import org.springframework.data.mongodb.core.index.*;
+import org.springframework.data.mongodb.core.mapping.*;
 
-@Component
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(callSuper = true)
-@AEntity(collectionName = "provincia", usaResetStartup = true)
+@Document(collection = "provincia")
+@AEntity(keyPropertyName = "code", usaResetStartup = true)
 public class ProvinciaEntity extends OrdineEntity {
 
     @Indexed(unique = true)
@@ -37,7 +36,7 @@ public class ProvinciaEntity extends OrdineEntity {
     @AField(type = TypeField.text, widthList = 5)
     private String cap;
 
-    @Indexed()
+    @DBRef()
     @ASearch(type = TypeSearch.comboClazz)
     @AField(type = TypeField.linkDBRef, widthList = 10, linkClazz = RegioneEntity.class)
     private RegioneEntity regione;
