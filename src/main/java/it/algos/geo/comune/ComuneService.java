@@ -52,9 +52,10 @@ public class ComuneService extends GeoModuloService {
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public ComuneEntity newEntity(int ordine, String code, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
+    public ComuneEntity newEntity(int ordine, String code, String pagina, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
         ComuneEntity newEntityBean = ComuneEntity.builder()
                 .code(textService.isValid(code) ? code : null)
+                .pagina(textService.isValid(pagina) ? pagina : null)
                 .provincia(provincia)
                 .cap(textService.isValid(cap) ? cap : null)
                 .regione(regione)
@@ -102,18 +103,20 @@ public class ComuneService extends GeoModuloService {
     private int addComuniPerLettera(int cont, String wikiTitle) {
         List<List<String>> mappa = webService.getWikiTable(wikiTitle);
         String code;
+        String pagina;
         String provinciaTxt;
         ProvinciaEntity provinciaBean = null;
         String regioneTxt;
         RegioneEntity regioneBean = null;
-        String cap;
 
         for (List<String> rigaUnValore : mappa) {
-            code = rigaUnValore.get(0);
+            pagina = rigaUnValore.get(0);
+            code = pagina.contains(PIPE) ? textService.levaPrimaAncheTag(pagina, PIPE) : pagina;
 
             provinciaTxt = rigaUnValore.size() > 1 ? rigaUnValore.get(1) : VUOTA;
+            provinciaTxt = provinciaTxt.contains(PIPE) ? textService.levaCodaDaUltimo(provinciaTxt, PIPE) : provinciaTxt;
             if (textService.isValid(provinciaTxt)) {
-                provinciaBean = provinciaModulo.findByNome(provinciaTxt);
+                provinciaBean = provinciaModulo.findByNomeCompleto(provinciaTxt);
             }
 
             regioneTxt = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
@@ -121,7 +124,7 @@ public class ComuneService extends GeoModuloService {
                 regioneBean = regioneModulo.findByCode(regioneTxt);
             }
 
-            entityBean = newEntity(++cont, code, provinciaBean, VUOTA, regioneBean);
+            entityBean = newEntity(++cont, code, pagina, provinciaBean, VUOTA, regioneBean);
             mappaBeans.put(code, entityBean);
         }
 
@@ -139,16 +142,16 @@ public class ComuneService extends GeoModuloService {
         String tagDue = "wikibase-snakview-variation-valuesnak";
         int posIni;
         int posEnd;
-        String tagWikiDataPage="https://www.wikidata.org/wiki/";
+        String tagWikiDataPage = "https://www.wikidata.org/wiki/";
         String cap;
 
-        for (ComuneEntity comune : findAll().subList(0, 100)) {
+        for (ComuneEntity comune : findAll()) {
             if (textService.isValid(comune.getCap())) {
                 continue;
             }
 
             nomePaginaWiki = comune.getCode();
-            sorgentePaginaWiki = leggeWiki(nomePaginaWiki);
+            sorgentePaginaWiki = webService.leggeWiki(nomePaginaWiki);
             posIni = sorgentePaginaWiki.indexOf(tagWikiData) + tagWikiData.length();
             posEnd = sorgentePaginaWiki.indexOf(VIRGOLA, posIni);
             wikiDataPage = sorgentePaginaWiki.substring(posIni, posEnd);
@@ -156,9 +159,9 @@ public class ComuneService extends GeoModuloService {
             wikiDataPage = textService.levaTesta(wikiDataPage, DUE_PUNTI);
             wikiDataPage = textService.levaTesta(wikiDataPage, APICETTI);
 
-            sorgentePaginaWikiData=webService.legge(tagWikiDataPage+wikiDataPage);
+            sorgentePaginaWikiData = webService.legge(tagWikiDataPage + wikiDataPage);
             posIni = sorgentePaginaWikiData.indexOf(tagUno);
-            posIni = sorgentePaginaWikiData.indexOf(tagDue,posIni)+tagDue.length();
+            posIni = sorgentePaginaWikiData.indexOf(tagDue, posIni) + tagDue.length();
             cap = sorgentePaginaWikiData.substring(posIni);
             cap = textService.levaTesta(cap, APICETTI);
             cap = textService.levaTesta(cap, ">");
@@ -171,10 +174,6 @@ public class ComuneService extends GeoModuloService {
         }
     }
 
-    public String leggeWiki(final String wikiTitleGrezzo) {
-        String urlDomain = TAG_WIKI + wikiTitleGrezzo;
-        return webService.legge(urlDomain);
-    }
 
     /**
      * Only custom <br>

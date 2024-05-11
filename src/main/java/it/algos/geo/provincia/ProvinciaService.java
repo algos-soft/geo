@@ -76,6 +76,9 @@ public class ProvinciaService extends GeoModuloService {
     public ProvinciaEntity findByNome(String nome) {
         return this.findOneByProperty("nome", nome);
     }
+    public ProvinciaEntity findByNomeCompleto(String nomeCompleto) {
+        return this.findOneByProperty("nomeCompleto", nomeCompleto);
+    }
 
     public ProvinciaEntity findOneByProperty(String keyPropertyName, Object keyPropertyValue) {
         return (ProvinciaEntity) super.findOneByProperty(keyPropertyName, keyPropertyValue);
