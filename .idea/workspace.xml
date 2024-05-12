@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="...">
+    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="views">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/logic/ModuloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/logic/ModuloService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/modules/anagrafica/via/ViaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/modules/anagrafica/via/ViaService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715450672899</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="views">
+      <option name="closed" value="true" />
+      <created>1715507423528</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1715507423528</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,20 +367,39 @@
     <MESSAGE value="province" />
     <MESSAGE value="cap" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="views" />
+    <option name="LAST_COMMIT_MESSAGE" value="views" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/ui/view/MainLayout.java</url>
-          <line>152</line>
+          <line>161</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/service/MongoService.java</url>
           <line>351</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaService.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java</url>
+          <line>188</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneService.java</url>
+          <line>124</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

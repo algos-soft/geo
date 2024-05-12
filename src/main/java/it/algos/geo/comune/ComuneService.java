@@ -7,6 +7,7 @@ import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.wrapper.*;
+import org.apache.commons.lang3.*;
 import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
@@ -68,10 +69,10 @@ public class ComuneService extends GeoModuloService {
         return newEntityBean;
     }
 
-    @Override
-    public ObjectId getObjectId(AbstractEntity newEntityBean) {
-        return getSubObjectId(((ComuneEntity) newEntityBean).getCode());
-    }
+//    @Override
+//    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+//        return getSubObjectId(((ComuneEntity) newEntityBean).getCode());
+//    }
 
 
     protected ObjectId getSubObjectId(final String idStringValue) {
@@ -81,6 +82,7 @@ public class ComuneService extends GeoModuloService {
         try {
             if (textService.isValid(idStringValue)) {
                 idTextValue12Char = textService.fixSize(idStringValue, ID_LENGTH);
+                idTextValue12Char = StringUtils.stripAccents(idTextValue12Char);
                 objectId = new ObjectId(idTextValue12Char.getBytes());
             }
 

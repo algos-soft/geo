@@ -112,7 +112,6 @@ public class RegioneService extends GeoModuloService {
 
         if (!BaseVar.creaDirectoryGeografia) {
             addItaliaOnly();
-            mappaBeans.values().stream().forEach(bean -> insertSave(bean));
             return RisultatoReset.vuotoMaCostruito;
         }
 
@@ -200,6 +199,7 @@ public class RegioneService extends GeoModuloService {
             entityBean.setType(TypeRegione.regioneSpeciale);
             mappaBeans.put(regio.getSigla(), entityBean);
         }
+        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
     }
 
 
