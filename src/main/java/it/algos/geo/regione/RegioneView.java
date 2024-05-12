@@ -26,7 +26,7 @@ public class RegioneView extends CrudView {
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
      */
-    public RegioneView(@Autowired RegioneService moduloCrudService) {
+    RegioneView(@Autowired RegioneService moduloCrudService) {
         super(moduloCrudService, RegioneList.class, RegioneForm.class);
     }
 

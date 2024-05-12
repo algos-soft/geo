@@ -3,10 +3,14 @@ package it.algos.geo.stato;
 import it.algos.geo.continente.*;
 import it.algos.geo.enumeration.*;
 import it.algos.geo.logic.*;
+import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
+import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
+import it.algos.vbase.backend.modules.anagrafica.via.*;
 import it.algos.vbase.backend.wrapper.*;
 import org.apache.commons.lang3.*;
+import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -101,12 +105,17 @@ public class StatoService extends GeoModuloService {
         return newEntityBean;
     }
 
-    //    @Override
-    //    public ObjectId getObjectId(AbstractEntity newEntityBean) {
-    //        return getSubObjectId(newEntityBean);
-    //    }
+    @Override
+    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+        return new ObjectId(textService.fixSize(((StatoEntity) newEntityBean).getAlfa3(), ID_LENGTH).getBytes());
+    }
 
+    @Override
+    public StatoEntity findById(final String idStringValue) {
+        return (StatoEntity) super.findById(idStringValue);
+    }
 
+    @Override
     public List<StatoEntity> findAll() {
         return super.findAll();
     }
@@ -119,16 +128,16 @@ public class StatoService extends GeoModuloService {
                 .toList();
     }
 
-    @Override
-    public StatoEntity findByCode(final String keyPropertyValue) {
-        return (StatoEntity) super.findByCode(keyPropertyValue);
-    }
 
 
     public RisultatoReset reset() {
         if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
             return RisultatoReset.nonCostruito;
         }
+        if (continenteModulo.count() < 1) {
+            continenteModulo.reset();
+        }
+
         this.leggeAlfa3();
         this.leggeCapitali();
         this.leggeAlfa2();
@@ -329,7 +338,7 @@ public class StatoService extends GeoModuloService {
         String message;
         StatoEntity entityBean;
 
-        continente = continenteModulo.findByCode(contEnum.getTag());
+        continente = continenteModulo.findById(contEnum.getTag());
         if (continente != null && textService.isValid(contEnum.getTemplate())) {
             nomeTemplate = prefix + contEnum.getTemplate();
             testoLeggibile = webService.leggeWikiParse(nomeTemplate);

@@ -13,7 +13,8 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "provincia")
-@AEntity(keyPropertyName = "code", usaResetStartup = true)
+//@AEntity(keyPropertyName = "code", usaResetStartup = true)
+@AEntity()
 public class ProvinciaEntity extends OrdineEntity {
 
     @Indexed(unique = true)

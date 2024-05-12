@@ -7,8 +7,8 @@ import it.algos.vbase.backend.boot.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.exception.*;
-import it.algos.vbase.backend.logic.*;
 import it.algos.vbase.backend.wrapper.*;
+import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.domain.*;
 import org.springframework.data.mongodb.core.query.*;
@@ -69,21 +69,27 @@ public class RegioneService extends GeoModuloService {
     }
 
     @Override
+    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+        return new ObjectId(textService.fixSize(((RegioneEntity) newEntityBean).getCode(), ID_LENGTH).getBytes());
+    }
+
+    @Override
+    public RegioneEntity findById(final String idStringValue) {
+        return (RegioneEntity) super.findById(idStringValue);
+    }
+
+    @Override
     public List<RegioneEntity> findAll() {
         return super.findAll();
     }
 
-    @Override
-    public RegioneEntity findByCode(final String keyPropertyValue) {
-        return (RegioneEntity) super.findByCode(keyPropertyValue);
-    }
 
     public RegioneEntity findOneByProperty(String keyPropertyName, Object keyPropertyValue) {
         return (RegioneEntity) super.findOneByProperty(keyPropertyName, keyPropertyValue);
     }
 
     public List<RegioneEntity> findAllItalia() {
-        StatoEntity italia = statoModulo.findByCode("Italia");
+        StatoEntity italia = statoModulo.findById("Italia");
         if (italia == null) {
             return new ArrayList<>();
         }
@@ -97,7 +103,6 @@ public class RegioneService extends GeoModuloService {
         List<AbstractEntity> lista = mongoService.mongoTemplate.find(query, moduloCrudEntityClazz, "regione");
         return lista.stream().map(bean -> (RegioneEntity) bean).toList();
     }
-
 
 
     public RisultatoReset reset() {
@@ -176,11 +181,15 @@ public class RegioneService extends GeoModuloService {
     }
 
     public void addItaliaOnly() {
-        String nomeStato = "Italia";
-        StatoEntity stato = this.getStato(nomeStato);
+        String alfa3 = "ITA";
+        StatoEntity stato;
 
+        if (statoModulo.count() < 1) {
+            statoModulo.reset();
+        }
+        stato = statoModulo.findById(alfa3);
         if (stato == null) {
-            stato = (StatoEntity) statoModulo.creaIfNotExists(statoModulo.newEntity("Italia", "Roma", "ITA", "IT"));
+            return;
         }
 
         //--regioni
@@ -474,7 +483,7 @@ public class RegioneService extends GeoModuloService {
             return stato;
         }
         nomeStato = textService.primaMaiuscola(nomeStato);
-        stato = statoModulo.findByCode(nomeStato);
+        stato = statoModulo.findById(nomeStato);
 
         if (stato == null) {
             message = String.format("Non ho trovato lo stato [%s]", nomeStato);

@@ -1,6 +1,5 @@
 package it.algos.geo.continente;
 
-import com.vaadin.flow.component.applayout.*;
 import com.vaadin.flow.router.*;
 import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.enumeration.*;
@@ -26,7 +25,7 @@ public class ContinenteView extends CrudView {
      * Mantiene il riferimento al CrudService (singleton) di questo Modulo, iniettato dalla sottoclasse concreta <br>
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      */
-    public ContinenteView(@Autowired ContinenteService moduloCrudService) {
+    ContinenteView(@Autowired ContinenteService moduloCrudService) {
         super(moduloCrudService, ContinenteList.class);
     }
 

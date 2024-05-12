@@ -2,6 +2,8 @@ package it.algos.geo.continente;
 
 import it.algos.geo.enumeration.*;
 import it.algos.geo.logic.*;
+import it.algos.geo.provincia.*;
+import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
@@ -54,16 +56,19 @@ public class ContinenteService extends GeoModuloService {
         return newEntityBean;
     }
 
+    @Override
+    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+        return new ObjectId(textService.fixSize(((ContinenteEntity) newEntityBean).getCode(), ID_LENGTH).getBytes());
+    }
+
+    @Override
+    public ContinenteEntity findById(final String idStringValue) {
+        return (ContinenteEntity) super.findById(idStringValue);
+    }
 
     @Override
     public List<ContinenteEntity> findAll() {
         return super.findAll();
-    }
-
-
-    @Override
-    public ContinenteEntity findByCode(final String keyCodeValue) {
-        return (ContinenteEntity) super.findByCode(keyCodeValue);
     }
 
 

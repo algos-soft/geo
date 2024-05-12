@@ -13,7 +13,8 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "stato")
-@AEntity(keyPropertyName = "alfa3", usaResetStartup = true)
+//@AEntity(keyPropertyName = "alfa3", usaResetStartup = true)
+@AEntity()
 public class StatoEntity extends OrdineEntity {
 
 

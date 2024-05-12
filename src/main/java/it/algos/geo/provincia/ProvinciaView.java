@@ -27,7 +27,7 @@ public class ProvinciaView extends CrudView {
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
      */
-    public ProvinciaView(@Autowired ProvinciaService moduloCrudService) {
+    ProvinciaView(@Autowired ProvinciaService moduloCrudService) {
         super(moduloCrudService, ProvinciaList.class, ProvinciaForm.class);
     }
 

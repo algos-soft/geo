@@ -26,7 +26,7 @@ public class StatoView extends CrudView {
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
      */
-    public StatoView(@Autowired StatoService moduloCrudService) {
+    StatoView(@Autowired StatoService moduloCrudService) {
         super(moduloCrudService, StatoList.class, StatoForm.class);
     }
 

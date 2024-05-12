@@ -1,12 +1,15 @@
 package it.algos.geo.provincia;
 
+import it.algos.geo.comune.*;
+import it.algos.geo.continente.*;
 import it.algos.geo.logic.*;
 import it.algos.geo.regione.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
+import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
-import it.algos.vbase.backend.logic.*;
 import it.algos.vbase.backend.wrapper.*;
 import org.apache.commons.lang3.*;
+import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -63,19 +66,27 @@ public class ProvinciaService extends GeoModuloService {
         return newEntityBean;
     }
 
+
+    @Override
+    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+        return new ObjectId(textService.fixSize(((ProvinciaEntity) newEntityBean).getCode(), ID_LENGTH).getBytes());
+    }
+
     @Override
     public List<ProvinciaEntity> findAll() {
         return super.findAll();
     }
 
     @Override
-    public ProvinciaEntity findByCode(final String keyCodeValue) {
-        return (ProvinciaEntity) super.findByCode(keyCodeValue);
+    public ProvinciaEntity findById(final String idStringValue) {
+        return (ProvinciaEntity) super.findById(idStringValue);
     }
+
 
     public ProvinciaEntity findByNome(String nome) {
         return this.findOneByProperty("nome", nome);
     }
+
     public ProvinciaEntity findByNomeCompleto(String nomeCompleto) {
         return this.findOneByProperty("nomeCompleto", nomeCompleto);
     }
@@ -83,7 +94,6 @@ public class ProvinciaService extends GeoModuloService {
     public ProvinciaEntity findOneByProperty(String keyPropertyName, Object keyPropertyValue) {
         return (ProvinciaEntity) super.findOneByProperty(keyPropertyName, keyPropertyValue);
     }
-
 
 
     public RisultatoReset reset() {
@@ -119,7 +129,7 @@ public class ProvinciaService extends GeoModuloService {
                 nome = rigaUnValore.get(1);
                 nomeCompleto = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
                 regioneTxt = rigaUnValore.size() > 3 ? rigaUnValore.get(3) : VUOTA;
-                regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findByCode(regioneTxt) : null;
+                regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findById(regioneTxt) : null;
                 entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
                 mappaBeans.put(code, entityBean);
             }

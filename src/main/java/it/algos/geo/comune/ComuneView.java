@@ -27,7 +27,7 @@ public class ComuneView extends CrudView {
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
      */
-    public ComuneView(@Autowired ComuneService moduloCrudService) {
+    ComuneView(@Autowired ComuneService moduloCrudService) {
         super(moduloCrudService, ComuneList.class, ComuneForm.class);
     }
 
