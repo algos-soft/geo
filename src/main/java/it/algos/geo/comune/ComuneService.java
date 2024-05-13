@@ -56,9 +56,9 @@ public class ComuneService extends GeoModuloService {
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public ComuneEntity newEntity(int ordine, String code, String pagina, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
+    public ComuneEntity newEntity(int ordine, String nome, String pagina, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
         ComuneEntity newEntityBean = ComuneEntity.builder()
-                .code(textService.isValid(code) ? code : null)
+                .nome(textService.isValid(nome) ? nome : null)
                 .pagina(textService.isValid(pagina) ? pagina : null)
                 .provincia(provincia)
                 .cap(textService.isValid(cap) ? cap : null)
@@ -177,7 +177,7 @@ public class ComuneService extends GeoModuloService {
                 continue;
             }
 
-            nomePaginaWiki = comune.getCode();
+            nomePaginaWiki = comune.getNome();
             sorgentePaginaWiki = webService.leggeWiki(nomePaginaWiki);
             posIni = sorgentePaginaWiki.indexOf(tagWikiData) + tagWikiData.length();
             posEnd = sorgentePaginaWiki.indexOf(VIRGOLA, posIni);

@@ -46,7 +46,7 @@ public class RegioneItaliaList extends GeoList {
         super.fixPreferenze();
 
         super.usaSelettoreColonne = true;
-        super.propertyNames = Arrays.asList("code", "type");
+        super.propertyNames = Arrays.asList("nome", "type");
     }
 
     @Override

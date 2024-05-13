@@ -18,13 +18,13 @@ public class ContinenteEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.text, headerText = "Nome", caption = "Nome")
-    private String code;
+    @AField(type = TypeField.text)
+    private String nome;
 
 
     @Override
     public String toString() {
-        return code;
+        return nome;
     }
 
 }// end of Entity class

@@ -20,8 +20,8 @@ public class ComuneEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.text, headerText = "Nome", caption = "Nome", widthList = 18)
-    private String code;
+    @AField(type = TypeField.text, widthList = 18)
+    private String nome;
 
     @Indexed(unique = true)
     @AField(type = TypeField.wikiAnchor, headerText = "Wiki", caption = "WikiPagina", widthList = 18)
@@ -45,7 +45,7 @@ public class ComuneEntity extends OrdineEntity {
 
     @Override
     public String toString() {
-        return code;
+        return nome;
     }
 
 }// end of Entity class

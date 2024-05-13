@@ -18,8 +18,8 @@ public class ProvinciaEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.wikiAnchor, widthList = 5, headerText = "Sigla", caption = "Sigla")
-    private String code;
+    @AField(type = TypeField.wikiAnchor, widthList = 5)
+    private String sigla;
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)

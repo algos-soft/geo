@@ -19,8 +19,8 @@ public class StatoEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.wikiAnchor, headerText = "Nome", caption = "Nome")
-    private String code;
+    @AField(type = TypeField.wikiAnchor)
+    private String nome;
 
     @Indexed()
     @ASearch(type = TypeSearch.textStartsWith)
@@ -54,7 +54,7 @@ public class StatoEntity extends OrdineEntity {
 
     @Override
     public String toString() {
-        return code;
+        return nome;
     }
 
 }// end of Entity class

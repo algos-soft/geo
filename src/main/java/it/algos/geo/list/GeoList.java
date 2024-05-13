@@ -41,6 +41,8 @@ public abstract class GeoList extends CrudList {
         super.usaBottoneEdit = false;
         super.usaBottoneShow = true;
         super.usaBottoneDeleteEntity = false;
+
+        super.usaBottoneExport = true;
     }
 
 

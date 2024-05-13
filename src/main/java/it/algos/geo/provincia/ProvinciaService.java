@@ -53,9 +53,9 @@ public class ProvinciaService extends GeoModuloService {
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public ProvinciaEntity newEntity(int ordine, String code, String nome, String nomeCompleto, String cap, RegioneEntity regione) {
+    public ProvinciaEntity newEntity(int ordine, String sigla, String nome, String nomeCompleto, String cap, RegioneEntity regione) {
         ProvinciaEntity newEntityBean = ProvinciaEntity.builder()
-                .code(textService.isValid(code) ? code : null)
+                .sigla(textService.isValid(sigla) ? sigla : null)
                 .nome(textService.isValid(nome) ? nome : null)
                 .nomeCompleto(textService.isValid(nomeCompleto) ? nomeCompleto : null)
                 .cap(cap)
@@ -69,7 +69,7 @@ public class ProvinciaService extends GeoModuloService {
 
     @Override
     public ObjectId getObjectId(AbstractEntity newEntityBean) {
-        return new ObjectId(textService.fixSize(((ProvinciaEntity) newEntityBean).getCode(), ID_LENGTH).getBytes());
+        return new ObjectId(textService.fixSize(((ProvinciaEntity) newEntityBean).getSigla(), ID_LENGTH).getBytes());
     }
 
     @Override

@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="...">
+    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="entity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/list/GeoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/list/GeoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/provincia/ProvinciaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneItaliaList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneItaliaList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/list/CrudList.java" beforeDir="false" afterPath="$PROJECT_DIR$/vbase/src/main/java/it/algos/vbase/backend/list/CrudList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +48,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.GeoApplication.executor": "Debug",
+    "Application.GeoApplication.executor": "Run",
     "Application.Unnamed.executor": "Debug",
     "JUnit.ContinenteServiceTest.executor": "Run",
     "Maven.geo [install].executor": "Run",
@@ -344,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715541336706</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="entity">
+      <option name="closed" value="true" />
+      <created>1715586156375</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1715586156375</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +395,8 @@
     <MESSAGE value="cap" />
     <MESSAGE value="views" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="entity" />
+    <option name="LAST_COMMIT_MESSAGE" value="entity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -43,13 +43,13 @@ public class ContinenteService extends GeoModuloService {
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
      *
      * @param ordine (opzionale, unico)
-     * @param code   (obbligatorio, unico)
+     * @param nome   (obbligatorio, unico)
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public ContinenteEntity newEntity(final int ordine, final String code) {
+    public ContinenteEntity newEntity(final int ordine, final String nome) {
         ContinenteEntity newEntityBean = ContinenteEntity.builder()
-                .code(textService.isValid(code) ? code : null)
+                .nome(textService.isValid(nome) ? nome : null)
                 .build();
 
         newEntityBean.setOrdine(ordine == 0 ? nextOrdine() : ordine);
@@ -58,7 +58,7 @@ public class ContinenteService extends GeoModuloService {
 
     @Override
     public ObjectId getObjectId(AbstractEntity newEntityBean) {
-        return new ObjectId(textService.fixSize(((ContinenteEntity) newEntityBean).getCode(), ID_LENGTH).getBytes());
+        return new ObjectId(textService.fixSize(((ContinenteEntity) newEntityBean).getNome(), ID_LENGTH).getBytes());
     }
 
     @Override

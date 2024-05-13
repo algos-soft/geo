@@ -23,8 +23,8 @@ public class RegioneEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.wikiAnchor, headerText = "Nome", caption = "Nome")
-    private String code;
+    @AField(type = TypeField.wikiAnchor)
+    private String nome;
 
     @DBRef()
     @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = StatoEntity.class)
@@ -41,7 +41,7 @@ public class RegioneEntity extends OrdineEntity {
 
     @Override
     public String toString() {
-        return code;
+        return nome;
     }
 
 }// end of Entity class

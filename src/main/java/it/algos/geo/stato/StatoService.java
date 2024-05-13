@@ -82,7 +82,7 @@ public class StatoService extends GeoModuloService {
      */
     public StatoEntity newEntity(
             int ordine,
-            String code,
+            String nome,
             String capitale,
             String alfa3,
             String alfa2,
@@ -91,7 +91,7 @@ public class StatoService extends GeoModuloService {
             String divisioni) {
 
         StatoEntity newEntityBean = StatoEntity.builder()
-                .code(textService.isValid(code) ? code : null)
+                .nome(textService.isValid(nome) ? nome : null)
                 .capitale(textService.isValid(capitale) ? capitale : null)
                 .alfa3(textService.isValid(alfa3) ? alfa3 : null)
                 .alfa2(textService.isValid(alfa2) ? alfa2 : null)
@@ -124,7 +124,7 @@ public class StatoService extends GeoModuloService {
     public List<StatoEntity> findAllEuropa() {
         return findAll()
                 .stream()
-                .filter(stato -> stato.getContinente() != null ? stato.getContinente().getCode().equals(ContinenteEnum.europa.getTag()) : false)
+                .filter(stato -> stato.getContinente() != null ? stato.getContinente().getNome().equals(ContinenteEnum.europa.getTag()) : false)
                 .toList();
     }
 
@@ -365,7 +365,7 @@ public class StatoService extends GeoModuloService {
                         mappaBeans.put(alfa3, entityBean);
                     }
                     else {
-                        message = String.format("Non ho trovato %s nella riga %s della mappa - leggeContinente() di %s", alfa3, parte, continente.getCode());
+                        message = String.format("Non ho trovato %s nella riga %s della mappa - leggeContinente() di %s", alfa3, parte, continente.getNome());
                         logger.warn(new WrapLog().message(message).type(TypeLog.reset));
                     }
                 }

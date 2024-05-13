@@ -55,9 +55,9 @@ public class RegioneService extends GeoModuloService {
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
-    public RegioneEntity newEntity(int ordine, String code, String sigla, StatoEntity stato, String pagina, TypeRegione type) {
+    public RegioneEntity newEntity(int ordine, String nome, String sigla, StatoEntity stato, String pagina, TypeRegione type) {
         RegioneEntity newEntityBean = RegioneEntity.builder()
-                .code(textService.isValid(code) ? code : null)
+                .nome(textService.isValid(nome) ? nome : null)
                 .sigla(textService.isValid(sigla) ? sigla : null)
                 .stato(stato)
                 .pagina(textService.isValid(pagina) ? pagina : null)
@@ -70,7 +70,7 @@ public class RegioneService extends GeoModuloService {
 
     @Override
     public ObjectId getObjectId(AbstractEntity newEntityBean) {
-        return new ObjectId(textService.fixSize(((RegioneEntity) newEntityBean).getCode(), ID_LENGTH).getBytes());
+        return new ObjectId(textService.fixSize(((RegioneEntity) newEntityBean).getNome(), ID_LENGTH).getBytes());
     }
 
     @Override
