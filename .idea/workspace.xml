@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="views">
+    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -336,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715507423528</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="...">
+      <option name="closed" value="true" />
+      <created>1715541336706</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1715541336706</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,9 +374,9 @@
     <MESSAGE value="width minima" />
     <MESSAGE value="province" />
     <MESSAGE value="cap" />
-    <MESSAGE value="..." />
     <MESSAGE value="views" />
-    <option name="LAST_COMMIT_MESSAGE" value="views" />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -392,14 +400,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/it/algos/geo/regione/RegioneService.java</url>
           <line>188</line>
           <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/it/algos/geo/comune/ComuneService.java</url>
-          <line>124</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

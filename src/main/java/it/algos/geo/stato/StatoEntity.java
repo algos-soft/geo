@@ -13,8 +13,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "stato")
-//@AEntity(keyPropertyName = "alfa3", usaResetStartup = true)
-@AEntity()
+@AEntity(usaResetStartup = true)
 public class StatoEntity extends OrdineEntity {
 
 
@@ -50,7 +49,7 @@ public class StatoEntity extends OrdineEntity {
     private ContinenteEntity continente;
 
     @ASearch(type = TypeSearch.checkBox, typeCheckIniziale = TypeCheckBox.vero)
-    @AField(type = TypeField.booleano)
+    @AField(type = TypeField.booleano,headerText = "UE")
     private boolean unioneEuropea;
 
     @Override

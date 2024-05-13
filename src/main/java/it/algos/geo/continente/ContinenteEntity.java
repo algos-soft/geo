@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "continente")
-//@AEntity( keyPropertyName = "code", sortPropertyName = "ordine", usaResetStartup = true)
+@AEntity(sortPropertyName = "ordine", usaResetStartup = true)
 public class ContinenteEntity extends OrdineEntity {
 
 

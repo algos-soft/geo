@@ -24,7 +24,6 @@ public class ComuneEntity extends OrdineEntity {
     private String code;
 
     @Indexed(unique = true)
-    @ASearch(type = TypeSearch.textStartsWith)
     @AField(type = TypeField.wikiAnchor, headerText = "Wiki", caption = "WikiPagina", widthList = 18)
     private String pagina;
 
