@@ -5,6 +5,7 @@ import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.logic.*;
 import it.algos.vbase.backend.service.*;
 import it.algos.vbase.backend.wrapper.*;
+import org.apache.commons.lang3.*;
 import org.bson.types.*;
 
 import javax.inject.*;
@@ -52,5 +53,30 @@ public abstract class GeoModuloService extends ModuloService {
 
         return objectId;
     }
+
+
+//    protected ObjectId getObjectId(final String idStringValue) {
+//        String idTextValue12Char;
+//        ObjectId objectId = null;
+//
+//        try {
+//            if (textService.isValid(idStringValue)) {
+//                idTextValue12Char = textService.fixSize(idStringValue, ID_LENGTH);
+//                idTextValue12Char = StringUtils.stripAccents(idTextValue12Char);
+//                objectId = new ObjectId(idTextValue12Char.getBytes());
+//            }
+//
+//        } catch (Exception unErrore) {
+//            logger.error(new WrapLog().message(idStringValue));
+//        }
+//
+//        return objectId;
+//    }
+//
+//    //--eventuale - da discutere
+//    public AbstractEntity findById(final String idStringValue) {
+//        return findById(new ObjectId(textService.fixSize(idStringValue, ID_LENGTH).getBytes()));
+//    }
+
 
 }

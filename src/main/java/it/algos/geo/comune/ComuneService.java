@@ -49,7 +49,7 @@ public class ComuneService extends GeoModuloService {
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
      *
-     * @param code      (obbligatorio)
+     * @param nome      (obbligatorio)
      * @param provincia (facoltativo)
      * @param cap       (facoltativo)
      * @param regione   (facoltativo)
@@ -69,34 +69,6 @@ public class ComuneService extends GeoModuloService {
         return newEntityBean;
     }
 
-//    @Override
-//    public ObjectId getObjectId(AbstractEntity newEntityBean) {
-//        return getSubObjectId(((ComuneEntity) newEntityBean).getCode());
-//    }
-
-
-    protected ObjectId getSubObjectId(final String idStringValue) {
-        String idTextValue12Char;
-        ObjectId objectId = null;
-
-        try {
-            if (textService.isValid(idStringValue)) {
-                idTextValue12Char = textService.fixSize(idStringValue, ID_LENGTH);
-                idTextValue12Char = StringUtils.stripAccents(idTextValue12Char);
-                objectId = new ObjectId(idTextValue12Char.getBytes());
-            }
-
-        } catch (Exception unErrore) {
-            logger.error(new WrapLog().message(idStringValue));
-        }
-
-        return objectId;
-    }
-
-    @Override
-    public ComuneEntity findById(final String idStringValue) {
-        return (ComuneEntity) super.findById(idStringValue);
-    }
 
     @Override
     public List<ComuneEntity> findAll() {
