@@ -122,22 +122,22 @@ public class ProvinciaService extends GeoModuloService {
         RegioneEntity regioneBean;
         int cont = 0;
 
-//        Map<String, List<String>> mappaSource = resourceService.leggeMappa(nomeFileCSV);
-//        if (mappaSource != null && mappaSource.size() > 0) {
-//            for (List<String> rigaUnValore : mappaSource.values()) {
-//                code = rigaUnValore.get(0);
-//                nome = rigaUnValore.get(1);
-//                nomeCompleto = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
-//                regioneTxt = rigaUnValore.size() > 3 ? rigaUnValore.get(3) : VUOTA;
-//                regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findById(regioneTxt) : null;
-//                entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
-//                mappaBeans.put(code, entityBean);
-//            }
-//        }
-//        else {
-//            message = String.format("Manca il file [%s] nella directory /config o sul server", nomeFileCSV);
-//            logger.warn(new WrapLog().message(message).type(TypeLog.startup));
-//        }
+        Map<String, List<String>> mappaSource = resourceService.leggeMappa(nomeFileCSV);
+        if (mappaSource != null && mappaSource.size() > 0) {
+            for (List<String> rigaUnValore : mappaSource.values()) {
+                code = rigaUnValore.get(0);
+                nome = rigaUnValore.get(1);
+                nomeCompleto = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
+                regioneTxt = rigaUnValore.size() > 3 ? rigaUnValore.get(3) : VUOTA;
+                regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findById(regioneTxt) : null;
+                entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
+                mappaBeans.put(code, entityBean);
+            }
+        }
+        else {
+            message = String.format("Manca il file [%s] nella directory /config o sul server", nomeFileCSV);
+            logger.warn(new WrapLog().message(message).type(TypeLog.startup));
+        }
     }
 
 
