@@ -101,8 +101,9 @@ public class RegioneService extends GeoModuloService {
         query.addCriteria(Criteria.where("type").in(TypeRegione.regione, TypeRegione.regioneSpeciale));
         query.with(sort);
 
-        List<AbstractEntity> lista = mongoService.mongoTemplate.find(query, moduloCrudEntityClazz, "regione");
-        return lista.stream().map(bean -> (RegioneEntity) bean).toList();
+//        List<AbstractEntity> lista = mongoService.mongoTemplate.find(query, moduloCrudEntityClazz, "regione");
+//        return lista.stream().map(bean -> (RegioneEntity) bean).toList();
+        return null;
     }
 
 

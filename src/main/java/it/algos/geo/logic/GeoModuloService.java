@@ -33,25 +33,26 @@ public abstract class GeoModuloService extends ModuloService {
     }
 
     protected ObjectId getSubObjectId(AbstractEntity newEntityBean) {
-        String keyPropertyName = annotationService.getKeyPropertyName(moduloCrudEntityClazz);
-        String keyPropertyValue;
-        String idTextValue12Char;
-        ObjectId objectId = null;
-
-        if (textService.isValid(keyPropertyName) && !keyPropertyName.equals(FIELD_NAME_ID_CON)) {
-            try {
-                keyPropertyValue = reflectionService.getPropertyValueStr(newEntityBean, keyPropertyName);
-                idTextValue12Char = textService.fixSize(keyPropertyValue, ID_LENGTH);
-                objectId = new ObjectId(idTextValue12Char.getBytes());
-            } catch (Exception unErrore) {
-                Object alfa = newEntityBean;
-                keyPropertyValue = reflectionService.getPropertyValueStr(newEntityBean, keyPropertyName);
-                idTextValue12Char = textService.fixSize(keyPropertyValue, ID_LENGTH);
-                logger.info(new WrapLog().exception(unErrore).usaDb());
-            }
-        }
-
-        return objectId;
+        return null;
+//        String keyPropertyName = annotationService.getKeyPropertyName(moduloCrudEntityClazz);
+//        String keyPropertyValue;
+//        String idTextValue12Char;
+//        ObjectId objectId = null;
+//
+//        if (textService.isValid(keyPropertyName) && !keyPropertyName.equals(FIELD_NAME_ID_CON)) {
+//            try {
+//                keyPropertyValue = reflectionService.getPropertyValueStr(newEntityBean, keyPropertyName);
+//                idTextValue12Char = textService.fixSize(keyPropertyValue, ID_LENGTH);
+//                objectId = new ObjectId(idTextValue12Char.getBytes());
+//            } catch (Exception unErrore) {
+//                Object alfa = newEntityBean;
+//                keyPropertyValue = reflectionService.getPropertyValueStr(newEntityBean, keyPropertyName);
+//                idTextValue12Char = textService.fixSize(keyPropertyValue, ID_LENGTH);
+//                logger.info(new WrapLog().exception(unErrore).usaDb());
+//            }
+//        }
+//
+//        return objectId;
     }
 
 
