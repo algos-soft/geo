@@ -1,5 +1,6 @@
 package it.algos.geo.regione;
 
+import it.algos.geo.enumeration.*;
 import it.algos.geo.logic.*;
 import it.algos.geo.stato.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
