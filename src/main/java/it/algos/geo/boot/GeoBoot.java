@@ -73,15 +73,15 @@ public class GeoBoot extends BaseBoot {
     }
 
 
-    protected boolean checkResetStartup() {
-        if (super.checkResetStartup()) {
-            for (ModuloService modulo : moduloServiceListProject) {
-                modulo.checkResetStartup();
-            }
-        }
-
-        return false;
-    }
+//    protected boolean checkResetStartup() {
+//        if (super.checkResetStartup()) {
+//            for (ModuloService modulo : moduloServiceListProject) {
+//                modulo.checkResetStartup();
+//            }
+//        }
+//
+//        return false;
+//    }
 
     protected void printInfoModuli() {
         // @todo  rimettere
