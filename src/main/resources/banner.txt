@@ -1,3 +1,4 @@
+
 ${AnsiColor.MAGENTA}Java ver: ${AnsiColor.GREEN}${java.version}
 ${AnsiColor.MAGENTA}SpringBoot ver: ${AnsiColor.GREEN}${spring-boot.version}
 ${AnsiColor.MAGENTA}Vaadin ver: ${AnsiColor.GREEN}${algos.vaadin.version}
