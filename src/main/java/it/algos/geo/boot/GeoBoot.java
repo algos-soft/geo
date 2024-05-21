@@ -55,7 +55,7 @@ public class GeoBoot extends BaseBoot {
             if (listaViewsProject != null) {
                 for (Class clazz : listaViewsProject) {
                     if (annotationService.usaMenuAutomatico(clazz)) {
-                        viewClazzListProject.add(clazz);
+//                        viewClazzListProject.add(clazz);
                         viewName = clazz.getSimpleName();
                         viewName = textService.levaCoda(viewName, SUFFIX_VIEW);
                         nameViewListProject.add(viewName);
@@ -68,7 +68,7 @@ public class GeoBoot extends BaseBoot {
             }
         }
         else {
-            viewClazzListProject.add(ContinenteView.class);
+//            viewClazzListProject.add(ContinenteView.class);
         }
     }
 

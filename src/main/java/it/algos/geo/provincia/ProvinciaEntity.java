@@ -13,12 +13,12 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "provincia")
-@AEntity(usaResetStartup = true)
+@AEntity(usaResetStartup = false)
 public class ProvinciaEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.wikiAnchor, widthList = 5)
+    @AField(type = TypeField.wikiAnchor, widthList = 6)
     private String sigla;
 
     @Indexed(unique = true)

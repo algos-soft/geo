@@ -13,12 +13,12 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "regione")
-@AEntity(usaResetStartup = true)
+@AEntity(usaResetStartup = false)
 public class RegioneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @AField(type = TypeField.text)
+    @AField(type = TypeField.text, widthList = 6)
     private String sigla;
 
     @Indexed(unique = true)
