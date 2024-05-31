@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "regione")
-@AEntity(usaResetStartup = false)
+@AEntity()
 public class RegioneEntity extends OrdineEntity {
 
 

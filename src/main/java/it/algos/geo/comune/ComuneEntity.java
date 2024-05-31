@@ -15,7 +15,8 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "comune")
-@AEntity(usaResetStartup = true)
+@AReset
+@AEntity()
 public class ComuneEntity extends OrdineEntity {
 
 

@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "stato")
-@AEntity(usaResetStartup = false)
+@AEntity()
 public class StatoEntity extends OrdineEntity {
 
 

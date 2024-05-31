@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "provincia")
-@AEntity(usaResetStartup = false)
+@AEntity()
 public class ProvinciaEntity extends OrdineEntity {
 
     @Indexed(unique = true)
