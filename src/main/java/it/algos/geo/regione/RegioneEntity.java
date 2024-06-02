@@ -19,7 +19,8 @@ public class RegioneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @AField(type = TypeField.text, widthList = 6)
+    @AFieldList(width = 6)
+    @AField(type = TypeField.text)
     private String sigla;
 
     @Indexed(unique = true)
@@ -28,7 +29,8 @@ public class RegioneEntity extends OrdineEntity {
     private String nome;
 
     @DBRef()
-    @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = StatoEntity.class)
+    @AFieldList(width = 14)
+    @AField(type = TypeField.linkDBRef, linkClazz = StatoEntity.class)
     private StatoEntity stato;
 
     @AField(type = TypeField.linkWiki)
@@ -36,7 +38,8 @@ public class RegioneEntity extends OrdineEntity {
 
     @Indexed()
     @ASearch(type = TypeSearch.comboClazz)
-    @AField(type = TypeField.enumType, enumClazz = TypeRegione.class, widthList = 20)
+    @AFieldList(width = 20)
+    @AField(type = TypeField.enumType, enumClazz = TypeRegione.class)
     private TypeRegione type;
 
 

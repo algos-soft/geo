@@ -30,15 +30,18 @@ public class StatoEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textContains)
-    @AField(type = TypeField.text, widthList = 6)
+    @AFieldList(width = 6)
+    @AField(type = TypeField.text)
     private String alfa3;
 
     @Indexed(unique = true)
-    @AField(type = TypeField.text, widthList = 6)
+    @AFieldList(width = 6)
+    @AField(type = TypeField.text)
     private String alfa2;
 
     @Indexed(unique = true)
-    @AField(type = TypeField.text, headerText = "cod.", widthList = 6)
+    @AFieldList(width = 6)
+    @AField(type = TypeField.text, headerText = "cod.")
     private String numerico;
 
     @AField(type = TypeField.linkWiki)
@@ -46,7 +49,8 @@ public class StatoEntity extends OrdineEntity {
 
     @DBRef()
     @ASearch(type = TypeSearch.comboClazz, comboStartProperty = "code", comboStartValue = "Europa")
-    @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = ContinenteEntity.class)
+    @AFieldList(width = 14)
+    @AField(type = TypeField.linkDBRef, linkClazz = ContinenteEntity.class)
     private ContinenteEntity continente;
 
     @ASearch(type = TypeSearch.checkBox, typeCheckIniziale = TypeCheckBox.vero)
