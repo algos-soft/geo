@@ -31,8 +31,8 @@ public class ProvinciaEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textContains)
-    @AFieldList(width = 24)
-    @AField(type = TypeField.wikiAnchor, headerText = "Ufficiale")
+    @AFieldList(width = 24, headerText = "Ufficiale")
+    @AField(type = TypeField.wikiAnchor)
     private String nomeCompleto;
 
     @Indexed()

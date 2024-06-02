@@ -27,8 +27,8 @@ public class ComuneEntity extends OrdineEntity {
     private String nome;
 
     @Indexed(unique = true)
-    @AFieldList(width = 18)
-    @AField(type = TypeField.wikiAnchor, headerText = "Wiki", caption = "WikiPagina")
+    @AFieldList(width = 18,headerText = "Wiki")
+    @AField(type = TypeField.wikiAnchor, caption = "WikiPagina")
     private String pagina;
 
     @DBRef()

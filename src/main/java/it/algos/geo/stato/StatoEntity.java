@@ -40,8 +40,8 @@ public class StatoEntity extends OrdineEntity {
     private String alfa2;
 
     @Indexed(unique = true)
-    @AFieldList(width = 6)
-    @AField(type = TypeField.text, headerText = "cod.")
+    @AFieldList(width = 6,headerText = "cod.")
+    @AField(type = TypeField.text)
     private String numerico;
 
     @AField(type = TypeField.linkWiki)
@@ -54,7 +54,8 @@ public class StatoEntity extends OrdineEntity {
     private ContinenteEntity continente;
 
     @ASearch(type = TypeSearch.checkBox, typeCheckIniziale = TypeCheckBox.vero)
-    @AField(type = TypeField.booleano,headerText = "UE")
+    @AFieldList(headerText = "UE")
+    @AField(type = TypeField.booleano)
     private boolean unioneEuropea;
 
     @Override
