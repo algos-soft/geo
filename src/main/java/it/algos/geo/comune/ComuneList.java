@@ -66,7 +66,7 @@ public class ComuneList extends GeoList {
 
 
     private void modificaBottone() {
-        Button bottone = getTopPlaceHolder().getButtonDownload();
+        Button bottone = getButtonBar().getButtonDownload();
         bottone.addThemeVariants(ButtonVariant.LUMO_ERROR);
         bottone.setTooltipText(TEXT_DOWNLOAD);
         bottone.setIcon(new Icon(VaadinIcon.PUZZLE_PIECE));

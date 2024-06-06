@@ -71,7 +71,7 @@ public class RegioneItaliaList extends GeoList {
     }
 
     private void fixComboType() {
-        ComboBox comboType = getTopPlaceHolder().getMappaComboBox().get("type");
+        ComboBox comboType = getButtonBar().getMappaComboBox().get("type");
         List items = new ArrayList<>();
         items.add(TypeRegione.regione);
         items.add(TypeRegione.regioneSpeciale);
