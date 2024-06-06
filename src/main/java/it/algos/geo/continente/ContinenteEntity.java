@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "continente")
-@AEntity(sortPropertyName = "ordine")
+@AEntity(sort = "ordine")
 public class ContinenteEntity extends OrdineEntity {
 
 
