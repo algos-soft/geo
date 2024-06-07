@@ -7,6 +7,8 @@ import com.vaadin.flow.spring.annotation.*;
 import it.algos.geo.list.*;
 import it.algos.geo.stato.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
+
+import it.algos.vbase.backend.annotation.AList;
 import it.algos.vbase.backend.components.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.ui.dialog.*;
@@ -19,6 +21,7 @@ import java.util.*;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
+@AList(columns = {"nome", "type"})
 public class RegioneItaliaList extends GeoList {
 
     @Autowired
@@ -46,7 +49,7 @@ public class RegioneItaliaList extends GeoList {
         super.fixPreferenze();
 
         super.usaSelettoreColonne = true;
-        super.propertyNames = Arrays.asList("nome", "type");
+//        super.propertyNames = Arrays.asList("nome", "type");
     }
 
     @Override
