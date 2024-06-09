@@ -10,36 +10,44 @@ import org.springframework.data.mongodb.core.index.*;
 import org.springframework.data.mongodb.core.mapping.*;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Document(collection = "comune")
-@AEntity(usaResetStartup = true)
+@AReset
+@AEntity()
 public class ComuneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.text, widthList = 18)
+    @AFieldList(width = 18)
+    @AField(type = TypeField.text)
     private String nome;
 
     @Indexed(unique = true)
-    @AField(type = TypeField.wikiAnchor, headerText = "Wiki", caption = "WikiPagina", widthList = 18)
+    @AFieldList(width = 18,headerText = "Wiki")
+    @AFieldForm(label = "WikiPagina")
+    @AField(type = TypeField.wikiAnchor)
     private String pagina;
 
     @DBRef()
     @ASearch(type = TypeSearch.comboClazz)
-    @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = ProvinciaEntity.class)
+    @AFieldList(width = 14)
+    @AField(type = TypeField.linkDBRef, linkClazz = ProvinciaEntity.class)
     private ProvinciaEntity provincia;
 
     @Indexed()
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.text, widthList = 6)
+    @AFieldList(width = 6)
+    @AField(type = TypeField.text)
     private String cap;
 
     @DBRef()
     @ASearch(type = TypeSearch.comboClazz)
-    @AField(type = TypeField.linkDBRef, widthList = 10, linkClazz = RegioneEntity.class)
+    @AFieldList(width = 10)
+    @AField(type = TypeField.linkDBRef, linkClazz = RegioneEntity.class)
     private RegioneEntity regione;
 
 

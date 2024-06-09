@@ -9,11 +9,12 @@ import org.springframework.data.mongodb.core.index.*;
 import org.springframework.data.mongodb.core.mapping.*;
 
 @Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Document(collection = "stato")
-@AEntity(usaResetStartup = false)
+@AEntity()
 public class StatoEntity extends OrdineEntity {
 
 
@@ -29,15 +30,18 @@ public class StatoEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textContains)
-    @AField(type = TypeField.text, widthList = 6)
+    @AFieldList(width = 6)
+    @AField(type = TypeField.text)
     private String alfa3;
 
     @Indexed(unique = true)
-    @AField(type = TypeField.text, widthList = 6)
+    @AFieldList(width = 6)
+    @AField(type = TypeField.text)
     private String alfa2;
 
     @Indexed(unique = true)
-    @AField(type = TypeField.text, headerText = "cod.", widthList = 6)
+    @AFieldList(width = 6,headerText = "cod.")
+    @AField(type = TypeField.text)
     private String numerico;
 
     @AField(type = TypeField.linkWiki)
@@ -45,11 +49,13 @@ public class StatoEntity extends OrdineEntity {
 
     @DBRef()
     @ASearch(type = TypeSearch.comboClazz, comboStartProperty = "code", comboStartValue = "Europa")
-    @AField(type = TypeField.linkDBRef, widthList = 14, linkClazz = ContinenteEntity.class)
+    @AFieldList(width = 14)
+    @AField(type = TypeField.linkDBRef, linkClazz = ContinenteEntity.class)
     private ContinenteEntity continente;
 
     @ASearch(type = TypeSearch.checkBox, typeCheckIniziale = TypeCheckBox.vero)
-    @AField(type = TypeField.booleano,headerText = "UE")
+    @AFieldList(headerText = "UE")
+    @AField(type = TypeField.booleano)
     private boolean unioneEuropea;
 
     @Override

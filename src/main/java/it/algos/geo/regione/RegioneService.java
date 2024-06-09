@@ -4,7 +4,6 @@ import it.algos.geo.enumeration.*;
 import it.algos.geo.logic.*;
 import it.algos.geo.stato.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
-import it.algos.vbase.backend.boot.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.backend.exception.*;
@@ -29,6 +28,9 @@ public class RegioneService extends GeoModuloService {
 
     @Value("${algos.project.crea.directory.geo:false}")
     private String creaDirectoryGeoTxt;
+
+    @Value("${algos.project.crea.regioni.all:false}")
+    private String creaRegioniAllTxt;
 
     @Autowired
     public StatoService statoModulo;
@@ -101,8 +103,8 @@ public class RegioneService extends GeoModuloService {
         query.addCriteria(Criteria.where("type").in(TypeRegione.regione, TypeRegione.regioneSpeciale));
         query.with(sort);
 
-//        List<AbstractEntity> lista = mongoService.mongoTemplate.find(query, moduloCrudEntityClazz, "regione");
-//        return lista.stream().map(bean -> (RegioneEntity) bean).toList();
+        //        List<AbstractEntity> lista = mongoService.mongoTemplate.find(query, moduloCrudEntityClazz, "regione");
+        //        return lista.stream().map(bean -> (RegioneEntity) bean).toList();
         return null;
     }
 
@@ -112,7 +114,7 @@ public class RegioneService extends GeoModuloService {
             return RisultatoReset.nonCostruito;
         }
 
-        if (!BaseVar.creaDirectoryGeografia) {
+        if (!Boolean.parseBoolean(creaRegioniAllTxt)) {
             addItaliaOnly();
             return RisultatoReset.vuotoMaCostruito;
         }
