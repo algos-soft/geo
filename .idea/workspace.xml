@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="banner">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/continente/ContinenteView.java" afterDir="false" />
+    <list default="true" id="1a9c5736-1316-4e5e-a198-9aaf39989a2c" name="Changes" comment="continenti">
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/algos/geo/stato/StatoView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -417,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717960812903</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="continenti">
+      <option name="closed" value="true" />
+      <created>1718010765289</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1718010765289</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +489,8 @@
     <MESSAGE value="export" />
     <MESSAGE value="..." />
     <MESSAGE value="banner" />
-    <option name="LAST_COMMIT_MESSAGE" value="banner" />
+    <MESSAGE value="continenti" />
+    <option name="LAST_COMMIT_MESSAGE" value="continenti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

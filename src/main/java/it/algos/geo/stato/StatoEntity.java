@@ -8,54 +8,58 @@ import lombok.*;
 import org.springframework.data.mongodb.core.index.*;
 import org.springframework.data.mongodb.core.mapping.*;
 
+
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Document(collection = "stato")
-@AEntity()
+@ALog()
+@AReset()
+@AEntity(sort = "ordine")
 public class StatoEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.wikiAnchor)
+    @AFieldList()
     private String nome;
 
     @Indexed()
     @ASearch(type = TypeSearch.textStartsWith)
+    @AFieldList()
     @AField(type = TypeField.wikiAnchor)
     private String capitale;
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textContains)
     @AFieldList(width = 6)
-    @AField(type = TypeField.text)
+//    @AField(type = TypeField.text)
     private String alfa3;
 
     @Indexed(unique = true)
     @AFieldList(width = 6)
-    @AField(type = TypeField.text)
+//    @AField(type = TypeField.text)
     private String alfa2;
 
     @Indexed(unique = true)
     @AFieldList(width = 6,headerText = "cod.")
-    @AField(type = TypeField.text)
+//    @AField(type = TypeField.text)
     private String numerico;
 
     @AField(type = TypeField.linkWiki)
     private String divisioni;
 
-    @DBRef()
-    @ASearch(type = TypeSearch.comboClazz, comboStartProperty = "code", comboStartValue = "Europa")
+    @DBRef
+    @ASearch(type = TypeSearch.comboClazz, linkClazz = ContinenteEntity.class, comboPlaceHolder = "Continenti")
     @AFieldList(width = 14)
-    @AField(type = TypeField.linkDBRef, linkClazz = ContinenteEntity.class)
     private ContinenteEntity continente;
+
 
     @ASearch(type = TypeSearch.checkBox, typeCheckIniziale = TypeCheckBox.vero)
     @AFieldList(headerText = "UE")
-    @AField(type = TypeField.booleano)
+//    @AField(type = TypeField.booleano)
     private boolean unioneEuropea;
 
     @Override

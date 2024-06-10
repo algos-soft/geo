@@ -15,9 +15,8 @@ import org.springframework.beans.factory.annotation.*;
  *
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
-@PageTitle("Stati")
 @Route(value = "stato", layout = MainLayout.class)
-@AView(menuGroup = MenuGroup.geografia)
+@AView(menuName = "Stati", menuGroup = MenuGroup.geografia)
 public class StatoView extends CrudView {
 
     /**
@@ -26,8 +25,8 @@ public class StatoView extends CrudView {
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
      */
-    StatoView(@Autowired StatoService moduloCrudService) {
-        super(moduloCrudService, StatoList.class, StatoForm.class);
+    StatoView(@Autowired StatoService moduloService) {
+        super(moduloService, StatoList.class, StatoForm.class);
     }
 
 }// end of @Route CrudView class
