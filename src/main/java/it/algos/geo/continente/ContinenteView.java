@@ -15,9 +15,8 @@ import org.springframework.beans.factory.annotation.*;
  *
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
-@PageTitle("Continenti")
 @Route(value = "continente", layout = MainLayout.class)
-@AView(menuGroup = MenuGroup.geografia)
+@AView(menuName = "Continenti", menuGroup = MenuGroup.geografia)
 public class ContinenteView extends CrudView {
 
     /**
@@ -25,8 +24,8 @@ public class ContinenteView extends CrudView {
      * Mantiene il riferimento al CrudService (singleton) di questo Modulo, iniettato dalla sottoclasse concreta <br>
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      */
-    ContinenteView(@Autowired ContinenteService moduloCrudService) {
-        super(moduloCrudService, ContinenteList.class);
+    ContinenteView(@Autowired ContinenteService moduloService) {
+        super(moduloService, ContinenteList.class);
     }
 
 }// end of @Route CrudView class
