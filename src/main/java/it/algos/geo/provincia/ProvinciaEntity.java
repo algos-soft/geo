@@ -43,7 +43,7 @@ public class ProvinciaEntity extends OrdineEntity {
     private String cap;
 
     @DBRef()
-    @ASearch(type = TypeSearch.comboClazz, linkClazz = RegioneEntity.class, comboPlaceHolder = "Regioni")
+    @ASearch(type = TypeSearch.comboClazz, linkClazz = RegioneEntity.class, comboWidth = 14, comboPlaceHolder = "Regioni")
     @AFieldList(width = 10)
 //    @AField(type = TypeField.linkDBRef, linkClazz = RegioneEntity.class)
     private RegioneEntity regione;
