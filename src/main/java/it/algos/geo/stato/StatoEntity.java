@@ -29,7 +29,7 @@ public class StatoEntity extends OrdineEntity {
     @Indexed()
     @ASearch(type = TypeSearch.textStartsWith)
     @AFieldList()
-    @AField(type = TypeField.wikiAnchor)
+//    @AField(type = TypeField.wikiAnchor)
     private String capitale;
 
     @Indexed(unique = true)

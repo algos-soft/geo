@@ -24,9 +24,8 @@ import java.util.*;
 @Service
 public class ContinenteService extends GeoModuloService {
 
-
-    @Value("${algos.project.crea.directory.geo:false}")
-    private String creaDirectoryGeoTxt;
+    @Value("${algos.project.usa.dir.geo:true}")
+    private boolean usaDirGeo;
 
 
     /**
@@ -87,7 +86,7 @@ public class ContinenteService extends GeoModuloService {
         int ordine;
         String code;
 
-        if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
+        if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }
 

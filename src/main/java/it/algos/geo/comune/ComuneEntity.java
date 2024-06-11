@@ -2,6 +2,7 @@ package it.algos.geo.comune;
 
 import it.algos.geo.provincia.*;
 import it.algos.geo.regione.*;
+import it.algos.geo.stato.StatoEntity;
 import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.*;
 import it.algos.vbase.backend.enumeration.*;
@@ -23,31 +24,31 @@ public class ComuneEntity extends OrdineEntity {
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
     @AFieldList(width = 18)
-    @AField(type = TypeField.text)
+//    @AField(type = TypeField.text)
     private String nome;
 
     @Indexed(unique = true)
     @AFieldList(width = 18,headerText = "Wiki")
     @AFieldForm(label = "WikiPagina")
-    @AField(type = TypeField.wikiAnchor)
+//    @AField(type = TypeField.wikiAnchor)
     private String pagina;
 
     @DBRef()
-    @ASearch(type = TypeSearch.comboClazz)
+    @ASearch(type = TypeSearch.comboClazz, linkClazz = ProvinciaEntity.class, comboPlaceHolder = "Province")
     @AFieldList(width = 14)
-    @AField(type = TypeField.linkDBRef, linkClazz = ProvinciaEntity.class)
+//    @AField(type = TypeField.linkDBRef, linkClazz = ProvinciaEntity.class)
     private ProvinciaEntity provincia;
 
     @Indexed()
     @ASearch(type = TypeSearch.textStartsWith)
     @AFieldList(width = 6)
-    @AField(type = TypeField.text)
+//    @AField(type = TypeField.text)
     private String cap;
 
     @DBRef()
-    @ASearch(type = TypeSearch.comboClazz)
+    @ASearch(type = TypeSearch.comboClazz, linkClazz = RegioneEntity.class, comboPlaceHolder = "Regioni")
     @AFieldList(width = 10)
-    @AField(type = TypeField.linkDBRef, linkClazz = RegioneEntity.class)
+//    @AField(type = TypeField.linkDBRef, linkClazz = RegioneEntity.class)
     private RegioneEntity regione;
 
 

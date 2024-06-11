@@ -25,8 +25,8 @@ import java.util.*;
 @Service
 public class ComuneService extends GeoModuloService {
 
-    @Value("${algos.project.crea.directory.geo:false}")
-    private String creaDirectoryGeoTxt;
+    @Value("${algos.project.usa.dir.geo:true}")
+    private boolean usaDirGeo;
 
     @Inject
     ProvinciaService provinciaModulo;
@@ -77,7 +77,7 @@ public class ComuneService extends GeoModuloService {
 
 
     public RisultatoReset reset() {
-        if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
+        if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }
         if (provinciaModulo.count() < 1) {

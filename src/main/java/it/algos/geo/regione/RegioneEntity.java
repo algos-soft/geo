@@ -19,27 +19,29 @@ public class RegioneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
+    @ASearch(type = TypeSearch.textStartsWith)
     @AFieldList(width = 6)
-    @AField(type = TypeField.text)
     private String sigla;
 
     @Indexed(unique = true)
     @ASearch(type = TypeSearch.textStartsWith)
-    @AField(type = TypeField.wikiAnchor)
+//    @AField(type = TypeField.wikiAnchor)
     private String nome;
 
     @DBRef()
+    @ASearch(type = TypeSearch.comboClazz, linkClazz = StatoEntity.class, comboPlaceHolder = "Stati")
     @AFieldList(width = 14)
-    @AField(type = TypeField.linkDBRef, linkClazz = StatoEntity.class)
+//    @AField(type = TypeField.linkDBRef, linkClazz = StatoEntity.class)
     private StatoEntity stato;
 
-    @AField(type = TypeField.linkWiki)
+    @AFieldList()
+//    @AField(type = TypeField.linkWiki)
     private String pagina;
 
     @Indexed()
     @ASearch(type = TypeSearch.comboClazz)
     @AFieldList(width = 20)
-    @AField(type = TypeField.enumType, enumClazz = TypeRegione.class)
+//    @AField(type = TypeField.enumType, enumClazz = TypeRegione.class)
     private TypeRegione type;
 
 

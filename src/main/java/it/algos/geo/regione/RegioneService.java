@@ -26,8 +26,8 @@ import java.util.*;
 @Service
 public class RegioneService extends GeoModuloService {
 
-    @Value("${algos.project.crea.directory.geo:false}")
-    private String creaDirectoryGeoTxt;
+    @Value("${algos.project.usa.dir.geo:true}")
+    private boolean usaDirGeo;
 
     @Value("${algos.project.crea.regioni.all:false}")
     private String creaRegioniAllTxt;
@@ -110,7 +110,7 @@ public class RegioneService extends GeoModuloService {
 
 
     public RisultatoReset reset() {
-        if (!Boolean.parseBoolean(creaDirectoryGeoTxt)) {
+        if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }
 
