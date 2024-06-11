@@ -48,7 +48,8 @@ public class StatoEntity extends OrdineEntity {
 //    @AField(type = TypeField.text)
     private String numerico;
 
-    @AField(type = TypeField.linkWiki)
+    @AFieldList()
+//    @AField(type = TypeField.linkWiki)
     private String divisioni;
 
     @DBRef
