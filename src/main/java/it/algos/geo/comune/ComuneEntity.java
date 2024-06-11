@@ -1,14 +1,14 @@
 package it.algos.geo.comune;
 
-import it.algos.geo.provincia.*;
-import it.algos.geo.regione.*;
-import it.algos.geo.stato.StatoEntity;
+import it.algos.geo.provincia.ProvinciaEntity;
+import it.algos.geo.regione.RegioneEntity;
 import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.entity.*;
-import it.algos.vbase.backend.enumeration.*;
+import it.algos.vbase.backend.entity.OrdineEntity;
+import it.algos.vbase.backend.enumeration.TypeSearch;
 import lombok.*;
-import org.springframework.data.mongodb.core.index.*;
-import org.springframework.data.mongodb.core.mapping.*;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -28,7 +28,7 @@ public class ComuneEntity extends OrdineEntity {
     private String nome;
 
     @Indexed(unique = true)
-    @AFieldList(width = 18,headerText = "Wiki")
+    @AFieldList(width = 18, headerText = "Wiki")
     @AFieldForm(label = "WikiPagina")
 //    @AField(type = TypeField.wikiAnchor)
     private String pagina;
@@ -46,7 +46,7 @@ public class ComuneEntity extends OrdineEntity {
     private String cap;
 
     @DBRef()
-    @ASearch(type = TypeSearch.comboClazz, linkClazz = RegioneEntity.class, comboPlaceHolder = "Regioni")
+    @ASearch(type = TypeSearch.comboClazz, linkClazz = RegioneEntity.class, comboWidth = 12, comboPlaceHolder = "Regioni")
     @AFieldList(width = 10)
 //    @AField(type = TypeField.linkDBRef, linkClazz = RegioneEntity.class)
     private RegioneEntity regione;
