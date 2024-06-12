@@ -15,9 +15,8 @@ import org.springframework.beans.factory.annotation.*;
  *
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
-@PageTitle("Regioni italiane")
 @Route(value = "regioneitaliana", layout = MainLayout.class)
-@AView(menuGroup = MenuGroup.geografia)
+@AView(menuName = "Regioni italiane", menuGroup = MenuGroup.geografia)
 public class RegioneItaliaView extends CrudView {
 
     /**
@@ -26,8 +25,8 @@ public class RegioneItaliaView extends CrudView {
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
      */
-    public RegioneItaliaView(@Autowired RegioneService moduloCrudService) {
-        super(moduloCrudService, RegioneItaliaList.class, RegioneForm.class);
+    public RegioneItaliaView(@Autowired RegioneService moduloService) {
+        super(moduloService, RegioneItaliaList.class, RegioneForm.class);
     }
 
 }// end of @Route CrudView class

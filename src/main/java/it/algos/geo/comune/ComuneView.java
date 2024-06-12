@@ -15,9 +15,8 @@ import org.springframework.beans.factory.annotation.*;
  *
  * @Route chiamata dal menu generale oppure dalla barra del browser <br>
  */
-@PageTitle("Comuni")
 @Route(value = "comune", layout = MainLayout.class)
-@AView(menuGroup = MenuGroup.geografia)
+@AView(menuName = "Comuni", menuGroup = MenuGroup.geografia)
 public class ComuneView extends CrudView {
 
 
@@ -27,8 +26,8 @@ public class ComuneView extends CrudView {
      * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
      * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
      */
-    ComuneView(@Autowired ComuneService moduloCrudService) {
-        super(moduloCrudService, ComuneList.class, ComuneForm.class);
+    ComuneView(@Autowired ComuneService moduloService) {
+        super(moduloService, ComuneList.class, ComuneForm.class);
     }
 
 }// end of @Route CrudView class
