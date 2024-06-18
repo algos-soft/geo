@@ -7,13 +7,17 @@ import com.vaadin.flow.component.icon.*;
 import com.vaadin.flow.spring.annotation.*;
 import it.algos.geo.list.*;
 import static it.algos.vbase.backend.boot.BaseCost.*;
+
+import it.algos.vbase.backend.annotation.AList;
 import it.algos.vbase.backend.enumeration.*;
+import it.algos.vbase.backend.list.ListButtons;
 import jakarta.annotation.*;
 import static org.springframework.beans.factory.config.BeanDefinition.*;
 import org.springframework.context.annotation.*;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
+@AList(buttons = {ListButtons.download})
 public class ComuneList extends GeoList {
 
 
@@ -66,7 +70,7 @@ public class ComuneList extends GeoList {
 
 
     private void modificaBottone() {
-        Button bottone = getButtonBar().getButtonDownload();
+        Button bottone = getButtonBar().getButton(ListButtons.download);
         bottone.addThemeVariants(ButtonVariant.LUMO_ERROR);
         bottone.setTooltipText(TEXT_DOWNLOAD);
         bottone.setIcon(new Icon(VaadinIcon.PUZZLE_PIECE));
