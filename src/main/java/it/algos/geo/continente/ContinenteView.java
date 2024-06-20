@@ -1,10 +1,11 @@
 package it.algos.geo.continente;
 
-import com.vaadin.flow.router.*;
-import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.enumeration.*;
-import it.algos.vbase.ui.view.*;
-import org.springframework.beans.factory.annotation.*;
+import com.vaadin.flow.router.Route;
+import it.algos.vbase.backend.annotation.AView;
+import it.algos.vbase.backend.constant.Gruppo;
+import it.algos.vbase.ui.view.CrudView;
+import it.algos.vbase.ui.view.MainLayout;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Project base24
@@ -16,7 +17,7 @@ import org.springframework.beans.factory.annotation.*;
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
 @Route(value = "continente", layout = MainLayout.class)
-@AView(menuName = "Continenti", menuGroup = MenuGroup.geografia)
+@AView(menuName = "Continenti", menuGroup = Gruppo.GEO)
 public class ContinenteView extends CrudView {
 
     /**

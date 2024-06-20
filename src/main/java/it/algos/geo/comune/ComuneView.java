@@ -2,6 +2,7 @@ package it.algos.geo.comune;
 
 import com.vaadin.flow.router.*;
 import it.algos.vbase.backend.annotation.*;
+import it.algos.vbase.backend.constant.Gruppo;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.ui.view.*;
 import org.springframework.beans.factory.annotation.*;
@@ -16,7 +17,7 @@ import org.springframework.beans.factory.annotation.*;
  * @Route chiamata dal menu generale oppure dalla barra del browser <br>
  */
 @Route(value = "comune", layout = MainLayout.class)
-@AView(menuName = "Comuni", menuGroup = MenuGroup.geografia)
+@AView(menuName = "Comuni", menuGroup = Gruppo.GEO)
 public class ComuneView extends CrudView {
 
 

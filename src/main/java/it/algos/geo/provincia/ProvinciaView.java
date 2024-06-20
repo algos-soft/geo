@@ -2,6 +2,7 @@ package it.algos.geo.provincia;
 
 import com.vaadin.flow.router.*;
 import it.algos.vbase.backend.annotation.*;
+import it.algos.vbase.backend.constant.Gruppo;
 import it.algos.vbase.backend.enumeration.*;
 import it.algos.vbase.ui.view.*;
 import org.springframework.beans.factory.annotation.*;
@@ -16,7 +17,7 @@ import org.springframework.beans.factory.annotation.*;
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
 @Route(value = "provincia", layout = MainLayout.class)
-@AView(menuName = "Province italiane", menuGroup = MenuGroup.geografia)
+@AView(menuName = "Province italiane", menuGroup = Gruppo.GEO)
 public class ProvinciaView extends CrudView {
 
 
