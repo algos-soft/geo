@@ -1,12 +1,9 @@
 package it.algos.geo.list;
 
-import com.vaadin.flow.component.grid.*;
-import it.algos.vbase.backend.boot.*;
-import static it.algos.vbase.backend.boot.BaseCost.*;
-import it.algos.vbase.backend.list.*;
-import it.algos.vbase.ui.view.*;
-import it.algos.vbase.ui.wrapper.*;
-import org.springframework.data.domain.*;
+import it.algos.vbase.backend.boot.BaseVar;
+import it.algos.vbase.backend.list.CrudList;
+import it.algos.vbase.ui.view.CrudView;
+import it.algos.vbase.ui.wrapper.ASpan;
 
 /**
  * Project geo
@@ -31,8 +28,6 @@ public abstract class GeoList extends CrudList {
 
     protected void fixPreferenze() {
         super.fixPreferenze();
-
-        super.basicSort = Sort.by(Sort.Direction.ASC, FIELD_NAME_ORDINE);
 
         super.usaSelettoreColonne = true;
         super.usaVariantCompact = false;
