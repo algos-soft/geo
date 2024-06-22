@@ -22,7 +22,7 @@ import java.util.*;
  * Time: 11:42
  */
 @Service
-public class StatoService extends GeoModuloService {
+public class StatoService extends GeoModuloService<StatoEntity> {
 
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
@@ -73,7 +73,6 @@ public class StatoService extends GeoModuloService {
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
      *
-     * @param code     (obbligatorio)
      * @param capitale (facoltativo)
      *
      * @return la nuova entity appena creata (con keyID ma non salvata)
@@ -104,7 +103,7 @@ public class StatoService extends GeoModuloService {
     }
 
     @Override
-    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+    public ObjectId getObjectId(StatoEntity newEntityBean) {
         return new ObjectId(textService.fixSize(((StatoEntity) newEntityBean).getAlfa3(), ID_LENGTH).getBytes());
     }
 

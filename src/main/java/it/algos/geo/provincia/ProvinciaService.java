@@ -24,7 +24,7 @@ import java.util.*;
  * Time: 09:48
  */
 @Service
-public class ProvinciaService extends GeoModuloService {
+public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
 
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
@@ -46,7 +46,6 @@ public class ProvinciaService extends GeoModuloService {
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
      *
-     * @param code         (obbligatorio)
      * @param nome         (obbligatorio)
      * @param nomeCompleto (facoltativa)
      * @param regione      (facoltativa)
@@ -68,7 +67,7 @@ public class ProvinciaService extends GeoModuloService {
 
 
     @Override
-    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+    public ObjectId getObjectId(ProvinciaEntity newEntityBean) {
         return new ObjectId(textService.fixSize(((ProvinciaEntity) newEntityBean).getSigla(), ID_LENGTH).getBytes());
     }
 

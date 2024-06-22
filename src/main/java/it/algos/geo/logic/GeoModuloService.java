@@ -14,7 +14,7 @@ import javax.inject.*;
  * Date: sab, 11-mag-2024
  * Time: 07:18
  */
-public abstract class GeoModuloService extends ModuloService {
+public abstract class GeoModuloService <T extends AbstractEntity> extends ModuloService<T> {
 
     @Inject
     protected ResourceService resourceService;
@@ -28,7 +28,7 @@ public abstract class GeoModuloService extends ModuloService {
 
 
     @Override
-    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+    public ObjectId getObjectId(T newEntityBean) {
         return getSubObjectId(newEntityBean);
     }
 

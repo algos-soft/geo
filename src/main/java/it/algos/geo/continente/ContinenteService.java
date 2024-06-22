@@ -22,7 +22,7 @@ import java.util.*;
  * Time: 06:59
  */
 @Service
-public class ContinenteService extends GeoModuloService {
+public class ContinenteService extends GeoModuloService<ContinenteEntity> {
 
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
@@ -56,7 +56,7 @@ public class ContinenteService extends GeoModuloService {
     }
 
     @Override
-    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+    public ObjectId getObjectId(ContinenteEntity newEntityBean) {
         return new ObjectId(textService.fixSize(((ContinenteEntity) newEntityBean).getNome(), ID_LENGTH).getBytes());
     }
 

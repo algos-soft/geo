@@ -24,7 +24,7 @@ import java.util.*;
  * Time: 16:47
  */
 @Service
-public class RegioneService extends GeoModuloService {
+public class RegioneService extends GeoModuloService<RegioneEntity> {
 
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
@@ -72,7 +72,7 @@ public class RegioneService extends GeoModuloService {
     }
 
     @Override
-    public ObjectId getObjectId(AbstractEntity newEntityBean) {
+    public ObjectId getObjectId(RegioneEntity newEntityBean) {
         return new ObjectId(textService.fixSize(((RegioneEntity) newEntityBean).getNome(), ID_LENGTH).getBytes());
     }
 

@@ -23,7 +23,7 @@ import java.util.*;
  * Time: 09:13
  */
 @Service
-public class ComuneService extends GeoModuloService {
+public class ComuneService extends GeoModuloService<ComuneEntity> {
 
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
