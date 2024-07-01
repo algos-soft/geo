@@ -2,11 +2,11 @@ package it.algos.geo.regione;
 
 import com.vaadin.flow.router.Route;
 import it.algos.vbase.backend.annotation.AView;
+import it.algos.vbase.backend.constant.Gruppo;
 import it.algos.vbase.ui.view.CrudView;
 import it.algos.vbase.ui.view.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static it.algos.geo.boot.GeoCost.GROUP_GEO;
 
 /**
  * Project base24
@@ -18,7 +18,7 @@ import static it.algos.geo.boot.GeoCost.GROUP_GEO;
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
 @Route(value = "regione", layout = MainLayout.class)
-@AView(menuGroup = GROUP_GEO, menuName = "Regioni")
+@AView(menuGroup = Gruppo.GEO, menuName = "Regioni")
 public class RegioneView extends CrudView {
 
     /**

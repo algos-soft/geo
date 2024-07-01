@@ -2,11 +2,11 @@ package it.algos.geo.stato;
 
 import com.vaadin.flow.router.Route;
 import it.algos.vbase.backend.annotation.AView;
+import it.algos.vbase.backend.constant.Gruppo;
 import it.algos.vbase.ui.view.CrudView;
 import it.algos.vbase.ui.view.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static it.algos.geo.boot.GeoCost.GROUP_GEO;
 
 /**
  * Project base24
@@ -18,7 +18,7 @@ import static it.algos.geo.boot.GeoCost.GROUP_GEO;
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
 @Route(value = "stato", layout = MainLayout.class)
-@AView(menuGroup = GROUP_GEO, menuName = "Stati")
+@AView(menuGroup = Gruppo.GEO, menuName = "Stati")
 public class StatoView extends CrudView {
 
     /**
