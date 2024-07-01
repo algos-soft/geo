@@ -6,6 +6,8 @@ import it.algos.vbase.ui.view.CrudView;
 import it.algos.vbase.ui.view.MainLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static it.algos.geo.boot.GeoCost.GROUP_GEO;
+
 /**
  * Project base24
  * Created by Algos
@@ -16,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
 @Route(value = "stato", layout = MainLayout.class)
-@AView(menuName = "Stati")
+@AView(menuGroup = GROUP_GEO, menuName = "Stati")
 public class StatoView extends CrudView {
 
     /**
