@@ -36,10 +36,10 @@ public class GeoBoot extends BaseBoot {
     }
 
     @AMenu(CUSTOM_MENU)
-    public TreeNode<MenuObject> fixCustomMenu(TreeNode<MenuObject> treeNode) {
+    public TreeNode fixCustomMenu(TreeNode treeNode) {
 
-        List<TreeNode<MenuObject>> lista = treeNode.getChildren();
-        for (TreeNode<MenuObject> node : lista) {
+        List<TreeNode> lista = treeNode.getChildren();
+        for (TreeNode node : lista) {
             if (node.getData().getLabel().equals(Gruppo.GEO)) {
                 node.getData().setLabel("Geografia");
             }
