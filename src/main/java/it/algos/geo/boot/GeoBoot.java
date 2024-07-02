@@ -1,12 +1,14 @@
 package it.algos.geo.boot;
 
 import it.algos.vbase.backend.annotation.AMenu;
-import it.algos.vbase.backend.boot.*;
+import it.algos.vbase.backend.boot.BaseBoot;
 import it.algos.vbase.backend.constant.Gruppo;
 import it.algos.vbase.backend.tree.MenuObject;
 import it.algos.vbase.backend.tree.TreeNode;
-import org.springframework.stereotype.*;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -38,6 +40,10 @@ public class GeoBoot extends BaseBoot {
         return treeNode;
     }
 
+    @Override
+    public List<String> fixCustomMenuKey(List<String> keySet) {
+        return Arrays.asList("Anagrafica", "Crono", "Geo", "Utility", "Task", "Test");
+    }
 }
 
 
