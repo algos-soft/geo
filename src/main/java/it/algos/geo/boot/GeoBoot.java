@@ -32,8 +32,8 @@ public class GeoBoot extends BaseBoot {
 
         List<TreeNode<MenuObject>> lista = treeNode.getChildren();
         for (TreeNode<MenuObject> node : lista) {
-            if (node.getData().getPath().equals(Gruppo.GEO)) {
-                node.getData().setPath("Geografia");
+            if (node.getData().getLabel().equals(Gruppo.GEO)) {
+                node.getData().setLabel("Geografia");
             }
         }
 
