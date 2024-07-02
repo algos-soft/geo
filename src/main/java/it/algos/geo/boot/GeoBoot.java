@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 
+import static it.algos.vbase.backend.boot.BaseCost.CUSTOM_MENU;
+import static it.algos.vbase.backend.boot.BaseCost.CUSTOM_MENU_KEY;
+
 /**
  * Project wiki24
  * Created by Algos
@@ -20,14 +23,19 @@ import java.util.List;
  */
 @Service
 @Component("geoBoot")
-@AMenu
 public class GeoBoot extends BaseBoot {
 
 
     public GeoBoot() {
     }
 
-    @Override
+
+    @AMenu(CUSTOM_MENU_KEY)
+    public List<String> fixCustomMenuKey(List<String> keyList) {
+        return Arrays.asList("Anagrafica", "Crono", "Geo", "Utility", "Task", "Test");
+    }
+
+    @AMenu(CUSTOM_MENU)
     public TreeNode<MenuObject> fixCustomMenu(TreeNode<MenuObject> treeNode) {
 
         List<TreeNode<MenuObject>> lista = treeNode.getChildren();
@@ -40,10 +48,6 @@ public class GeoBoot extends BaseBoot {
         return treeNode;
     }
 
-    @Override
-    public List<String> fixCustomMenuKey(List<String> keySet) {
-        return Arrays.asList("Anagrafica", "Crono", "Geo", "Utility", "Task", "Test");
-    }
 }
 
 
