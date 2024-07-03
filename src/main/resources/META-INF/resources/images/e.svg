@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10mm"
+   height="10mm"
+   viewBox="0 0 10 10"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <rect
+       x="195.6935"
+       y="434.87445"
+       width="178.02673"
+       height="195.6935"
+       id="rect165" />
+  </defs>
+  <g
+     aria-label="e"
+     transform="scale(0.26458333)"
+     id="text163"
+     style="font-size:32px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';white-space:pre;shape-inside:url(#rect165)">
+    <path
+       d="M 37.762191,21.507616 H 8.7372617 q 0.6288287,3.832388 3.3426753,6.112008 2.746931,2.246573 6.983179,2.246573 5.063651,0 8.704177,-3.535059 l 7.612008,3.568086 q -2.846229,4.030615 -6.817711,5.979858 -3.971483,1.916194 -9.432282,1.916194 -8.472496,0 -13.8008916,-5.319101 Q 0,27.124047 0,19.095865 0,10.869435 5.2953101,5.4512316 10.623727,0 18.632883,0 27.138464,0 32.466881,5.4512316 37.795276,10.869435 37.795276,19.789649 Z M 28.693972,14.404493 Q 27.800378,11.39804 25.152723,9.5148947 22.538174,7.6317274 19.063116,7.6317274 q -3.772908,0 -6.619137,2.1144211 -1.787167,1.3215135 -3.309569,4.6583445 z"
+       style="font-weight:bold;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic, Bold';fill:#69aa18;stroke-width:2.11628"
+       id="path689" />
+  </g>
+</svg>
