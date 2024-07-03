@@ -1,17 +1,8 @@
 package it.algos.geo.boot;
 
-import it.algos.vbase.backend.annotation.AMenu;
 import it.algos.vbase.backend.boot.BaseBoot;
-import it.algos.vbase.backend.constant.Gruppo;
-import it.algos.vbase.backend.tree.TreeNode;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import java.util.Arrays;
-import java.util.List;
-
-import static it.algos.vbase.backend.boot.BaseCost.CUSTOM_MENU;
-import static it.algos.vbase.backend.boot.BaseCost.CUSTOM_MENU_KEY;
 
 /**
  * Project wiki24
@@ -24,28 +15,9 @@ import static it.algos.vbase.backend.boot.BaseCost.CUSTOM_MENU_KEY;
 @Component("geoBoot")
 public class GeoBoot extends BaseBoot {
 
-
     public GeoBoot() {
     }
 
-
-    @AMenu(CUSTOM_MENU_KEY)
-    public List<String> fixCustomMenuKey(List<String> keyList) {
-        return Arrays.asList("Anagrafica", "Crono", "Geo", "Utility", "Task", "Test");
-    }
-
-    @AMenu(CUSTOM_MENU)
-    public TreeNode fixCustomMenu(TreeNode treeNode) {
-
-        List<TreeNode> lista = treeNode.getChildren();
-        for (TreeNode node : lista) {
-            if (node.getData().getLabel().equals(Gruppo.GEO)) {
-                node.getData().setLabel("Geografia");
-            }
-        }
-
-        return treeNode;
-    }
 
 }
 
