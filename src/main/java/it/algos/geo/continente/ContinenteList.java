@@ -1,18 +1,16 @@
 package it.algos.geo.continente;
 
-import com.vaadin.flow.spring.annotation.*;
-import it.algos.geo.list.*;
-import static it.algos.vbase.backend.boot.BaseCost.*;
-import it.algos.vbase.backend.boot.*;
-import it.algos.vbase.backend.list.*;
-import it.algos.vbase.ui.wrapper.*;
-import static org.springframework.beans.factory.config.BeanDefinition.*;
-import org.springframework.context.annotation.*;
+import com.vaadin.flow.spring.annotation.SpringComponent;
+import it.algos.geo.list.GeoList;
+import it.algos.vbase.backend.annotation.AList;
+import org.springframework.context.annotation.Scope;
 
-import java.util.*;
+import static it.algos.vbase.backend.boot.BaseCost.*;
+import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
+@AList()
 public class ContinenteList extends GeoList {
 
 
