@@ -1,5 +1,6 @@
 package it.algos.geo.regione;
 
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.router.Route;
 import it.algos.vbase.backend.annotation.AView;
 import it.algos.vbase.backend.constant.Gruppo;
@@ -18,7 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Route chiamata dal menu generale o dalla barra del browser <br>
  */
 @Route(value = "regione", layout = MainLayout.class)
-@AView(menuGroup = Gruppo.GEO, menuName = "Regioni")
+@AView(menuGroup = Gruppo.GEO, menuName = "Regioni", vaadin = VaadinIcon.GLOBE)
 public class RegioneView extends CrudView {
 
     /**
