@@ -36,6 +36,7 @@
                         <configuration>
                             <sources>
                                 <source>vbase/src/main/java</source>
+                                <source>utility/src/main/java</source>
                             </sources>
                         </configuration>
                     </execution>
