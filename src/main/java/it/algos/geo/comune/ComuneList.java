@@ -1,19 +1,22 @@
 package it.algos.geo.comune;
 
-import com.vaadin.flow.component.button.*;
-import com.vaadin.flow.component.grid.*;
-import com.vaadin.flow.component.html.*;
-import com.vaadin.flow.component.icon.*;
-import com.vaadin.flow.spring.annotation.*;
-import it.algos.geo.list.*;
-import static it.algos.vbase.backend.boot.BaseCost.*;
-
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
+import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.spring.annotation.SpringComponent;
+import it.algos.geo.list.GeoList;
 import it.algos.vbase.backend.annotation.AList;
-import it.algos.vbase.backend.enumeration.*;
+import it.algos.vbase.backend.enumeration.FontWeight;
 import it.algos.vbase.backend.list.ListButtons;
-import jakarta.annotation.*;
-import static org.springframework.beans.factory.config.BeanDefinition.*;
-import org.springframework.context.annotation.*;
+import jakarta.annotation.PostConstruct;
+import org.springframework.context.annotation.Scope;
+
+import static it.algos.vbase.backend.boot.BaseCost.*;
+import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
@@ -38,10 +41,10 @@ public class ComuneList extends GeoList {
         super.fixPreferenze();
 
         super.gridSelectionMode = Grid.SelectionMode.MULTI;
-        super.usaBottoneDownload = true;
+//        super.usaBottoneDownload = true;
         super.usaBottoneEdit = true;
         super.usaBottoneShow = false;
-        super.usaBottoneExport = true;
+//        super.usaBottoneExport = true;
     }
 
     @Override
