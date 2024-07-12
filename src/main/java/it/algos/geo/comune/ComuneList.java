@@ -39,7 +39,6 @@ public class ComuneList extends GeoList {
     protected void fixPreferenze() {
         super.fixPreferenze();
 
-        super.gridSelectionMode = Grid.SelectionMode.MULTI;
 //        super.usaBottoneDownload = true;
 //        super.usaBottoneEdit = true;
 //        super.usaBottoneShow = false;

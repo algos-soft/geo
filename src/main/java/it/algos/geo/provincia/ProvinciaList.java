@@ -33,8 +33,6 @@ public class ProvinciaList extends GeoList {
 
     protected void fixPreferenze() {
         super.fixPreferenze();
-
-        super.gridSelectionMode = Grid.SelectionMode.MULTI;
     }
 
     @Override
