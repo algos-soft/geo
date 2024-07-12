@@ -39,8 +39,8 @@ public class StatoList extends GeoList {
         super.fixPreferenze();
 
         super.gridSelectionMode = Grid.SelectionMode.MULTI;
-        super.usaBottoneEdit = true;
-        super.usaBottoneShow = false;
+//        super.usaBottoneEdit = true;
+//        super.usaBottoneShow = false;
 //        super.usaBottoneExport = true;
     }
 

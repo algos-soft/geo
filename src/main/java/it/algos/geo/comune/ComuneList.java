@@ -41,8 +41,8 @@ public class ComuneList extends GeoList {
 
         super.gridSelectionMode = Grid.SelectionMode.MULTI;
 //        super.usaBottoneDownload = true;
-        super.usaBottoneEdit = true;
-        super.usaBottoneShow = false;
+//        super.usaBottoneEdit = true;
+//        super.usaBottoneShow = false;
 //        super.usaBottoneExport = true;
     }
 
