@@ -9,6 +9,7 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import it.algos.geo.list.GeoList;
 import it.algos.vbase.backend.annotation.AList;
+import it.algos.vbase.backend.constant.Bottone;
 import it.algos.vbase.backend.enumeration.FontWeight;
 import it.algos.vbase.backend.list.ListButtons;
 import jakarta.annotation.PostConstruct;
@@ -18,7 +19,7 @@ import static it.algos.vbase.backend.boot.BaseCost.*;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @Scope(value = SCOPE_PROTOTYPE)
-@AList(buttons = {ListButtons.download})
+@AList(bottoni = {Bottone.DOWNLOAD})
 public class ComuneList extends GeoList {
 
 
