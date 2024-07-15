@@ -6,6 +6,7 @@ import it.algos.vbase.backend.annotation.AFieldList;
 import it.algos.vbase.backend.annotation.ASearch;
 import it.algos.vbase.backend.entity.OrdineEntity;
 import it.algos.vbase.backend.enumeration.TypeSearch;
+import it.algos.vbase.backend.enumeration.TypeTextSearch;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -21,25 +22,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ProvinciaEntity extends OrdineEntity {
 
     @Indexed(unique = true)
-    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(typeText = TypeTextSearch.startsWith)
     @AFieldList(width = 6)
 //    @AField(type = TypeField.wikiAnchor)
     private String sigla;
 
     @Indexed(unique = true)
-    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(typeText = TypeTextSearch.startsWith)
     @AFieldList(width = 14)
 //    @AField(type = TypeField.wikiAnchor, anchorPrefix = "Provincia di ")
     private String nome;
 
     @Indexed(unique = true)
-    @ASearch(type = TypeSearch.textContains)
+    @ASearch(typeText = TypeTextSearch.contains)
     @AFieldList(width = 24, headerText = "Ufficiale")
 //    @AField(type = TypeField.wikiAnchor)
     private String nomeCompleto;
 
     @Indexed()
-    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(typeText = TypeTextSearch.startsWith)
     @AFieldList(width = 5)
 //    @AField(type = TypeField.text)
     private String cap;

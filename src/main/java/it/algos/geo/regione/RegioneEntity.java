@@ -19,12 +19,12 @@ public class RegioneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(typeText = TypeTextSearch.startsWith)
     @AFieldList(width = 6)
     private String sigla;
 
     @Indexed(unique = true)
-    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(typeText = TypeTextSearch.startsWith)
 //    @AField(type = TypeField.wikiAnchor)
     private String nome;
 

@@ -22,18 +22,18 @@ public class StatoEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(typeText = TypeTextSearch.startsWith)
     @AFieldList()
     private String nome;
 
     @Indexed()
-    @ASearch(type = TypeSearch.textStartsWith)
+    @ASearch(typeText = TypeTextSearch.startsWith)
     @AFieldList()
 //    @AField(type = TypeField.wikiAnchor)
     private String capitale;
 
     @Indexed(unique = true)
-    @ASearch(type = TypeSearch.textContains)
+    @ASearch(typeText = TypeTextSearch.contains)
     @AFieldList(width = 6)
 //    @AField(type = TypeField.text)
     private String alfa3;
