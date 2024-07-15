@@ -46,7 +46,7 @@ public class ComuneList extends GeoList {
     }
 
     @Override
-    public void syncHeader() {
+    public void fixHeader() {
         Anchor anchor;
         String link;
         String caption;

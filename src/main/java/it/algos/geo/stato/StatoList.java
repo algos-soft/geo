@@ -40,7 +40,7 @@ public class StatoList extends GeoList {
     }
 
     @Override
-    public void syncHeader() {
+    public void fixHeader() {
         Anchor anchor1;
         Anchor anchor2;
         Anchor anchor3;

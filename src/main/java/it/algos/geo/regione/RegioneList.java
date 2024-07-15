@@ -45,7 +45,7 @@ public class RegioneList extends GeoList {
 
 
     @Override
-    public void syncHeader() {
+    public void fixHeader() {
         String link = "ISO 3166-1";
         String link2 = "ISO 3166-2:xx";
 

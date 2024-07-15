@@ -36,7 +36,7 @@ public class ProvinciaList extends GeoList {
     }
 
     @Override
-    public void syncHeader() {
+    public void fixHeader() {
         String link = "province";
         BAnchor anchor = BAnchor.build(LINK_SERVER_ALGOS + link, textService.setQuadre("algos -> " + link));
         BSpan testo = BSpan.text(TEXT_BASE + SPAZIO + TEXT_CSV).bold().verde();

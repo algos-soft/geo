@@ -24,7 +24,7 @@ public class ContinenteList extends GeoList {
 
 
     @Override
-    public void syncHeader() {
+    public void fixHeader() {
         String enumeration = "ContinenteEnum";
         String service = "Continente";
 
