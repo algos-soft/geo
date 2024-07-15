@@ -1,23 +1,24 @@
 package it.algos.geo.regione;
 
-import com.vaadin.flow.component.*;
-import com.vaadin.flow.component.combobox.*;
-import com.vaadin.flow.component.html.*;
-import com.vaadin.flow.spring.annotation.*;
-import it.algos.geo.list.*;
-import it.algos.geo.stato.*;
-import static it.algos.vbase.backend.boot.BaseCost.*;
-
+import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.html.Span;
+import com.vaadin.flow.spring.annotation.SpringComponent;
+import it.algos.geo.list.GeoList;
+import it.algos.geo.stato.StatoService;
 import it.algos.vbase.backend.annotation.AList;
-import it.algos.vbase.backend.components.*;
-import it.algos.vbase.backend.enumeration.*;
-import it.algos.vbase.ui.dialog.*;
-import jakarta.annotation.*;
-import org.springframework.beans.factory.annotation.*;
-import static org.springframework.beans.factory.config.BeanDefinition.*;
-import org.springframework.context.annotation.*;
+import it.algos.vbase.backend.components.WAnchor;
+import it.algos.vbase.backend.enumeration.TypeRegione;
+import it.algos.vbase.ui.dialog.BSpan;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static it.algos.vbase.backend.boot.BaseCost.*;
+import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
@@ -75,8 +76,11 @@ public class RegioneItaliaList extends GeoList {
         List items = new ArrayList<>();
         items.add(TypeRegione.regione);
         items.add(TypeRegione.regioneSpeciale);
-        comboType.setItems(items);
-        comboType.setWidth("17rem");
+        if (comboType != null) {
+            comboType.setItems(items);
+            comboType.setWidth("17rem");
+        }
+
     }
 
 }// end of CrudList class
