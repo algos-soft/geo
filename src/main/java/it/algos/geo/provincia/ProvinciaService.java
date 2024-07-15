@@ -29,7 +29,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
 
-    @Inject
+    @Autowired
     RegioneService regioneModulo;
 
     private ProvinciaEntity entityBean;

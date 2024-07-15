@@ -1,19 +1,19 @@
 package it.algos.geo.comune;
 
-import it.algos.geo.logic.*;
-import it.algos.geo.provincia.*;
-import it.algos.geo.regione.*;
-import static it.algos.vbase.backend.boot.BaseCost.*;
-import it.algos.vbase.backend.entity.*;
-import it.algos.vbase.backend.enumeration.*;
-import it.algos.vbase.backend.wrapper.*;
-import org.apache.commons.lang3.*;
-import org.bson.types.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
+import it.algos.geo.logic.GeoModuloService;
+import it.algos.geo.provincia.ProvinciaEntity;
+import it.algos.geo.provincia.ProvinciaService;
+import it.algos.geo.regione.RegioneEntity;
+import it.algos.geo.regione.RegioneService;
+import it.algos.vbase.backend.enumeration.RisultatoReset;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-import javax.inject.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static it.algos.vbase.backend.boot.BaseCost.*;
 
 /**
  * Project base24
@@ -28,10 +28,10 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
 
-    @Inject
+    @Autowired
     ProvinciaService provinciaModulo;
 
-    @Inject
+    @Autowired
     RegioneService regioneModulo;
 
     private ComuneEntity entityBean;

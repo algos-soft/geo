@@ -1,11 +1,11 @@
 package it.algos.geo.logic;
 
-import it.algos.vbase.backend.entity.*;
-import it.algos.vbase.backend.logic.*;
-import it.algos.vbase.backend.service.*;
-import org.bson.types.*;
-
-import javax.inject.*;
+import it.algos.vbase.backend.entity.AbstractEntity;
+import it.algos.vbase.backend.logic.ModuloService;
+import it.algos.vbase.backend.service.ResourceService;
+import it.algos.vbase.backend.service.WebService;
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Project geo
@@ -16,10 +16,10 @@ import javax.inject.*;
  */
 public abstract class GeoModuloService <T extends AbstractEntity> extends ModuloService<T> {
 
-    @Inject
+    @Autowired
     protected ResourceService resourceService;
 
-    @Inject
+    @Autowired
     protected WebService webService;
 
     public GeoModuloService(final Class entityClazz, final Class viewClazz) {
