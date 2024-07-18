@@ -71,11 +71,11 @@ public class ComuneList extends GeoList {
 
 
     private void modificaBottone() {
-        Button bottone = getListToolbar().getButton(ListButtons.download);
-        bottone.addThemeVariants(ButtonVariant.LUMO_ERROR);
-        bottone.setTooltipText(TEXT_DOWNLOAD);
-        bottone.setIcon(new Icon(VaadinIcon.PUZZLE_PIECE));
-        bottone.addClickListener(event -> ((ComuneService)moduloService).elabora());
+//        Button bottone = getListToolbar().getButton(ListButtons.download);
+//        bottone.addThemeVariants(ButtonVariant.LUMO_ERROR);
+//        bottone.setTooltipText(TEXT_DOWNLOAD);
+//        bottone.setIcon(new Icon(VaadinIcon.PUZZLE_PIECE));
+//        bottone.addClickListener(event -> ((ComuneService)moduloService).elabora());
 
 //        List items = new ArrayList<>();
 //        items.add(TypePagamento.cont);

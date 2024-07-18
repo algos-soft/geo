@@ -72,14 +72,14 @@ public class RegioneItaliaList extends GeoList {
     }
 
     private void fixComboType() {
-        ComboBox comboType = getListToolbar().getMappaComboBox().get("type");
-        List items = new ArrayList<>();
-        items.add(TypeRegione.regione);
-        items.add(TypeRegione.regioneSpeciale);
-        if (comboType != null) {
-            comboType.setItems(items);
-            comboType.setWidth("17rem");
-        }
+//        ComboBox comboType = getListToolbar().getMappaComboBox().get("type");
+//        List items = new ArrayList<>();
+//        items.add(TypeRegione.regione);
+//        items.add(TypeRegione.regioneSpeciale);
+//        if (comboType != null) {
+//            comboType.setItems(items);
+//            comboType.setWidth("17rem");
+//        }
 
     }
 
