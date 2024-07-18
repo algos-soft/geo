@@ -58,7 +58,7 @@ public class StatoEntity extends OrdineEntity {
     private ContinenteEntity continente;
 
 
-    @ASearch(type = TypeSearch.checkBox, typeCheckIniziale = TypeCheckBox.vero)
+    @ASearch(type = TypeSearch.checkBox, checkBoxInitialStatus = TypeCheckBox.vero)
     @AFieldList(headerText = "UE")
 //    @AField(type = TypeField.booleano)
     private boolean unioneEuropea;
