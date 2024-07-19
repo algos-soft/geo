@@ -20,7 +20,7 @@ public class ContinenteEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ASearch(typeText = TypeTextSearch.startsWith)
+    @ASearch
     @AFieldList()
     private String nome;
 

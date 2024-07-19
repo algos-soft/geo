@@ -5,7 +5,6 @@ import it.algos.geo.regione.RegioneEntity;
 import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.OrdineEntity;
 import it.algos.vbase.backend.enumeration.TypeSearch;
-import it.algos.vbase.backend.enumeration.TypeTextSearch;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -23,7 +22,7 @@ public class ComuneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ASearch(typeText = TypeTextSearch.startsWith)
+    @ASearch
     @AFieldList(width = 18)
 //    @AField(type = TypeField.text)
     private String nome;
@@ -41,7 +40,7 @@ public class ComuneEntity extends OrdineEntity {
     private ProvinciaEntity provincia;
 
     @Indexed()
-    @ASearch(typeText = TypeTextSearch.startsWith)
+    @ASearch
     @AFieldList(width = 6)
 //    @AField(type = TypeField.text)
     private String cap;
