@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @Document(collection = "continente")
 @ALog()
 @AReset()
-@AEntity(sort = "ordine")
+@AEntity(sortProperty = "ordine")
 public class ContinenteEntity extends OrdineEntity {
 
 

@@ -1,7 +1,6 @@
 package it.algos.geo.stato;
 
 import com.vaadin.flow.component.Text;
-import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.spring.annotation.SpringComponent;

@@ -1,12 +1,15 @@
 package it.algos.geo.stato;
 
-import it.algos.geo.continente.*;
+import it.algos.geo.continente.ContinenteEntity;
 import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.entity.*;
-import it.algos.vbase.backend.enumeration.*;
+import it.algos.vbase.backend.entity.OrdineEntity;
+import it.algos.vbase.backend.enumeration.TextSearchMode;
+import it.algos.vbase.backend.enumeration.TypeCheckBox;
+import it.algos.vbase.backend.enumeration.TypeSearch;
 import lombok.*;
-import org.springframework.data.mongodb.core.index.*;
-import org.springframework.data.mongodb.core.mapping.*;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Data
@@ -17,7 +20,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @Document(collection = "stato")
 @ALog()
 @AReset()
-@AEntity(sort = "ordine")
+@AEntity(sortProperty = "nome")
 public class StatoEntity extends OrdineEntity {
 
 
@@ -44,7 +47,7 @@ public class StatoEntity extends OrdineEntity {
     private String alfa2;
 
     @Indexed(unique = true)
-    @AFieldList(width = 6,headerText = "cod.")
+    @AFieldList(width = 6, headerText = "cod.")
 //    @AField(type = TypeField.text)
     private String numerico;
 
