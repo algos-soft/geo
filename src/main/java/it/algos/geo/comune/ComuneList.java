@@ -11,7 +11,6 @@ import it.algos.geo.list.GeoList;
 import it.algos.vbase.backend.annotation.AList;
 import it.algos.vbase.backend.constant.Bottone;
 import it.algos.vbase.backend.enumeration.FontWeight;
-import it.algos.vbase.backend.list.ListButtons;
 import jakarta.annotation.PostConstruct;
 import org.springframework.context.annotation.Scope;
 
