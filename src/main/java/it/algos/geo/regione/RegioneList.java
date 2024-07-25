@@ -66,7 +66,7 @@ public class RegioneList extends GeoList {
         String[] properties = {"sigla", "nome", "stato", "type"};
         ExcelExporter exporter = new ExcelExporter(RegioneEntity.class, filtri, List.of(properties), mongoService);
 
-        exporter.setTitle("Lista delle regioni");
+//        exporter.setTitle("Lista delle regioni");
         exporter.setColumnWidth("sigla", 8);
         exporter.setColumnWidth("nome", 20);
         exporter.setColumnWidth("stato", 20);

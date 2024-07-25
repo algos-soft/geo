@@ -67,7 +67,7 @@ public class StatoList extends GeoList {
         String[] properties = {"ordine", "nome", "capitale", "alfa3", "alfa2"};
         ExcelExporter exporter = new ExcelExporter(StatoEntity.class, filtri, List.of(properties), mongoService);
 
-        exporter.setTitle("Lista degli stati");
+//        exporter.setTitle("Lista degli stati");
         exporter.setColumnWidth("ordine", 8);
         exporter.setColumnWidth("nome", 30);
         exporter.setColumnWidth("capitale", 20);
