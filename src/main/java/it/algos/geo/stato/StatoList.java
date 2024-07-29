@@ -7,11 +7,8 @@ import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.geo.list.GeoList;
 import it.algos.vbase.backend.annotation.AList;
 import it.algos.vbase.backend.components.WAnchor;
-import it.algos.vbase.backend.importexport.ExcelExporter;
 import it.algos.vbase.ui.dialog.BSpan;
 import org.springframework.context.annotation.Scope;
-
-import java.util.List;
 
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
@@ -63,18 +60,18 @@ public class StatoList extends GeoList {
     }
 
 
-    public ExcelExporter creaExcelExporter() {
-        String[] properties = {"ordine", "nome", "capitale", "alfa3", "alfa2"};
-        ExcelExporter exporter = new ExcelExporter(StatoEntity.class, filtri, List.of(properties), mongoService);
-
-//        exporter.setTitle("Lista degli stati");
-        exporter.setColumnWidth("ordine", 8);
-        exporter.setColumnWidth("nome", 30);
-        exporter.setColumnWidth("capitale", 20);
-        exporter.setColumnWidth("alfa3", 8);
-        exporter.setColumnWidth("alfa2", 8);
-
-        return exporter;
-    }
+//    public ExcelExporter creaExcelExporter() {
+//        String[] properties = {"ordine", "nome", "capitale", "alfa3", "alfa2"};
+//        ExcelExporter exporter = new ExcelExporter(StatoEntity.class, filtri, List.of(properties), mongoService);
+//
+////        exporter.setTitle("Lista degli stati");
+//        exporter.setColumnWidth("ordine", 8);
+//        exporter.setColumnWidth("nome", 30);
+//        exporter.setColumnWidth("capitale", 20);
+//        exporter.setColumnWidth("alfa3", 8);
+//        exporter.setColumnWidth("alfa2", 8);
+//
+//        return exporter;
+//    }
 
 }// end of CrudList class

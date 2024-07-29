@@ -8,12 +8,9 @@ import it.algos.geo.list.GeoList;
 import it.algos.geo.stato.StatoService;
 import it.algos.vbase.backend.annotation.AList;
 import it.algos.vbase.backend.components.WAnchor;
-import it.algos.vbase.backend.importexport.ExcelExporter;
 import it.algos.vbase.ui.dialog.BSpan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-
-import java.util.List;
 
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
@@ -62,17 +59,17 @@ public class RegioneList extends GeoList {
 
 
 
-    public ExcelExporter creaExcelExporter() {
-        String[] properties = {"sigla", "nome", "stato", "type"};
-        ExcelExporter exporter = new ExcelExporter(RegioneEntity.class, filtri, List.of(properties), mongoService);
-
-//        exporter.setTitle("Lista delle regioni");
-        exporter.setColumnWidth("sigla", 8);
-        exporter.setColumnWidth("nome", 20);
-        exporter.setColumnWidth("stato", 20);
-        exporter.setColumnWidth("type", 20);
-
-        return exporter;
-    }
+//    public ExcelExporter creaExcelExporter() {
+//        String[] properties = {"sigla", "nome", "stato", "type"};
+//        ExcelExporter exporter = new ExcelExporter(RegioneEntity.class, filtri, List.of(properties), mongoService);
+//
+////        exporter.setTitle("Lista delle regioni");
+//        exporter.setColumnWidth("sigla", 8);
+//        exporter.setColumnWidth("nome", 20);
+//        exporter.setColumnWidth("stato", 20);
+//        exporter.setColumnWidth("type", 20);
+//
+//        return exporter;
+//    }
 
 }// end of CrudList class
