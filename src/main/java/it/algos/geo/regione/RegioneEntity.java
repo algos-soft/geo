@@ -29,7 +29,7 @@ public class RegioneEntity extends OrdineEntity {
     private String nome;
 
     @DBRef()
-    @ASearch(type = TypeSearch.comboClazz, linkClazz = StatoEntity.class, comboPlaceHolder = "Stati")
+    @ASearch(placeholder = "Stati")
     @AFieldList(width = 14)
 //    @AField(type = TypeField.linkDBRef, linkClazz = StatoEntity.class)
     private StatoEntity stato;
@@ -39,7 +39,7 @@ public class RegioneEntity extends OrdineEntity {
     private String pagina;
 
     @Indexed()
-    @ASearch(type = TypeSearch.comboClazz)
+    @ASearch
     @AFieldList(width = 20)
 //    @AField(type = TypeField.enumType, enumClazz = TypeRegione.class)
     private TypeRegione type;

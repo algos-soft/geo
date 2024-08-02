@@ -4,7 +4,6 @@ import it.algos.geo.provincia.ProvinciaEntity;
 import it.algos.geo.regione.RegioneEntity;
 import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.OrdineEntity;
-import it.algos.vbase.backend.enumeration.TypeSearch;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -34,7 +33,7 @@ public class ComuneEntity extends OrdineEntity {
     private String pagina;
 
     @DBRef()
-    @ASearch(type = TypeSearch.comboClazz, linkClazz = ProvinciaEntity.class, comboPlaceHolder = "Province")
+    @ASearch(placeholder = "Province")
     @AFieldList(width = 14)
 //    @AField(type = TypeField.linkDBRef, linkClazz = ProvinciaEntity.class)
     private ProvinciaEntity provincia;
@@ -46,7 +45,7 @@ public class ComuneEntity extends OrdineEntity {
     private String cap;
 
     @DBRef()
-    @ASearch(type = TypeSearch.comboClazz, linkClazz = RegioneEntity.class,  comboPlaceHolder = "Regioni")
+    @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
 //    @AField(type = TypeField.linkDBRef, linkClazz = RegioneEntity.class)
     private RegioneEntity regione;

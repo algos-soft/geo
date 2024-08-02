@@ -5,7 +5,6 @@ import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.OrdineEntity;
 import it.algos.vbase.backend.enumeration.TextSearchMode;
 import it.algos.vbase.backend.enumeration.CheckBoxStatus;
-import it.algos.vbase.backend.enumeration.TypeSearch;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -56,12 +55,12 @@ public class StatoEntity extends OrdineEntity {
     private String divisioni;
 
     @DBRef
-    @ASearch(type = TypeSearch.comboClazz, linkClazz = ContinenteEntity.class, comboPlaceHolder = "Continenti")
+    @ASearch(placeholder = "Continenti")
     @AFieldList(width = 14)
     private ContinenteEntity continente;
 
 
-    @ASearch(type = TypeSearch.checkBox, checkBoxInitialStatus = CheckBoxStatus.vero)
+    @ASearch(checkBoxInitialStatus = CheckBoxStatus.vero)
     @AFieldList(headerText = "UE")
 //    @AField(type = TypeField.booleano)
     private boolean unioneEuropea;
