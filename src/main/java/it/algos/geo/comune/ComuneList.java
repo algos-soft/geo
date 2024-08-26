@@ -58,7 +58,7 @@ public class ComuneList extends GeoList {
 
         headerPlaceHolder.add(new Span( anchor));
 
-        super.fixHeaderPost();
+        super.fixHeader();
     }
 
 

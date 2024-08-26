@@ -8,14 +8,10 @@ import it.algos.geo.list.GeoList;
 import it.algos.geo.stato.StatoService;
 import it.algos.vbase.backend.annotation.AList;
 import it.algos.vbase.backend.components.WAnchor;
-import it.algos.vbase.backend.enumeration.TypeRegione;
 import it.algos.vbase.ui.dialog.BSpan;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static it.algos.vbase.backend.boot.BaseCost.*;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
@@ -63,7 +59,7 @@ public class RegioneItaliaList extends GeoList {
         super.infoCreazione = TEXT_HARD;
         super.infoReset = TEXT_RESET_DELETE;
 
-        super.fixHeaderPost();
+        super.fixHeader();
     }
 
     @PostConstruct

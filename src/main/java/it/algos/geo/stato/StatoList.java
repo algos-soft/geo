@@ -55,7 +55,7 @@ public class StatoList extends GeoList {
         super.infoCreazione = TEXT_HARD;
         super.infoReset = TEXT_RESET_DELETE;
 
-        super.fixHeaderPost();
+        super.fixHeader();
         super.fixAdmin();
     }
 
