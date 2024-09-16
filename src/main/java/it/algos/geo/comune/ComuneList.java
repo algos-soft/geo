@@ -1,14 +1,9 @@
 package it.algos.geo.comune;
 
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.icon.Icon;
-import com.vaadin.flow.component.icon.VaadinIcon;
 import it.algos.geo.list.GeoList;
-import it.algos.vbase.backend.annotation.AList;
+import it.algos.vbase.backend.annotation.AViewList;
 import it.algos.vbase.backend.constant.Bottone;
 import it.algos.vbase.backend.enumeration.FontWeight;
 import jakarta.annotation.PostConstruct;
@@ -18,7 +13,7 @@ import static it.algos.vbase.backend.boot.BaseCost.*;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @Scope(value = SCOPE_PROTOTYPE)
-@AList(bottoni = {Bottone.DOWNLOAD})
+@AViewList(bottoni = {Bottone.DOWNLOAD})
 public class ComuneList extends GeoList {
 
 

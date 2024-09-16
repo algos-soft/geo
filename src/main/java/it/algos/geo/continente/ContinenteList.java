@@ -2,7 +2,7 @@ package it.algos.geo.continente;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.geo.list.GeoList;
-import it.algos.vbase.backend.annotation.AList;
+import it.algos.vbase.backend.annotation.AViewList;
 import org.springframework.context.annotation.Scope;
 
 import static it.algos.vbase.backend.boot.BaseCost.*;
@@ -10,7 +10,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
-@AList()
+@AViewList()
 public class ContinenteList extends GeoList {
 
 

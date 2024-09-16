@@ -6,7 +6,7 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.geo.list.GeoList;
 import it.algos.geo.stato.StatoService;
-import it.algos.vbase.backend.annotation.AList;
+import it.algos.vbase.backend.annotation.AViewList;
 import it.algos.vbase.backend.components.WAnchor;
 import it.algos.vbase.ui.dialog.BSpan;
 import jakarta.annotation.PostConstruct;
@@ -18,7 +18,7 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
-@AList(columns = {"nome", "type"})
+@AViewList(columns = {"nome", "type"})
 public class RegioneItaliaList extends GeoList {
 
     @Autowired
