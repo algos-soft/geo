@@ -72,4 +72,4 @@ public class RegioneList extends GeoList {
 //        return exporter;
 //    }
 
-}// end of CrudList class
+}// end of AList class

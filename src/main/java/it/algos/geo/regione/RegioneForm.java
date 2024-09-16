@@ -19,8 +19,8 @@ public class RegioneForm extends CrudForm {
     }
 
     //--new entityBean and update existing entityBean
-    public RegioneForm(final CrudList parentCrudList, AbstractEntity entityBean, CrudOperation operation) {
-        super(parentCrudList, entityBean, operation);
+    public RegioneForm(final AList parentAList, AbstractEntity entityBean, CrudOperation operation) {
+        super(parentAList, entityBean, operation);
     }
 
 

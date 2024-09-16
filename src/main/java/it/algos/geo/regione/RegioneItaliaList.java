@@ -79,4 +79,4 @@ public class RegioneItaliaList extends GeoList {
 
     }
 
-}// end of CrudList class
+}// end of AList class

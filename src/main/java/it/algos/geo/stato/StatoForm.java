@@ -19,8 +19,8 @@ public class StatoForm extends CrudForm {
     }
 
     //--new entityBean and update existing entityBean
-    public StatoForm(final CrudList parentCrudList, AbstractEntity entityBean, CrudOperation operation) {
-        super(parentCrudList, entityBean, operation);
+    public StatoForm(final AList parentAList, AbstractEntity entityBean, CrudOperation operation) {
+        super(parentAList, entityBean, operation);
     }
 
 

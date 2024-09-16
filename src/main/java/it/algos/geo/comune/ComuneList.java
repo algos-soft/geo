@@ -80,4 +80,4 @@ public class ComuneList extends GeoList {
     }
 
 
-}// end of CrudList class
+}// end of AList class

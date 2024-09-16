@@ -37,4 +37,4 @@ public class ContinenteList extends GeoList {
     }
 
 
-}// end of CrudList class
+}// end of AList class

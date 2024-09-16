@@ -25,7 +25,7 @@ public class ContinenteView extends CrudView {
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con (almeno) due parametri <br>
      * Mantiene il riferimento al CrudService (singleton) di questo Modulo, iniettato dalla sottoclasse concreta <br>
-     * Mantiene il riferimento ad una listClazz (CrudList) per creare l'istanza prototype <br>
+     * Mantiene il riferimento ad una listClazz (AList) per creare l'istanza prototype <br>
      */
     ContinenteView(@Autowired ContinenteService moduloService) {
         super(moduloService, ContinenteList.class);

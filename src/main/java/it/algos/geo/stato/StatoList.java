@@ -74,4 +74,4 @@ public class StatoList extends GeoList {
 //        return exporter;
 //    }
 
-}// end of CrudList class
+}// end of AList class
