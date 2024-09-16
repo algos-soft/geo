@@ -17,4 +17,5 @@ public class ComuneForm extends AForm<ComuneEntity> {
         super(moduloService, bean);
     }
 
+
 }// end of CrudForm class
