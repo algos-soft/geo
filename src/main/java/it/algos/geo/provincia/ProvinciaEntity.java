@@ -1,9 +1,8 @@
 package it.algos.geo.provincia;
 
 import it.algos.geo.regione.RegioneEntity;
-import it.algos.vbase.backend.annotation.AEntity;
-import it.algos.vbase.backend.annotation.AFieldList;
-import it.algos.vbase.backend.annotation.ASearch;
+import it.algos.geo.regione.RegioneService;
+import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.OrdineEntity;
 import it.algos.vbase.backend.enumeration.TextSearchMode;
 import lombok.*;
@@ -23,7 +22,6 @@ public class ProvinciaEntity extends OrdineEntity {
     @Indexed(unique = true)
     @ASearch(textSearchMode = TextSearchMode.startsWith)
     @AFieldList(width = 6)
-//    @AField(type = TypeField.wikiAnchor)
     private String sigla;
 
     @Indexed(unique = true)
@@ -35,19 +33,18 @@ public class ProvinciaEntity extends OrdineEntity {
     @Indexed(unique = true)
     @ASearch(textSearchMode = TextSearchMode.contains)
     @AFieldList(width = 24, headerText = "Ufficiale")
-//    @AField(type = TypeField.wikiAnchor)
     private String nomeCompleto;
 
     @Indexed()
     @ASearch
     @AFieldList(width = 5)
-//    @AField(type = TypeField.text)
     private String cap;
 
     @DBRef()
+    @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
-//    @AField(type = TypeField.linkDBRef, linkClazz = RegioneEntity.class)
+    @AFieldForm(clearButtonCombo = false)
     private RegioneEntity regione;
 
     @Override

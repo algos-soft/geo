@@ -13,16 +13,6 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 public class ComuneForm extends AForm<ComuneEntity> {
 
 
-//    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-//    public ComuneForm() {
-//        super();
-//    }
-//
-//    //--new entityBean and update existing entityBean
-//    public ComuneForm(final CrudList parentCrudList, AbstractEntity entityBean, CrudOperation operation) {
-//        super(parentCrudList, entityBean, operation);
-//    }
-
     public ComuneForm(@NonNull ModuloService<ComuneEntity> moduloService, ComuneEntity bean) {
         super(moduloService, bean);
     }
