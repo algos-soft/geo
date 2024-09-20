@@ -2,8 +2,6 @@ package it.algos.geo.comune;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.vbase.backend.form.DefaultForm;
-import it.algos.vbase.backend.logic.ModuloService;
-import lombok.NonNull;
 import org.springframework.context.annotation.Scope;
 
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
@@ -12,9 +10,12 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @Scope(value = SCOPE_PROTOTYPE)
 public class ComuneForm extends DefaultForm<ComuneEntity> {
 
+    public ComuneForm() {
+        super();
+    }
 
-    public ComuneForm(@NonNull ModuloService<ComuneEntity> moduloService, ComuneEntity bean) {
-        super(moduloService, bean);
+    public ComuneForm(ComuneEntity bean) {
+        super(bean);
     }
 
 
