@@ -38,7 +38,7 @@ public class ComuneEntity extends OrdineEntity {
     @ARef(linkClazz = ProvinciaService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Province")
     @AFieldList(width = 14)
-    @AFieldForm(clearButtonCombo = false)
+    @AFieldForm(clearButtonVisible = false)
     private ProvinciaEntity provincia;
 
     @Indexed()
@@ -51,7 +51,7 @@ public class ComuneEntity extends OrdineEntity {
     @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
-    @AFieldForm(clearButtonCombo = false)
+    @AFieldForm(clearButtonVisible = false)
     private RegioneEntity regione;
 
 
