@@ -1,16 +1,12 @@
 package it.algos.geo.continente;
 
-import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.geo.list.GeoList;
 import it.algos.vbase.backend.annotation.AViewList;
-import org.springframework.context.annotation.Scope;
+import it.algos.vbase.backend.constant.Bottone;
 
 import static it.algos.vbase.backend.boot.BaseCost.*;
-import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
-@SpringComponent
-@Scope(value = SCOPE_PROTOTYPE)
-@AViewList()
+@AViewList(bottoni = {Bottone.RESET_DELETE, Bottone.SHOW})
 public class ContinenteList extends GeoList {
 
 
@@ -21,6 +17,9 @@ public class ContinenteList extends GeoList {
         super(parentCrudView);
     }
 
+    protected void fixPreferenze() {
+        super.readOnly = true;
+    }
 
 
     @Override
