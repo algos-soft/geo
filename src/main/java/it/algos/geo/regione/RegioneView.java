@@ -22,12 +22,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @AView(menuGroup = Gruppo.GEO, menuName = "Regioni", vaadin = VaadinIcon.GLOBE)
 public class RegioneView extends CrudView {
 
-    /**
-     * Costruttore alternativo invocato dalla sottoclasse concreta se si usa anche una formClazz specifico <br>
-     * Mantiene il riferimento al CrudService Service (singleton) di questo Modulo <br>
-     * Mantiene il riferimento ad una listClazz (AList) per creare l'istanza prototype <br>
-     * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
-     */
     RegioneView(@Autowired RegioneService moduloService) {
         super(moduloService, RegioneList.class, RegioneForm.class);
     }

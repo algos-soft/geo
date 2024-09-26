@@ -23,12 +23,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class ComuneView extends CrudView {
 
 
-    /**
-     * Costruttore alternativo invocato dalla sottoclasse concreta se si usa anche una formClazz specifico <br>
-     * Mantiene il riferimento al CrudService Service (singleton) di questo Modulo <br>
-     * Mantiene il riferimento ad una listClazz (AList) per creare l'istanza prototype <br>
-     * Mantiene il riferimento ad una formClazz (CrudForm) per creare l'istanza prototype <br>
-     */
     ComuneView(@Autowired ComuneService moduloService) {
         super(moduloService, ComuneList.class, ComuneForm.class);
     }

@@ -2,27 +2,18 @@ package it.algos.geo.regione;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.vbase.backend.entity.AbstractEntity;
-import it.algos.vbase.backend.enumeration.CrudOperation;
-import it.algos.vbase.backend.list.AList;
-import it.algos.vbase.ui.form.CrudForm;
+import it.algos.vbase.backend.form.DefaultForm;
 import org.springframework.context.annotation.Scope;
 
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
-public class RegioneForm extends CrudForm {
+public class RegioneForm<T extends AbstractEntity> extends DefaultForm<T> {
 
 
-    //--new entityBean and update existing entityBean
-    public RegioneForm(final AList parentAList, AbstractEntity entityBean, CrudOperation operation) {
-        super(parentAList, entityBean, operation);
+    public RegioneForm(T bean) {
+        super(bean);
     }
 
-
-    @Override
-    protected void override() {
-        //--qui eventuali regolazioni specifiche delle variabili
-    }
-
-}// end of CrudForm class
+}
