@@ -10,9 +10,6 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 @Scope(value = SCOPE_PROTOTYPE)
 public class ComuneForm extends DefaultForm<ComuneEntity> {
 
-    public ComuneForm() {
-        super();
-    }
 
     public ComuneForm(ComuneEntity bean) {
         super(bean);

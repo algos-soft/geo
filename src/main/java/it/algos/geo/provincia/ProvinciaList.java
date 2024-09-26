@@ -18,11 +18,6 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 public class ProvinciaList extends GeoList {
 
 
-    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public ProvinciaList() {
-        super();
-    }
-
     /**
      * @param parentCrudView che crea questa istanza
      */

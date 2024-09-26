@@ -6,6 +6,7 @@ import it.algos.geo.regione.RegioneEntity;
 import it.algos.geo.regione.RegioneService;
 import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.OrdineEntity;
+import it.algos.vbase.backend.enumeration.TBool;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -38,7 +39,7 @@ public class ComuneEntity extends OrdineEntity {
     @ARef(linkClazz = ProvinciaService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Province")
     @AFieldList(width = 14)
-    @AFieldForm(clearButtonVisible = false)
+    @AFieldForm(clearButtonVisible = TBool.falso)
     private ProvinciaEntity provincia;
 
     @Indexed()
@@ -51,7 +52,7 @@ public class ComuneEntity extends OrdineEntity {
     @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
-    @AFieldForm(clearButtonVisible = false)
+    @AFieldForm(clearButtonVisible = TBool.falso)
     private RegioneEntity regione;
 
 

@@ -4,6 +4,7 @@ import it.algos.geo.regione.RegioneEntity;
 import it.algos.geo.regione.RegioneService;
 import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.OrdineEntity;
+import it.algos.vbase.backend.enumeration.TBool;
 import it.algos.vbase.backend.enumeration.TextSearchMode;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -44,7 +45,7 @@ public class ProvinciaEntity extends OrdineEntity {
     @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
-    @AFieldForm(clearButtonVisible  = false)
+    @AFieldForm(clearButtonVisible  = TBool.falso)
     private RegioneEntity regione;
 
     @Override

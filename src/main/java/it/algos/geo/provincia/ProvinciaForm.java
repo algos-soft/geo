@@ -11,10 +11,6 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 public class ProvinciaForm extends DefaultForm<ProvinciaEntity> {
 
 
-    public ProvinciaForm() {
-        super();
-    }
-
     public ProvinciaForm(ProvinciaEntity bean) {
         super(bean);
     }

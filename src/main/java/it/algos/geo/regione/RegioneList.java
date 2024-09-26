@@ -28,11 +28,6 @@ public class RegioneList extends GeoList {
     private ComboBox comboType;
 
 
-    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public RegioneList() {
-        super();
-    }
-
     /**
      * @param parentCrudView che crea questa istanza
      */
@@ -46,8 +41,8 @@ public class RegioneList extends GeoList {
         String link = "ISO 3166-1";
         String link2 = "ISO 3166-2:xx";
 
-        WAnchor anchor = WAnchor.build(  link, textService.setQuadre( link2)).bold();
-        BSpan testo = BSpan.text( TEXT_WIKI).bold().verde();
+        WAnchor anchor = WAnchor.build(link, textService.setQuadre(link2)).bold();
+        BSpan testo = BSpan.text(TEXT_WIKI).bold().verde();
         headerPlaceHolder.add(new Span(testo, new Text(SPAZIO), anchor));
 
         super.infoScopo = VUOTA;
@@ -56,7 +51,6 @@ public class RegioneList extends GeoList {
 
         super.fixHeader();
     }
-
 
 
 //    public ExcelExporter creaExcelExporter() {
