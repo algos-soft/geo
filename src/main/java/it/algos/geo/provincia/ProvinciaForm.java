@@ -1,6 +1,7 @@
 package it.algos.geo.provincia;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
+import it.algos.vbase.backend.entity.AbstractEntity;
 import it.algos.vbase.backend.form.DefaultForm;
 import org.springframework.context.annotation.Scope;
 
@@ -8,15 +9,11 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 
 @SpringComponent
 @Scope(value = SCOPE_PROTOTYPE)
-public class ProvinciaForm extends DefaultForm<ProvinciaEntity> {
+public class ProvinciaForm<T extends AbstractEntity> extends DefaultForm<T> {
 
 
-    public ProvinciaForm() {
-        super();
-    }
-
-    public ProvinciaForm(ProvinciaEntity bean) {
+    public ProvinciaForm(T bean) {
         super(bean);
     }
 
-}// end of CrudForm class
+}

@@ -17,12 +17,6 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 public class ComuneList extends GeoList {
 
 
-
-    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public ComuneList() {
-        super();
-    }
-
     /**
      * @param parentCrudView che crea questa istanza
      */
@@ -51,7 +45,7 @@ public class ComuneList extends GeoList {
         anchor = new Anchor(link, caption);
         anchor.getElement().getStyle().set(FontWeight.HTML, FontWeight.bold.getTag());
 
-        headerPlaceHolder.add(new Span( anchor));
+        headerPlaceHolder.add(new Span(anchor));
 
         super.fixHeader();
     }
@@ -61,7 +55,6 @@ public class ComuneList extends GeoList {
     private void regolazioniDellaClasseSpecificaDopoAverRegolatoLaSuperclasse() {
         this.modificaBottone();
     }
-
 
 
     private void modificaBottone() {

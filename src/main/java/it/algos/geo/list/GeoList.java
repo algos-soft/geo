@@ -14,10 +14,6 @@ import it.algos.vbase.ui.wrapper.ASpan;
  */
 public abstract class GeoList extends AList {
 
-    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public GeoList() {
-        super();
-    }
 
     /**
      * @param parentCrudView che crea questa istanza

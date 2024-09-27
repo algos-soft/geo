@@ -29,11 +29,6 @@ public class RegioneItaliaList extends GeoList {
     private ComboBox comboType;
 
 
-    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public RegioneItaliaList() {
-        super();
-    }
-
     /**
      * @param parentCrudView che crea questa istanza
      */

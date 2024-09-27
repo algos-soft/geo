@@ -19,11 +19,6 @@ import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROT
 public class StatoList extends GeoList {
 
 
-    //--non utilizzato. Serve SOLO per evitare un bug di IntelliJIDEA che segnala errore.
-    public StatoList() {
-        super();
-    }
-
     /*
      * @param parentCrudView che crea questa istanza
      */

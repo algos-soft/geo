@@ -45,7 +45,7 @@ public class ProvinciaEntity extends OrdineEntity {
     @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
-    @AFieldForm(clearButtonVisible = TBool.falso)
+    @AFieldForm(clearButtonVisible  = TBool.falso)
     private RegioneEntity regione;
 
     @Override
