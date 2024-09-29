@@ -29,13 +29,13 @@ public class ComuneEntity extends OrdineEntity {
     private String nome;
 
     @Indexed(unique = true)
-    @Aanchor
+    @AAnchor
     @AFieldList(width = 18, headerText = "Wiki")
     @AFieldForm(label = "WikiPagina")
     private String pagina;
 
     @DBRef()
-    @Aanchor
+    @AAnchor
     @ARef(linkClazz = ProvinciaService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Province")
     @AFieldList(width = 14)
@@ -48,7 +48,7 @@ public class ComuneEntity extends OrdineEntity {
     private String cap;
 
     @DBRef()
-    @Aanchor
+    @AAnchor
     @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
