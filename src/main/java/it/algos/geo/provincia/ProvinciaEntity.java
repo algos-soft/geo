@@ -42,7 +42,7 @@ public class ProvinciaEntity extends OrdineEntity {
     private String cap;
 
     @DBRef()
-    @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
+//    @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
     @AFieldForm(clearButtonVisible  = TBool.falso)
