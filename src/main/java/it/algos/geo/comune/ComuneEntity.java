@@ -1,9 +1,7 @@
 package it.algos.geo.comune;
 
 import it.algos.geo.provincia.ProvinciaEntity;
-import it.algos.geo.provincia.ProvinciaService;
 import it.algos.geo.regione.RegioneEntity;
-import it.algos.geo.regione.RegioneService;
 import it.algos.vbase.backend.annotation.*;
 import it.algos.vbase.backend.entity.OrdineEntity;
 import it.algos.vbase.backend.enumeration.TBool;
@@ -36,7 +34,7 @@ public class ComuneEntity extends OrdineEntity {
 
     @DBRef()
     @AAnchor
-    @ARef(linkClazz = ProvinciaService.class, linkedProperty = "nome")
+//    @ARef(linkClazz = ProvinciaService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Province")
     @AFieldList(width = 14)
     @AFieldForm(clearButtonVisible = TBool.falso)
@@ -49,7 +47,7 @@ public class ComuneEntity extends OrdineEntity {
 
     @DBRef()
     @AAnchor
-    @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
+//    @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
     @ASearch(placeholder = "Regioni")
     @AFieldList(width = 10)
     @AFieldForm(clearButtonVisible = TBool.falso)
