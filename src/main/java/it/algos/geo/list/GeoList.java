@@ -2,7 +2,7 @@ package it.algos.geo.list;
 
 import it.algos.vbase.backend.boot.BaseVar;
 import it.algos.vbase.backend.list.AList;
-import it.algos.vbase.ui.view.CrudView;
+import it.algos.vbase.ui.view.AView;
 import it.algos.vbase.ui.wrapper.ASpan;
 
 /**
@@ -13,12 +13,15 @@ import it.algos.vbase.ui.wrapper.ASpan;
  * Time: 17:56
  */
 public abstract class GeoList extends AList {
+    protected String infoCreazione;
+
+    protected String infoReset;
 
 
     /**
      * @param parentCrudView che crea questa istanza
      */
-    public GeoList(final CrudView parentCrudView) {
+    public GeoList(final AView parentCrudView) {
         super(parentCrudView);
     }
 
