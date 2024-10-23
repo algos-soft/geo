@@ -1,9 +1,9 @@
 package it.algos.geo.regione;
 
 import it.algos.geo.stato.*;
-import it.algos.vbase.annotation.AEntity;
-import it.algos.vbase.annotation.AFieldList;
-import it.algos.vbase.annotation.ASearch;
+import it.algos.vbase.annotation.IEntity;
+import it.algos.vbase.annotation.IFieldList;
+import it.algos.vbase.annotation.ISearch;
 import it.algos.vbase.entity.OrdineEntity;
 import it.algos.vbase.enumeration.TypeRegione;
 import lombok.*;
@@ -16,33 +16,33 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "regione")
-@AEntity()
+@IEntity()
 public class RegioneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ASearch
-    @AFieldList(width = 6)
+    @ISearch
+    @IFieldList(width = 6)
     private String sigla;
 
     @Indexed(unique = true)
-    @ASearch
+    @ISearch
 //    @AField(type = TypeField.wikiAnchor)
     private String nome;
 
     @DBRef()
-    @ASearch(placeholder = "Stati")
-    @AFieldList(width = 14)
+    @ISearch(placeholder = "Stati")
+    @IFieldList(width = 14)
 //    @AField(type = TypeField.linkDBRef, linkClazz = StatoEntity.class)
     private StatoEntity stato;
 
-    @AFieldList()
+    @IFieldList()
 //    @AField(type = TypeField.linkWiki)
     private String pagina;
 
     @Indexed()
-    @ASearch
-    @AFieldList(width = 20)
+    @ISearch
+    @IFieldList(width = 20)
 //    @AField(type = TypeField.enumType, enumClazz = TypeRegione.class)
     private TypeRegione type;
 

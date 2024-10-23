@@ -3,7 +3,7 @@ package it.algos.geo.comune;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Span;
 import it.algos.geo.list.GeoList;
-import it.algos.vbase.annotation.AViewList;
+import it.algos.vbase.annotation.IViewList;
 import it.algos.vbase.constant.Bottone;
 import it.algos.vbase.enumeration.FontWeight;
 import jakarta.annotation.PostConstruct;
@@ -13,7 +13,7 @@ import static it.algos.vbase.boot.BaseCost.*;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @Scope(value = SCOPE_PROTOTYPE)
-@AViewList(bottoni = {Bottone.DOWNLOAD})
+@IViewList(bottoni = {Bottone.DOWNLOAD})
 public class ComuneList extends GeoList {
 
 

@@ -17,51 +17,51 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Builder
 @Document(collection = "stato")
-@ALog()
-@AReset()
-@AEntity(sortProperty = "nome")
+@ILog()
+@IReset()
+@IEntity(sortProperty = "nome")
 public class StatoEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ASearch
-    @AFieldList()
+    @ISearch
+    @IFieldList()
     private String nome;
 
     @Indexed()
-    @ASearch
-    @AFieldList()
+    @ISearch
+    @IFieldList()
 //    @AField(type = TypeField.wikiAnchor)
     private String capitale;
 
     @Indexed(unique = true)
-    @ASearch(textSearchMode = TextSearchMode.contains)
-    @AFieldList(width = 6)
+    @ISearch(textSearchMode = TextSearchMode.contains)
+    @IFieldList(width = 6)
 //    @AField(type = TypeField.text)
     private String alfa3;
 
     @Indexed(unique = true)
-    @AFieldList(width = 6)
+    @IFieldList(width = 6)
 //    @AField(type = TypeField.text)
     private String alfa2;
 
     @Indexed(unique = true)
-    @AFieldList(width = 6, headerText = "cod.")
+    @IFieldList(width = 6, headerText = "cod.")
 //    @AField(type = TypeField.text)
     private String numerico;
 
-    @AFieldList()
+    @IFieldList()
 //    @AField(type = TypeField.linkWiki)
     private String divisioni;
 
     @DBRef
-    @ASearch(placeholder = "Continenti")
-    @AFieldList(width = 14)
+    @ISearch(placeholder = "Continenti")
+    @IFieldList(width = 14)
     private ContinenteEntity continente;
 
 
-    @ASearch(checkBoxInitialStatus = CheckBoxStatus.vero)
-    @AFieldList(headerText = "UE")
+    @ISearch(checkBoxInitialStatus = CheckBoxStatus.vero)
+    @IFieldList(headerText = "UE")
 //    @AField(type = TypeField.booleano)
     private boolean unioneEuropea;
 

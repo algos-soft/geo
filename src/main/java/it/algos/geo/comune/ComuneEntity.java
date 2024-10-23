@@ -16,41 +16,41 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Builder
 @Document(collection = "comune")
-@AReset
-@AEntity()
+@IReset
+@IEntity()
 public class ComuneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ASearch
-    @AFieldList(width = 18)
+    @ISearch
+    @IFieldList(width = 18)
     private String nome;
 
     @Indexed(unique = true)
-    @AAnchor
-    @AFieldList(width = 18, headerText = "Wiki")
-    @AFieldForm(label = "WikiPagina")
+    @IAnchor
+    @IFieldList(width = 18, headerText = "Wiki")
+    @IFieldForm(label = "WikiPagina")
     private String pagina;
 
     @DBRef()
-    @AAnchor
+    @IAnchor
 //    @ARef(linkClazz = ProvinciaService.class, linkedProperty = "nome")
-    @ASearch(placeholder = "Province")
-    @AFieldList(width = 14)
-    @AFieldForm(clearButtonVisible = TBool.falso)
+    @ISearch(placeholder = "Province")
+    @IFieldList(width = 14)
+    @IFieldForm(clearButtonVisible = TBool.falso)
     private ProvinciaEntity provincia;
 
     @Indexed()
-    @ASearch
-    @AFieldList(width = 6)
+    @ISearch
+    @IFieldList(width = 6)
     private String cap;
 
     @DBRef()
-    @AAnchor
+    @IAnchor
 //    @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
-    @ASearch(placeholder = "Regioni")
-    @AFieldList(width = 10)
-    @AFieldForm(clearButtonVisible = TBool.falso)
+    @ISearch(placeholder = "Regioni")
+    @IFieldList(width = 10)
+    @IFieldForm(clearButtonVisible = TBool.falso)
     private RegioneEntity regione;
 
 

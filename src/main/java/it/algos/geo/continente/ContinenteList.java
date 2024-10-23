@@ -1,12 +1,12 @@
 package it.algos.geo.continente;
 
 import it.algos.geo.list.GeoList;
-import it.algos.vbase.annotation.AViewList;
+import it.algos.vbase.annotation.IViewList;
 import it.algos.vbase.constant.Bottone;
 
 import static it.algos.vbase.boot.BaseCost.*;
 
-@AViewList(bottoni = {Bottone.RESET_DELETE, Bottone.SHOW})
+@IViewList(bottoni = {Bottone.RESET_DELETE, Bottone.SHOW})
 public class ContinenteList extends GeoList {
 
 

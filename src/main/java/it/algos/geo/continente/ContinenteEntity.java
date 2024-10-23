@@ -12,15 +12,15 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "continente")
-@ALog()
-@AReset()
-@AEntity(sortProperty = "ordine")
+@ILog()
+@IReset()
+@IEntity(sortProperty = "ordine")
 public class ContinenteEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ASearch
-    @AFieldList()
+    @ISearch
+    @IFieldList()
     private String nome;
 
 
