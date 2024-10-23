@@ -1,9 +1,9 @@
 package it.algos.geo.logic;
 
-import it.algos.vbase.backend.entity.AbstractEntity;
-import it.algos.vbase.backend.logic.ModuloService;
-import it.algos.vbase.backend.service.ResourceService;
-import it.algos.vbase.backend.service.WebService;
+import it.algos.vbase.entity.AbstractEntity;
+import it.algos.vbase.logic.ModuloService;
+import it.algos.vbase.service.ResourceService;
+import it.algos.vbase.service.WebService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 

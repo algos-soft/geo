@@ -1,6 +1,6 @@
 package it.algos.geo.enumeration;
 
-import it.algos.vbase.backend.interfaces.*;
+import it.algos.vbase.interfaces.Type;
 
 import java.util.*;
 import java.util.stream.*;

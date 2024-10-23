@@ -1,10 +1,10 @@
 package it.algos.geo.stato;
 
 import it.algos.geo.continente.ContinenteEntity;
-import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.entity.OrdineEntity;
-import it.algos.vbase.backend.enumeration.TextSearchMode;
-import it.algos.vbase.backend.enumeration.CheckBoxStatus;
+import it.algos.vbase.annotation.*;
+import it.algos.vbase.entity.OrdineEntity;
+import it.algos.vbase.enumeration.TextSearchMode;
+import it.algos.vbase.enumeration.CheckBoxStatus;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;

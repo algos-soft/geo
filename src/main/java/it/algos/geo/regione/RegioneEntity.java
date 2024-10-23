@@ -1,9 +1,11 @@
 package it.algos.geo.regione;
 
 import it.algos.geo.stato.*;
-import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.entity.*;
-import it.algos.vbase.backend.enumeration.*;
+import it.algos.vbase.annotation.AEntity;
+import it.algos.vbase.annotation.AFieldList;
+import it.algos.vbase.annotation.ASearch;
+import it.algos.vbase.entity.OrdineEntity;
+import it.algos.vbase.enumeration.TypeRegione;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.*;
 import org.springframework.data.mongodb.core.mapping.*;

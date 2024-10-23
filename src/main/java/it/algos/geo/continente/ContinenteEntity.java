@@ -1,8 +1,7 @@
 package it.algos.geo.continente;
 
-import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.entity.*;
-import it.algos.vbase.backend.enumeration.*;
+import it.algos.vbase.annotation.*;
+import it.algos.vbase.entity.OrdineEntity;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.*;
 import org.springframework.data.mongodb.core.mapping.*;

@@ -2,9 +2,9 @@ package it.algos.geo.comune;
 
 import it.algos.geo.provincia.ProvinciaEntity;
 import it.algos.geo.regione.RegioneEntity;
-import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.entity.OrdineEntity;
-import it.algos.vbase.backend.enumeration.TBool;
+import it.algos.vbase.annotation.*;
+import it.algos.vbase.entity.OrdineEntity;
+import it.algos.vbase.enumeration.TBool;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;

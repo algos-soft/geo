@@ -3,13 +3,13 @@ package it.algos.geo.comune;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Span;
 import it.algos.geo.list.GeoList;
-import it.algos.vbase.backend.annotation.AViewList;
-import it.algos.vbase.backend.constant.Bottone;
-import it.algos.vbase.backend.enumeration.FontWeight;
+import it.algos.vbase.annotation.AViewList;
+import it.algos.vbase.constant.Bottone;
+import it.algos.vbase.enumeration.FontWeight;
 import jakarta.annotation.PostConstruct;
 import org.springframework.context.annotation.Scope;
 
-import static it.algos.vbase.backend.boot.BaseCost.*;
+import static it.algos.vbase.boot.BaseCost.*;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @Scope(value = SCOPE_PROTOTYPE)

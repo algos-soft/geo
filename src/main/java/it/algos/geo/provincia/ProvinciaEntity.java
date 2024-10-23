@@ -1,11 +1,13 @@
 package it.algos.geo.provincia;
 
 import it.algos.geo.regione.RegioneEntity;
-import it.algos.geo.regione.RegioneService;
-import it.algos.vbase.backend.annotation.*;
-import it.algos.vbase.backend.entity.OrdineEntity;
-import it.algos.vbase.backend.enumeration.TBool;
-import it.algos.vbase.backend.enumeration.TextSearchMode;
+import it.algos.vbase.annotation.AEntity;
+import it.algos.vbase.annotation.AFieldForm;
+import it.algos.vbase.annotation.AFieldList;
+import it.algos.vbase.annotation.ASearch;
+import it.algos.vbase.entity.OrdineEntity;
+import it.algos.vbase.enumeration.TBool;
+import it.algos.vbase.enumeration.TextSearchMode;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;

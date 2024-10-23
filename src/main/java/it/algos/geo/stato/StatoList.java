@@ -5,12 +5,12 @@ import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.geo.list.GeoList;
-import it.algos.vbase.backend.annotation.AViewList;
-import it.algos.vbase.backend.components.WAnchor;
+import it.algos.vbase.annotation.AViewList;
+import it.algos.vbase.components.WAnchor;
 import it.algos.vbase.ui.dialog.BSpan;
 import org.springframework.context.annotation.Scope;
 
-import static it.algos.vbase.backend.boot.BaseCost.*;
+import static it.algos.vbase.boot.BaseCost.*;
 import static org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE;
 
 @SpringComponent

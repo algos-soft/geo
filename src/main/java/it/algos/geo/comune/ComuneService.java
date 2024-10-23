@@ -5,7 +5,7 @@ import it.algos.geo.provincia.ProvinciaEntity;
 import it.algos.geo.provincia.ProvinciaService;
 import it.algos.geo.regione.RegioneEntity;
 import it.algos.geo.regione.RegioneService;
-import it.algos.vbase.backend.enumeration.RisultatoReset;
+import it.algos.vbase.enumeration.RisultatoReset;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.List;
 
-import static it.algos.vbase.backend.boot.BaseCost.*;
+import static it.algos.vbase.boot.BaseCost.*;
 
 /**
  * Project base24

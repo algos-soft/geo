@@ -1,7 +1,7 @@
 package it.algos.geo.list;
 
-import it.algos.vbase.backend.boot.BaseVar;
-import it.algos.vbase.backend.list.AList;
+import it.algos.vbase.boot.BaseVar;
+import it.algos.vbase.list.AList;
 import it.algos.vbase.ui.view.AView;
 import it.algos.vbase.ui.wrapper.ASpan;
 
