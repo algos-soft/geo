@@ -31,6 +31,9 @@ public class StatoService extends GeoModuloService<StatoEntity> {
     @Autowired
     public ContinenteService continenteModulo;
 
+
+    private Map<String, StatoEntity> mappaBeans= new HashMap<>();
+
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con due parametri <br>
      * Regola la entityClazz associata a questo Modulo <br>
@@ -142,7 +145,7 @@ public class StatoService extends GeoModuloService<StatoEntity> {
         this.leggeContinenti();
         this.leggeUnioneEuropea();
 
-        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
+//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
         return RisultatoReset.vuotoMaCostruito;
     }
 

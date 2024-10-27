@@ -94,7 +94,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
             cont = addComuniPerLettera(cont, wikiTitle);
         }
 
-        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
+//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
         return RisultatoReset.vuotoMaCostruito;
     }
 
@@ -124,7 +124,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
             }
 
             entityBean = newEntity(++cont, code, pagina, provinciaBean, VUOTA, regioneBean);
-            mappaBeans.put(code, entityBean);
+//            mappaBeans.put(code, entityBean);
         }
 
         return cont;

@@ -1,13 +1,15 @@
 package it.algos.geo.continente;
 
-import it.algos.geo.enumeration.*;
-import it.algos.geo.logic.*;
+import it.algos.geo.enumeration.ContinenteEnum;
+import it.algos.geo.logic.GeoModuloService;
 import it.algos.vbase.enumeration.RisultatoReset;
-import org.bson.types.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static it.algos.vbase.boot.BaseCost.ID_LENGTH;
 
@@ -24,6 +26,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
 
+    private Map<String, ContinenteEntity> mappaBeans= new HashMap<>();
 
     /**
      * Regola la entityClazz associata a questo Modulo e la passa alla superclasse <br>

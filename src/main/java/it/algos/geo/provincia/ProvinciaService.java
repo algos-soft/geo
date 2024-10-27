@@ -104,7 +104,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
         this.leggeProvince();
         this.leggeCap();
 
-        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
+//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
         return RisultatoReset.vuotoMaCostruito;
     }
 
@@ -128,7 +128,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
                 regioneTxt = rigaUnValore.size() > 3 ? rigaUnValore.get(3) : VUOTA;
                 regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findById(regioneTxt) : null;
                 entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
-                mappaBeans.put(code, entityBean);
+//                mappaBeans.put(code, entityBean);
             }
         }
         else {
@@ -166,11 +166,11 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
                 cap = textService.levaTesta(cap, PIPE).trim();
                 cap = textService.levaCodaDaPrimo(cap, PARENTESI_TONDA_INI).trim();
                 if (textService.isValid(sigla) && textService.isValid(cap)) {
-                    if (mappaBeans.containsKey(sigla)) {
-                        entityBean = (ProvinciaEntity) mappaBeans.get(sigla);
-                        entityBean.setCap(cap);
-                        mappaBeans.put(sigla, entityBean);
-                    }
+//                    if (mappaBeans.containsKey(sigla)) {
+//                        entityBean = (ProvinciaEntity) mappaBeans.get(sigla);
+//                        entityBean.setCap(cap);
+//                        mappaBeans.put(sigla, entityBean);
+//                    }
                 }
             }
         }

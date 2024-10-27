@@ -153,7 +153,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
         pos = add("Macedonia del Nord", TypeRegione.comune, pos);
         pos = add("Ucraina", TypeRegione.oblast, pos);
 
-        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
+//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
         return RisultatoReset.vuotoMaCostruito;
     }
 
@@ -179,7 +179,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
 
             entityBean = newEntity(pos, nome, sigla, getStato(nomeStato), TAG_ISO_3166 + stato.getAlfa2(), type);
             if (entityBean != null) {
-                mappaBeans.put(sigla, entityBean);
+//                mappaBeans.put(sigla, entityBean);
             }
         }
 
@@ -201,12 +201,12 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
         //--regioni
         listaBean = this.getLista(stato, 1);
         add(stato, listaBean, 0, TypeRegione.regione);
-        for (RegioneSpeciali regio : RegioneSpeciali.values()) {
-            entityBean = (RegioneEntity) mappaBeans.get(regio.getSigla());
-            entityBean.setType(TypeRegione.regioneSpeciale);
-            mappaBeans.put(regio.getSigla(), entityBean);
-        }
-        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
+//        for (RegioneSpeciali regio : RegioneSpeciali.values()) {
+//            entityBean = (RegioneEntity) mappaBeans.get(regio.getSigla());
+//            entityBean.setType(TypeRegione.regioneSpeciale);
+//            mappaBeans.put(regio.getSigla(), entityBean);
+//        }
+//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
     }
 
 
@@ -223,9 +223,9 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
         listaBean = this.getLista(stato, 1);
         pos = add(stato, listaBean, pos, TypeRegione.regione);
         for (RegioneSpeciali regio : RegioneSpeciali.values()) {
-            entityBean = (RegioneEntity) mappaBeans.get(regio.getSigla());
-            entityBean.setType(TypeRegione.regioneSpeciale);
-            mappaBeans.put(regio.getSigla(), entityBean);
+//            entityBean = (RegioneEntity) mappaBeans.get(regio.getSigla());
+//            entityBean.setType(TypeRegione.regioneSpeciale);
+//            mappaBeans.put(regio.getSigla(), entityBean);
         }
         //        entityBean = (RegioneEntity) mappaBeans.get("IT-36");
         //        entityBean.setType(TypeRegione.regioneSpeciale);
@@ -252,10 +252,10 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
 
         //--collettività
         listaBean = this.getLista(stato, 2);
-        pos = add(stato, listaBean, pos, TypeRegione.collettivitaSpeciale);
-        entityBean = (RegioneEntity) mappaBeans.get("FR-6AE");
-        entityBean.setType(TypeRegione.collettivitaEuropea);
-        mappaBeans.put("FR-6AE", entityBean);
+//        pos = add(stato, listaBean, pos, TypeRegione.collettivitaSpeciale);
+//        entityBean = (RegioneEntity) mappaBeans.get("FR-6AE");
+//        entityBean.setType(TypeRegione.collettivitaEuropea);
+//        mappaBeans.put("FR-6AE", entityBean);
 
         //--dipartimenti
         listaBean = this.getLista(stato, 3);
@@ -314,9 +314,9 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
         pos = add(stato, listaBean, pos, TypeRegione.provincia);
 
         //--capitale
-        entityBean = (RegioneEntity) mappaBeans.get("AM-ER");
-        entityBean.setType(TypeRegione.capitale);
-        mappaBeans.put("AM-ER", entityBean);
+//        entityBean = (RegioneEntity) mappaBeans.get("AM-ER");
+//        entityBean.setType(TypeRegione.capitale);
+//        mappaBeans.put("AM-ER", entityBean);
 
         return pos;
     }
@@ -391,7 +391,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
             }
             entityBean = newEntity(pos, nome, sigla, stato, stato.getAlfa2() + "xx", TypeRegione.nazione);
             if (entityBean != null) {
-                mappaBeans.put(sigla, entityBean);
+//                mappaBeans.put(sigla, entityBean);
             }
         }
 
@@ -409,7 +409,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
             }
             entityBean = newEntity(pos, nome, sigla, stato, TAG_ISO_3166 + stato.getAlfa2(), TypeRegione.municipalita);
             if (entityBean != null) {
-                mappaBeans.put(sigla, entityBean);
+//                mappaBeans.put(sigla, entityBean);
             }
         }
 
@@ -471,7 +471,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
 
                 entityBean = newEntity(pos, nome, sigla, stato, TAG_ISO_3166 + stato.getAlfa2(), type);
                 if (entityBean != null) {
-                    mappaBeans.put(sigla, entityBean);
+//                    mappaBeans.put(sigla, entityBean);
                 }
             }
         }
