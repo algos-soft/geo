@@ -6,6 +6,7 @@ import it.algos.geo.logic.*;
 import it.algos.vbase.enumeration.RisultatoReset;
 import it.algos.vbase.enumeration.TypeLog;
 import it.algos.vbase.wrapper.WrapLog;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.*;
 import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
@@ -22,6 +23,7 @@ import static it.algos.vbase.boot.BaseCost.*;
  * Date: mer, 25-ott-2023
  * Time: 11:42
  */
+@Slf4j
 @Service
 public class StatoService extends GeoModuloService<StatoEntity> {
 
@@ -43,14 +45,6 @@ public class StatoService extends GeoModuloService<StatoEntity> {
         super(StatoEntity.class, StatoView.class);
     }
 
-    //    public StatoEntity creaIfNotExists(String nome, String capitale, String alfa3, String alfa2) {
-    //        if (existByKey(nome)) {
-    //            return null;
-    //        }
-    //        else {
-    //            return (StatoEntity) insert(newEntity(nome, capitale, alfa3, alfa2));
-    //        }
-    //    }
 
     /**
      * Creazione in memoria di una nuova entity che NON viene salvata <br>
@@ -132,6 +126,7 @@ public class StatoService extends GeoModuloService<StatoEntity> {
 
 
     public RisultatoReset reset() {
+        String collectionName = mongoTemplate.getCollectionName(StatoEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }
@@ -145,8 +140,17 @@ public class StatoService extends GeoModuloService<StatoEntity> {
         this.leggeContinenti();
         this.leggeUnioneEuropea();
 
-//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
-        return RisultatoReset.vuotoMaCostruito;
+        if (mappaBeans.size() > 0) {
+            deleteAll();
+            long inizio = System.currentTimeMillis();
+            bulkInsertEntities(mappaBeans.values().stream().toList());
+            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
+            return RisultatoReset.vuotoMaCostruito;
+        } else {
+           String message = String.format("Collection [%s] non costruita.", collectionName);
+            log.warn(message);
+            return RisultatoReset.nonCostruito;
+        }
     }
 
     /**

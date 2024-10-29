@@ -2,6 +2,7 @@ package it.algos.geo.logic;
 
 import it.algos.vbase.entity.AbstractEntity;
 import it.algos.vbase.logic.ModuloService;
+import it.algos.vbase.service.DateService;
 import it.algos.vbase.service.ResourceService;
 import it.algos.vbase.service.WebService;
 import org.bson.types.ObjectId;
@@ -21,6 +22,9 @@ public abstract class GeoModuloService <T extends AbstractEntity> extends Modulo
 
     @Autowired
     protected WebService webService;
+
+    @Autowired
+    public DateService dateService;
 
     public GeoModuloService(final Class entityClazz, final Class viewClazz) {
         super(entityClazz, viewClazz);

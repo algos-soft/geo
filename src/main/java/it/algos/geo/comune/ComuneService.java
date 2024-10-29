@@ -6,12 +6,15 @@ import it.algos.geo.provincia.ProvinciaService;
 import it.algos.geo.regione.RegioneEntity;
 import it.algos.geo.regione.RegioneService;
 import it.algos.vbase.enumeration.RisultatoReset;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static it.algos.vbase.boot.BaseCost.*;
 
@@ -22,6 +25,7 @@ import static it.algos.vbase.boot.BaseCost.*;
  * Date: Sat, 03-Feb-2024
  * Time: 09:13
  */
+@Slf4j
 @Service
 public class ComuneService extends GeoModuloService<ComuneEntity> {
 
@@ -34,7 +38,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
     @Autowired
     RegioneService regioneModulo;
 
-    private ComuneEntity entityBean;
+    private Map<String, ComuneEntity> mappaBeans = new HashMap<>();
 
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con due parametri <br>
@@ -53,7 +57,6 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
      * @param provincia (facoltativo)
      * @param cap       (facoltativo)
      * @param regione   (facoltativo)
-     *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
     public ComuneEntity newEntity(int ordine, String nome, String pagina, ProvinciaEntity provincia, String cap, RegioneEntity regione) {
@@ -77,6 +80,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
 
 
     public RisultatoReset reset() {
+        String collectionName = mongoTemplate.getCollectionName(ComuneEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }
@@ -94,8 +98,17 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
             cont = addComuniPerLettera(cont, wikiTitle);
         }
 
-//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
-        return RisultatoReset.vuotoMaCostruito;
+        if (mappaBeans.size() > 0) {
+            deleteAll();
+            long inizio = System.currentTimeMillis();
+            bulkInsertEntities(mappaBeans.values().stream().toList());
+            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
+            return RisultatoReset.vuotoMaCostruito;
+        } else {
+            String message = String.format("Collection [%s] non costruita.", collectionName);
+            log.warn(message);
+            return RisultatoReset.nonCostruito;
+        }
     }
 
 
@@ -115,6 +128,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
             provinciaTxt = rigaUnValore.size() > 1 ? rigaUnValore.get(1) : VUOTA;
             provinciaTxt = provinciaTxt.contains(PIPE) ? textService.levaPrimaAncheTag(provinciaTxt, PIPE) : provinciaTxt;
             if (textService.isValid(provinciaTxt)) {
+                provinciaTxt = textService.levaTesta(provinciaTxt, DOPPIE_QUADRE_INI);
                 provinciaBean = provinciaModulo.findByNome(provinciaTxt);
             }
 
@@ -123,7 +137,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
                 regioneBean = regioneModulo.findById(regioneTxt);
             }
 
-            entityBean = newEntity(++cont, code, pagina, provinciaBean, VUOTA, regioneBean);
+//            entityBean = newEntity(++cont, code, pagina, provinciaBean, VUOTA, regioneBean);
 //            mappaBeans.put(code, entityBean);
         }
 

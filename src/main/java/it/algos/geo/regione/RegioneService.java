@@ -9,6 +9,7 @@ import it.algos.vbase.enumeration.TypeLog;
 import it.algos.vbase.enumeration.TypeRegione;
 import it.algos.vbase.exception.AlgosException;
 import it.algos.vbase.wrapper.WrapLog;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.data.domain.*;
@@ -26,6 +27,7 @@ import static it.algos.vbase.boot.BaseCost.*;
  * Date: Tue, 07-Nov-2023
  * Time: 16:47
  */
+@Slf4j
 @Service
 public class RegioneService extends GeoModuloService<RegioneEntity> {
 
@@ -45,6 +47,8 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
     private RegioneEntity entityBean;
 
     private List<List<String>> listaBean;
+
+    private Map<String, RegioneEntity> mappaBeans= new HashMap<>();
 
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con due parametri <br>
@@ -113,48 +117,57 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
 
 
     public RisultatoReset reset() {
+        String collectionName = mongoTemplate.getCollectionName(RegioneEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }
 
         if (!Boolean.parseBoolean(creaRegioniAllTxt)) {
             addItaliaOnly();
-            return RisultatoReset.vuotoMaCostruito;
+        } else {
+            int pos;
+            pos = addItalia();
+            pos = addFrancia(pos);
+            pos = add("Svizzera", TypeRegione.cantone, pos);
+            pos = add("Austria", TypeRegione.land, pos);
+            pos = add("Germania", TypeRegione.land, pos);
+            pos = addSpagna(pos);
+            pos = addPortogallo(pos);
+            pos = add("Slovenia", TypeRegione.comune, pos);
+            pos = add("Albania", TypeRegione.prefettura, pos);
+            pos = add("Andorra", TypeRegione.parrocchia, pos);
+            pos = addArmenia(pos);
+            pos = addBelgio(pos);
+            pos = add("Bulgaria", TypeRegione.distretto, pos);
+            pos = add("Bosnia ed Erzegovina", TypeRegione.entita, pos);
+            pos = add("Grecia", TypeRegione.periferia, pos);
+            pos = addCechia(pos);
+            pos = add("Danimarca", TypeRegione.regione, pos);
+            pos = add("Croazia", TypeRegione.regione, pos);
+            pos = addUngheria(pos);
+            pos = add("Liechtenstein", TypeRegione.comune, pos);
+            pos = add("Lussemburgo", TypeRegione.cantone, pos);
+            pos = add("Principato di Monaco", TypeRegione.quartiere, pos);
+            pos = addOlanda(pos);
+            pos = add("Polonia", TypeRegione.regione, pos);
+            pos = add("Slovacchia", TypeRegione.regione, pos);
+            pos = addRomania(pos);
+            pos = addSerbia(pos);
+            pos = add("Macedonia del Nord", TypeRegione.comune, pos);
+            pos = add("Ucraina", TypeRegione.oblast, pos);
         }
 
-        int pos;
-        pos = addItalia();
-        pos = addFrancia(pos);
-        pos = add("Svizzera", TypeRegione.cantone, pos);
-        pos = add("Austria", TypeRegione.land, pos);
-        pos = add("Germania", TypeRegione.land, pos);
-        pos = addSpagna(pos);
-        pos = addPortogallo(pos);
-        pos = add("Slovenia", TypeRegione.comune, pos);
-        pos = add("Albania", TypeRegione.prefettura, pos);
-        pos = add("Andorra", TypeRegione.parrocchia, pos);
-        pos = addArmenia(pos);
-        pos = addBelgio(pos);
-        pos = add("Bulgaria", TypeRegione.distretto, pos);
-        pos = add("Bosnia ed Erzegovina", TypeRegione.entita, pos);
-        pos = add("Grecia", TypeRegione.periferia, pos);
-        pos = addCechia(pos);
-        pos = add("Danimarca", TypeRegione.regione, pos);
-        pos = add("Croazia", TypeRegione.regione, pos);
-        pos = addUngheria(pos);
-        pos = add("Liechtenstein", TypeRegione.comune, pos);
-        pos = add("Lussemburgo", TypeRegione.cantone, pos);
-        pos = add("Principato di Monaco", TypeRegione.quartiere, pos);
-        pos = addOlanda(pos);
-        pos = add("Polonia", TypeRegione.regione, pos);
-        pos = add("Slovacchia", TypeRegione.regione, pos);
-        pos = addRomania(pos);
-        pos = addSerbia(pos);
-        pos = add("Macedonia del Nord", TypeRegione.comune, pos);
-        pos = add("Ucraina", TypeRegione.oblast, pos);
-
-//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
-        return RisultatoReset.vuotoMaCostruito;
+        if (mappaBeans.size() > 0) {
+            deleteAll();
+            long inizio = System.currentTimeMillis();
+            bulkInsertEntities(mappaBeans.values().stream().toList());
+            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
+            return RisultatoReset.vuotoMaCostruito;
+        } else {
+            String message = String.format("Collection [%s] non costruita.", collectionName);
+            log.warn(message);
+            return RisultatoReset.nonCostruito;
+        }
     }
 
     public int add(String nomeStato, TypeRegione type, int pos) {

@@ -1,16 +1,21 @@
 package it.algos.geo.provincia;
 
-import it.algos.geo.logic.*;
-import it.algos.geo.regione.*;
+import it.algos.geo.logic.GeoModuloService;
+import it.algos.geo.regione.RegioneEntity;
+import it.algos.geo.regione.RegioneService;
 import it.algos.vbase.enumeration.RisultatoReset;
 import it.algos.vbase.enumeration.TypeLog;
 import it.algos.vbase.wrapper.WrapLog;
-import org.apache.commons.lang3.*;
-import org.bson.types.*;
-import org.springframework.beans.factory.annotation.*;
-import org.springframework.stereotype.*;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
+import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static it.algos.vbase.boot.BaseCost.*;
 
@@ -21,6 +26,7 @@ import static it.algos.vbase.boot.BaseCost.*;
  * Date: Sat, 03-Feb-2024
  * Time: 09:48
  */
+@Slf4j
 @Service
 public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
 
@@ -30,7 +36,8 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
     @Autowired
     RegioneService regioneModulo;
 
-    private ProvinciaEntity entityBean;
+    private Map<String, ProvinciaEntity> mappaBeans= new HashMap<>();
+
 
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con due parametri <br>
@@ -94,6 +101,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
 
 
     public RisultatoReset reset() {
+        String collectionName = mongoTemplate.getCollectionName(ProvinciaEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }
@@ -104,8 +112,17 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
         this.leggeProvince();
         this.leggeCap();
 
-//        mappaBeans.values().stream().forEach(bean -> insertSave(bean));
-        return RisultatoReset.vuotoMaCostruito;
+        if (mappaBeans.size() > 0) {
+            deleteAll();
+            long inizio = System.currentTimeMillis();
+            bulkInsertEntities(mappaBeans.values().stream().toList());
+            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
+            return RisultatoReset.vuotoMaCostruito;
+        } else {
+            String message = String.format("Collection [%s] non costruita.", collectionName);
+            log.warn(message);
+            return RisultatoReset.nonCostruito;
+        }
     }
 
 
@@ -127,7 +144,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
                 nomeCompleto = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
                 regioneTxt = rigaUnValore.size() > 3 ? rigaUnValore.get(3) : VUOTA;
                 regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findById(regioneTxt) : null;
-                entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
+//                entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
 //                mappaBeans.put(code, entityBean);
             }
         }

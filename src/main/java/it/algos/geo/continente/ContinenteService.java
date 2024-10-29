@@ -3,13 +3,13 @@ package it.algos.geo.continente;
 import it.algos.geo.enumeration.ContinenteEnum;
 import it.algos.geo.logic.GeoModuloService;
 import it.algos.vbase.enumeration.RisultatoReset;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static it.algos.vbase.boot.BaseCost.ID_LENGTH;
 
@@ -20,13 +20,14 @@ import static it.algos.vbase.boot.BaseCost.ID_LENGTH;
  * Date: dom, 29-ott-2023
  * Time: 06:59
  */
+@Slf4j
 @Service
 public class ContinenteService extends GeoModuloService<ContinenteEntity> {
 
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
 
-    private Map<String, ContinenteEntity> mappaBeans= new HashMap<>();
+    private List<ContinenteEntity> listaBeans = new ArrayList<>();
 
     /**
      * Regola la entityClazz associata a questo Modulo e la passa alla superclasse <br>
@@ -43,7 +44,6 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
      *
      * @param ordine (opzionale, unico)
      * @param nome   (obbligatorio, unico)
-     *
      * @return la nuova entity appena creata (con keyID ma non salvata)
      */
     public ContinenteEntity newEntity(final int ordine, final String nome) {
@@ -82,6 +82,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
      */
     @Override
     public RisultatoReset reset() {
+        String collectionName = mongoTemplate.getCollectionName(ContinenteEntity.class);
         ContinenteEntity newBean;
         int ordine;
         String code;
@@ -96,12 +97,21 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
             newBean = newEntity(ordine, code);
 
             if (newBean != null) {
-                mappaBeans.put(code, newBean);
+                listaBeans.add(newBean);
             }
         }
 
-        mappaBeans.values().stream().forEach(bean -> creaIfNotExists(bean));
-        return RisultatoReset.vuotoMaCostruito;
+        if (listaBeans.size() > 0) {
+            deleteAll();
+            long inizio = System.currentTimeMillis();
+            bulkInsertEntities(listaBeans);
+            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
+            return RisultatoReset.vuotoMaCostruito;
+        } else {
+            String message = String.format("Collection [%s] non costruita.", collectionName);
+            log.warn(message);
+            return RisultatoReset.nonCostruito;
+        }
     }
 
 
