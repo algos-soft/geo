@@ -141,14 +141,9 @@ public class StatoService extends GeoModuloService<StatoEntity> {
         this.leggeUnioneEuropea();
 
         if (mappaBeans.size() > 0) {
-            deleteAll();
-            long inizio = System.currentTimeMillis();
-            bulkInsertEntities(mappaBeans.values().stream().toList());
-            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
-            return RisultatoReset.vuotoMaCostruito;
+            return super.bulkInsertEntities(mappaBeans.values().stream().toList(), collectionName);
         } else {
-           String message = String.format("Collection [%s] non costruita.", collectionName);
-            log.warn(message);
+            log.warn(String.format("Collection [%s] non costruita.", collectionName));
             return RisultatoReset.nonCostruito;
         }
     }

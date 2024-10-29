@@ -40,6 +40,8 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
 
     private Map<String, ComuneEntity> mappaBeans = new HashMap<>();
 
+    private ComuneEntity entityBean;
+
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con due parametri <br>
      * Regola la entityClazz associata a questo Modulo <br>
@@ -99,14 +101,9 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
         }
 
         if (mappaBeans.size() > 0) {
-            deleteAll();
-            long inizio = System.currentTimeMillis();
-            bulkInsertEntities(mappaBeans.values().stream().toList());
-            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
-            return RisultatoReset.vuotoMaCostruito;
+            return super.bulkInsertEntities(mappaBeans.values().stream().toList(), collectionName);
         } else {
-            String message = String.format("Collection [%s] non costruita.", collectionName);
-            log.warn(message);
+            log.warn(String.format("Collection [%s] non costruita.", collectionName));
             return RisultatoReset.nonCostruito;
         }
     }
@@ -137,8 +134,8 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
                 regioneBean = regioneModulo.findById(regioneTxt);
             }
 
-//            entityBean = newEntity(++cont, code, pagina, provinciaBean, VUOTA, regioneBean);
-//            mappaBeans.put(code, entityBean);
+            entityBean = newEntity(++cont, code, pagina, provinciaBean, VUOTA, regioneBean);
+            mappaBeans.put(code, entityBean);
         }
 
         return cont;

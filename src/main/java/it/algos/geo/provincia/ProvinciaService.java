@@ -38,6 +38,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
 
     private Map<String, ProvinciaEntity> mappaBeans= new HashMap<>();
 
+    private ProvinciaEntity entityBean;
 
     /**
      * Costruttore invocato dalla sottoclasse concreta obbligatoriamente con due parametri <br>
@@ -113,14 +114,9 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
         this.leggeCap();
 
         if (mappaBeans.size() > 0) {
-            deleteAll();
-            long inizio = System.currentTimeMillis();
-            bulkInsertEntities(mappaBeans.values().stream().toList());
-            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
-            return RisultatoReset.vuotoMaCostruito;
+            return super.bulkInsertEntities(mappaBeans.values().stream().toList(), collectionName);
         } else {
-            String message = String.format("Collection [%s] non costruita.", collectionName);
-            log.warn(message);
+            log.warn(String.format("Collection [%s] non costruita.", collectionName));
             return RisultatoReset.nonCostruito;
         }
     }
@@ -144,8 +140,8 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
                 nomeCompleto = rigaUnValore.size() > 2 ? rigaUnValore.get(2) : VUOTA;
                 regioneTxt = rigaUnValore.size() > 3 ? rigaUnValore.get(3) : VUOTA;
                 regioneBean = textService.isValid(regioneTxt) ? regioneModulo.findById(regioneTxt) : null;
-//                entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
-//                mappaBeans.put(code, entityBean);
+                entityBean = newEntity(++cont, code, nome, nomeCompleto, VUOTA, regioneBean);
+                mappaBeans.put(code, entityBean);
             }
         }
         else {
@@ -183,11 +179,11 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
                 cap = textService.levaTesta(cap, PIPE).trim();
                 cap = textService.levaCodaDaPrimo(cap, PARENTESI_TONDA_INI).trim();
                 if (textService.isValid(sigla) && textService.isValid(cap)) {
-//                    if (mappaBeans.containsKey(sigla)) {
-//                        entityBean = (ProvinciaEntity) mappaBeans.get(sigla);
-//                        entityBean.setCap(cap);
-//                        mappaBeans.put(sigla, entityBean);
-//                    }
+                    if (mappaBeans.containsKey(sigla)) {
+                        entityBean =  mappaBeans.get(sigla);
+                        entityBean.setCap(cap);
+                        mappaBeans.put(sigla, entityBean);
+                    }
                 }
             }
         }

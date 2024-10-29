@@ -101,17 +101,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
             }
         }
 
-        if (listaBeans.size() > 0) {
-            deleteAll();
-            long inizio = System.currentTimeMillis();
-            bulkInsertEntities(listaBeans);
-            log.info(String.format("Bulk inserimento di [%s] nuove entities per la collection [%s] in %s", count(), collectionName, dateService.deltaTextEsatto(inizio)));
-            return RisultatoReset.vuotoMaCostruito;
-        } else {
-            String message = String.format("Collection [%s] non costruita.", collectionName);
-            log.warn(message);
-            return RisultatoReset.nonCostruito;
-        }
+        return super.bulkInsertEntities(listaBeans, collectionName);
     }
 
 
