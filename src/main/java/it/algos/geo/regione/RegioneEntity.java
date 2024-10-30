@@ -3,6 +3,7 @@ package it.algos.geo.regione;
 import it.algos.geo.stato.*;
 import it.algos.vbase.annotation.IEntity;
 import it.algos.vbase.annotation.IFieldList;
+import it.algos.vbase.annotation.IReset;
 import it.algos.vbase.annotation.ISearch;
 import it.algos.vbase.entity.OrdineEntity;
 import it.algos.vbase.enumeration.TypeRegione;
@@ -16,6 +17,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @AllArgsConstructor
 @Builder
 @Document(collection = "regione")
+@IReset()
 @IEntity()
 public class RegioneEntity extends OrdineEntity {
 

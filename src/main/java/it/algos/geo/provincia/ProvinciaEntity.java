@@ -1,10 +1,7 @@
 package it.algos.geo.provincia;
 
 import it.algos.geo.regione.RegioneEntity;
-import it.algos.vbase.annotation.IEntity;
-import it.algos.vbase.annotation.IFieldForm;
-import it.algos.vbase.annotation.IFieldList;
-import it.algos.vbase.annotation.ISearch;
+import it.algos.vbase.annotation.*;
 import it.algos.vbase.entity.OrdineEntity;
 import it.algos.vbase.enumeration.TBool;
 import it.algos.vbase.enumeration.TextSearchMode;
@@ -19,6 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Builder
 @Document(collection = "provincia")
+@IReset()
 @IEntity()
 public class ProvinciaEntity extends OrdineEntity {
 
