@@ -27,7 +27,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
     @Value("${algos.project.usa.dir.geo:true}")
     private boolean usaDirGeo;
 
-    private List<ContinenteEntity> listaBeans = new ArrayList<>();
+    private List<ContinenteEntity> listaBeans;
 
     /**
      * Regola la entityClazz associata a questo Modulo e la passa alla superclasse <br>
@@ -83,6 +83,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
     @Override
     public RisultatoReset reset() {
         String collectionName = mongoTemplate.getCollectionName(ContinenteEntity.class);
+        listaBeans = new ArrayList<>();
         ContinenteEntity newBean;
         int ordine;
         String code;
