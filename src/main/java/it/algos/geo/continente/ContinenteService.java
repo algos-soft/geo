@@ -102,7 +102,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
             }
         }
 
-        return super.bulkInsertEntities(listaBeans, collectionName);
+        return super.bulkInsertEntitiesDelete(listaBeans);
     }
 
 
