@@ -4,7 +4,7 @@ import it.algos.geo.continente.ContinenteEntity;
 import it.algos.vbase.annotation.*;
 import it.algos.vbase.entity.OrdineEntity;
 import it.algos.vbase.enumeration.TextSearchMode;
-import it.algos.vbase.enumeration.CheckBoxStatus;
+import it.algos.vbase.enumeration.TriState;
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -60,7 +60,7 @@ public class StatoEntity extends OrdineEntity {
     private ContinenteEntity continente;
 
 
-    @ISearch(checkBoxInitialStatus = CheckBoxStatus.vero)
+    @ISearch(checkBoxInitialStatus = TriState.vero)
     @IFieldList(headerText = "UE")
 //    @AField(type = TypeField.booleano)
     private boolean unioneEuropea;
