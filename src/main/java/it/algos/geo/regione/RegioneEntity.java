@@ -29,23 +29,19 @@ public class RegioneEntity extends OrdineEntity {
 
     @Indexed(unique = true)
     @ISearch
-//    @AField(type = TypeField.wikiAnchor)
     private String nome;
 
     @DBRef()
     @ISearch(placeholder = "Stati")
     @IFieldList(width = 14)
-//    @AField(type = TypeField.linkDBRef, linkClazz = StatoEntity.class)
     private StatoEntity stato;
 
     @IFieldList()
-//    @AField(type = TypeField.linkWiki)
     private String pagina;
 
     @Indexed()
     @ISearch
     @IFieldList(width = 20)
-//    @AField(type = TypeField.enumType, enumClazz = TypeRegione.class)
     private TypeRegione type;
 
 

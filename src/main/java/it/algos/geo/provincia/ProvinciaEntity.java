@@ -28,7 +28,6 @@ public class ProvinciaEntity extends OrdineEntity {
     @Indexed(unique = true)
     @ISearch
     @IFieldList(width = 14)
-//    @AField(type = TypeField.wikiAnchor, anchorPrefix = "Provincia di ")
     private String nome;
 
     @Indexed(unique = true)

@@ -31,27 +31,22 @@ public class StatoEntity extends OrdineEntity {
     @Indexed()
     @ISearch
     @IFieldList()
-//    @AField(type = TypeField.wikiAnchor)
     private String capitale;
 
     @Indexed(unique = true)
     @ISearch(textSearchMode = TextSearchMode.contains)
     @IFieldList(width = 6)
-//    @AField(type = TypeField.text)
     private String alfa3;
 
     @Indexed(unique = true)
     @IFieldList(width = 6)
-//    @AField(type = TypeField.text)
     private String alfa2;
 
     @Indexed(unique = true)
     @IFieldList(width = 6, headerText = "cod.")
-//    @AField(type = TypeField.text)
     private String numerico;
 
     @IFieldList()
-//    @AField(type = TypeField.linkWiki)
     private String divisioni;
 
     @DBRef
@@ -62,7 +57,6 @@ public class StatoEntity extends OrdineEntity {
 
     @ISearch(checkBoxInitialStatus = TriState.vero)
     @IFieldList(headerText = "UE")
-//    @AField(type = TypeField.booleano)
     private boolean unioneEuropea;
 
     @Override
