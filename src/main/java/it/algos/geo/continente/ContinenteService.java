@@ -35,7 +35,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
      * Regola la listClazz associata a questo Modulo e la passa alla superclasse <br>
      */
     public ContinenteService() {
-        super(ContinenteEntity.class, ContinenteView.class);
+        super(ContinenteEntity.class);
     }
 
 

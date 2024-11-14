@@ -48,7 +48,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
      * Regola la viewClazz @Route associata a questo Modulo <br>
      */
     public ComuneService() {
-        super(ComuneEntity.class, ComuneView.class);
+        super(ComuneEntity.class);
     }
 
 

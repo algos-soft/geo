@@ -62,7 +62,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
      * Regola la viewClazz @Route associata a questo Modulo <br>
      */
     public RegioneService() {
-        super(RegioneEntity.class, RegioneView.class);
+        super(RegioneEntity.class);
     }
 
 

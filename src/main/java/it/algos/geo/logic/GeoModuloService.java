@@ -26,8 +26,8 @@ public abstract class GeoModuloService <T extends AbstractEntity> extends Modulo
     @Autowired
     public DateService dateService;
 
-    public GeoModuloService(final Class entityClazz, final Class viewClazz) {
-        super(entityClazz, viewClazz);
+    public GeoModuloService(final Class entityClazz) {
+        super(entityClazz);
     }
 
 

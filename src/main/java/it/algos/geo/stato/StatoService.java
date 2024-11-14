@@ -42,7 +42,7 @@ public class StatoService extends GeoModuloService<StatoEntity> {
      * Regola la viewClazz @Route associata a questo Modulo <br>
      */
     public StatoService() {
-        super(StatoEntity.class, StatoView.class);
+        super(StatoEntity.class);
     }
 
 

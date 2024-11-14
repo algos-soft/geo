@@ -46,7 +46,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
      * Regola la viewClazz @Route associata a questo Modulo <br>
      */
     public ProvinciaService() {
-        super(ProvinciaEntity.class, ProvinciaView.class);
+        super(ProvinciaEntity.class);
     }
 
     /**
