@@ -25,9 +25,6 @@ public abstract class GeoList extends AList {
         super(parentCrudView);
     }
 
-    protected void fixPreferenze() {
-        super.fixPreferenze();
-    }
 
 
     protected void fixAdmin() {

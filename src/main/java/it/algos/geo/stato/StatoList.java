@@ -26,9 +26,6 @@ public class StatoList extends GeoList {
         super(parentCrudView);
     }
 
-    protected void fixPreferenze() {
-        super.fixPreferenze();
-    }
 
     @Override
     public void fixHeader() {

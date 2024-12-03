@@ -24,14 +24,6 @@ public class ComuneList extends GeoList {
         super(parentCrudView);
     }
 
-    protected void fixPreferenze() {
-        super.fixPreferenze();
-
-//        super.usaBottoneDownload = true;
-//        super.usaBottoneEdit = true;
-//        super.usaBottoneShow = false;
-//        super.usaBottoneExport = true;
-    }
 
     @Override
     public void fixHeader() {

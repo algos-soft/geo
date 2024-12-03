@@ -36,10 +36,6 @@ public class RegioneItaliaList extends GeoList {
         super(parentCrudView);
     }
 
-    @Override
-    protected void fixPreferenze() {
-        super.fixPreferenze();
-    }
 
     @Override
     public void fixHeader() {

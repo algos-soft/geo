@@ -17,7 +17,9 @@ public class ContinenteList extends GeoList {
         super(parentCrudView);
     }
 
-    protected void fixPreferenze() {
+    @Override
+    protected void preInit() {
+        super.preInit();
         super.readOnly = true;
     }
 
@@ -27,7 +29,8 @@ public class ContinenteList extends GeoList {
         String enumeration = "ContinenteEnum";
         String service = "Continente";
 
-        super.infoScopo = String.format(TEXT_TAVOLA + SPAZIO + TEXT_ENUM, enumeration, service); ;
+        super.infoScopo = String.format(TEXT_TAVOLA + SPAZIO + TEXT_ENUM, enumeration, service);
+        ;
         super.infoCreazione = TEXT_HARD;
         super.infoReset = TEXT_RESET_DELETE;
 
