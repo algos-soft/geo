@@ -24,17 +24,17 @@ public class StatoEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ISearch
+    @IFieldSearch
     @IFieldList()
     private String nome;
 
     @Indexed()
-    @ISearch
+    @IFieldSearch
     @IFieldList()
     private String capitale;
 
     @Indexed(unique = true)
-    @ISearch(textSearchMode = TextSearchMode.contains)
+    @IFieldSearch(textSearchMode = TextSearchMode.contains)
     @IFieldList(width = 6)
     private String alfa3;
 
@@ -50,12 +50,12 @@ public class StatoEntity extends OrdineEntity {
     private String divisioni;
 
     @DBRef
-    @ISearch(placeholder = "Continenti")
+    @IFieldSearch(placeholder = "Continenti")
     @IFieldList(width = 14)
     private ContinenteEntity continente;
 
 
-    @ISearch(checkBoxInitialStatus = TriState.vero)
+    @IFieldSearch(checkBoxInitialStatus = TriState.vero)
     @IFieldList(headerText = "UE")
     private boolean unioneEuropea;
 

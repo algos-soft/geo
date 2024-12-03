@@ -22,7 +22,7 @@ public class ComuneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ISearch
+    @IFieldSearch
     @IFieldList(width = 18)
     private String nome;
 
@@ -35,20 +35,20 @@ public class ComuneEntity extends OrdineEntity {
     @DBRef()
     @IAnchor
 //    @ARef(linkClazz = ProvinciaService.class, linkedProperty = "nome")
-    @ISearch(placeholder = "Province")
+    @IFieldSearch(placeholder = "Province")
     @IFieldList(width = 14)
     @IFieldForm(clearButtonVisible = TBool.falso)
     private ProvinciaEntity provincia;
 
     @Indexed()
-    @ISearch
+    @IFieldSearch
     @IFieldList(width = 6)
     private String cap;
 
     @DBRef()
     @IAnchor
 //    @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
-    @ISearch(placeholder = "Regioni")
+    @IFieldSearch(placeholder = "Regioni")
     @IFieldList(width = 10)
     @IFieldForm(clearButtonVisible = TBool.falso)
     private RegioneEntity regione;

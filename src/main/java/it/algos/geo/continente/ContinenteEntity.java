@@ -19,7 +19,7 @@ public class ContinenteEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ISearch
+    @IFieldSearch
     @IFieldList()
     private String nome;
 

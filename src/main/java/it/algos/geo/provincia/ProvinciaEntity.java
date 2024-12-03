@@ -21,28 +21,28 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ProvinciaEntity extends OrdineEntity {
 
     @Indexed(unique = true)
-    @ISearch(textSearchMode = TextSearchMode.startsWith)
+    @IFieldSearch(textSearchMode = TextSearchMode.startsWith)
     @IFieldList(width = 6)
     private String sigla;
 
     @Indexed(unique = true)
-    @ISearch
+    @IFieldSearch
     @IFieldList(width = 14)
     private String nome;
 
     @Indexed(unique = true)
-    @ISearch(textSearchMode = TextSearchMode.contains)
+    @IFieldSearch(textSearchMode = TextSearchMode.contains)
     @IFieldList(width = 24, headerText = "Ufficiale")
     private String nomeCompleto;
 
     @Indexed()
-    @ISearch
+    @IFieldSearch
     @IFieldList(width = 5)
     private String cap;
 
     @DBRef()
 //    @ARef(linkClazz = RegioneService.class, linkedProperty = "nome")
-    @ISearch(placeholder = "Regioni")
+    @IFieldSearch(placeholder = "Regioni")
     @IFieldList(width = 10)
 //    @AFieldForm(linkedProperty = "sigla", clearButtonVisible  = TBool.falso)
     @IFieldForm( clearButtonVisible  = TBool.falso)

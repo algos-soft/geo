@@ -4,7 +4,7 @@ import it.algos.geo.stato.*;
 import it.algos.vbase.annotation.IEntity;
 import it.algos.vbase.annotation.IFieldList;
 import it.algos.vbase.annotation.IReset;
-import it.algos.vbase.annotation.ISearch;
+import it.algos.vbase.annotation.IFieldSearch;
 import it.algos.vbase.entity.OrdineEntity;
 import it.algos.vbase.enumeration.TypeRegione;
 import lombok.*;
@@ -23,16 +23,16 @@ public class RegioneEntity extends OrdineEntity {
 
 
     @Indexed(unique = true)
-    @ISearch
+    @IFieldSearch
     @IFieldList(width = 6)
     private String sigla;
 
     @Indexed(unique = true)
-    @ISearch
+    @IFieldSearch
     private String nome;
 
     @DBRef()
-    @ISearch(placeholder = "Stati")
+    @IFieldSearch(placeholder = "Stati")
     @IFieldList(width = 14)
     private StatoEntity stato;
 
@@ -40,7 +40,7 @@ public class RegioneEntity extends OrdineEntity {
     private String pagina;
 
     @Indexed()
-    @ISearch
+    @IFieldSearch
     @IFieldList(width = 20)
     private TypeRegione type;
 
