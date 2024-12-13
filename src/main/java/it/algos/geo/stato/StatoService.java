@@ -263,12 +263,12 @@ public class StatoService extends GeoModuloService<StatoEntity> {
                         }
                         else {
                             message = String.format("Non ho trovato %s nella riga %s della mappa - leggeCapitali()", alfa3, riga);
-                            logger.warn(new WrapLog().message(message).type(TypeLog.reset));
+                            log.warn(message);
                         }
                     }
                     else {
                         message = String.format("Manca la capitale %s", (Object[]) partiRiga);
-                        logger.warn(new WrapLog().message(message).type(TypeLog.reset));
+                        log.warn(message);
                     }
                 }
             }
@@ -306,7 +306,7 @@ public class StatoService extends GeoModuloService<StatoEntity> {
                 }
                 else {
                     message = String.format("Non ho trovato %s nella mappa - leggeAlfa2()", alfa3);
-                    logger.warn(new WrapLog().message(message).type(TypeLog.reset));
+                    log.warn(message);
                 }
             }
         }
@@ -366,7 +366,7 @@ public class StatoService extends GeoModuloService<StatoEntity> {
                     }
                     else {
                         message = String.format("Non ho trovato %s nella riga %s della mappa - leggeContinente() di %s", alfa3, parte, continente.getNome());
-                        logger.warn(new WrapLog().message(message).type(TypeLog.reset));
+                        log.warn(message);
                     }
                 }
             }
@@ -397,7 +397,7 @@ public class StatoService extends GeoModuloService<StatoEntity> {
                 }
                 else {
                     message = String.format("Non ho trovato %s nella mappa - leggeUnioneEuropea()", alfa3);
-                    logger.warn(new WrapLog().message(message).type(TypeLog.reset));
+                    log.warn(message);
                 }
             }
         }

@@ -494,7 +494,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
 
         if (textService.isEmpty(nomeStato)) {
             message = String.format("Nel metodo manca il nome dello stato", nomeStato);
-            logger.error(new WrapLog().exception(new AlgosException(message)).type(TypeLog.startup));
+            log.error(message);
             return stato;
         }
         nomeStato = textService.primaMaiuscola(nomeStato);
@@ -502,7 +502,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
 
         if (stato == null) {
             message = String.format("Non ho trovato lo stato [%s]", nomeStato);
-            logger.error(new WrapLog().exception(new AlgosException(message)).type(TypeLog.startup));
+            log.error(message);
             return stato;
         }
 
@@ -520,7 +520,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
         nomePaginaWiki = TAG_ISO_3166 + stato.getAlfa2();
         if (textService.isEmpty(nomePaginaWiki)) {
             message = String.format("Nello stato [%s] manca la property 'alfa2'", stato);
-            logger.error(new WrapLog().exception(new AlgosException(message)).type(TypeLog.startup));
+            log.error(message);
             return lista;
         }
 

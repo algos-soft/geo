@@ -146,7 +146,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
         }
         else {
             message = String.format("Manca il file [%s] nella directory /config o sul server", nomeFileCSV);
-            logger.warn(new WrapLog().message(message).type(TypeLog.startup));
+            log.warn(message);
         }
     }
 
