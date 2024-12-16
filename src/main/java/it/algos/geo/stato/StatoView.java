@@ -23,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class StatoView extends AView {
 
     StatoView(@Autowired StatoService moduloService) {
-        super(moduloService, StatoList.class, StatoForm.class);
+        super(StatoEntity.class, moduloService, StatoList.class, StatoForm.class);
     }
 
 }// end of @Route CrudView class

@@ -28,7 +28,7 @@ public class ContinenteView extends AView {
      * Mantiene il riferimento ad una listClazz (AList) per creare l'istanza prototype <br>
      */
     ContinenteView(@Autowired ContinenteService moduloService) {
-        super(moduloService, ContinenteList.class);
+        super(ContinenteEntity.class, moduloService, ContinenteList.class);
     }
 
 }// end of @Route CrudView class

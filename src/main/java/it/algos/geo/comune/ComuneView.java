@@ -24,7 +24,7 @@ public class ComuneView extends AView {
 
 
     ComuneView(@Autowired ComuneService moduloService) {
-        super(moduloService, ComuneList.class, ComuneForm.class);
+        super(ComuneEntity.class, moduloService, ComuneList.class, ComuneForm.class);
     }
 
 }// end of @Route CrudView class

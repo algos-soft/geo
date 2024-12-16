@@ -23,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class RegioneItaliaView extends AView {
 
     public RegioneItaliaView(@Autowired RegioneService moduloService) {
-        super(moduloService, RegioneItaliaList.class, RegioneForm.class);
+        super(RegioneEntity.class, moduloService, RegioneItaliaList.class, RegioneForm.class);
     }
 
 }// end of @Route CrudView class

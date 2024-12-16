@@ -24,7 +24,7 @@ public class ProvinciaView extends AView {
 
 
     ProvinciaView(@Autowired ProvinciaService moduloService) {
-        super(moduloService, ProvinciaList.class, ProvinciaForm.class);
+        super(ProvinciaEntity.class, moduloService, ProvinciaList.class, ProvinciaForm.class);
     }
 
 }// end of @Route CrudView class
