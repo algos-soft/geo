@@ -21,7 +21,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ComuneEntity extends OrdineEntity {
 
 
-    @Indexed(unique = true)
+    @Indexed
     @IFieldSearch
     @IFieldList(width = 18)
     private String nome;
