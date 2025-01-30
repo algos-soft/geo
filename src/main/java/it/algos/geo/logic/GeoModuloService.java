@@ -1,7 +1,7 @@
 package it.algos.geo.logic;
 
 import it.algos.vbase.entity.AbstractEntity;
-import it.algos.vbase.logic.ModuloService;
+import it.algos.vbase.service.ModuloService;
 import it.algos.vbase.service.DateService;
 import it.algos.vbase.service.ResourceService;
 import it.algos.vbase.service.WebService;
