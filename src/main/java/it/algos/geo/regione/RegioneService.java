@@ -120,7 +120,7 @@ public class RegioneService extends GeoModuloService<RegioneEntity> {
 
 
     public RisultatoReset reset() {
-        String collectionName = mongoTemplate.getCollectionName(RegioneEntity.class);
+        String collectionName = getMongoTemplate().getCollectionName(RegioneEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }

@@ -82,7 +82,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
      */
     @Override
     public RisultatoReset reset() {
-        String collectionName = mongoTemplate.getCollectionName(ContinenteEntity.class);
+        String collectionName = getMongoTemplate().getCollectionName(ContinenteEntity.class);
         listaBeans = new ArrayList<>();
         ContinenteEntity newBean;
         int ordine;

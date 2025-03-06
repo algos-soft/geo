@@ -82,7 +82,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
 
 
     public RisultatoReset reset() {
-        String collectionName = mongoTemplate.getCollectionName(ComuneEntity.class);
+        String collectionName = getMongoTemplate().getCollectionName(ComuneEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }

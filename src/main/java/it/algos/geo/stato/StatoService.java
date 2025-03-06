@@ -126,7 +126,7 @@ public class StatoService extends GeoModuloService<StatoEntity> {
 
 
     public RisultatoReset reset() {
-        String collectionName = mongoTemplate.getCollectionName(StatoEntity.class);
+        String collectionName = getMongoTemplate().getCollectionName(StatoEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }

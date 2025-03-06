@@ -102,7 +102,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
 
 
     public RisultatoReset reset() {
-        String collectionName = mongoTemplate.getCollectionName(ProvinciaEntity.class);
+        String collectionName = getMongoTemplate().getCollectionName(ProvinciaEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
         }
