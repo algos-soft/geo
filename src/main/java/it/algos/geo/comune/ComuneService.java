@@ -9,6 +9,7 @@ import it.algos.vbase.enumeration.RisultatoReset;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -81,7 +82,7 @@ public class ComuneService extends GeoModuloService<ComuneEntity> {
     }
 
 
-    public RisultatoReset reset() {
+    public RisultatoReset reset(MongoTemplate mongoTemplate) {
         String collectionName = getMongoTemplate().getCollectionName(ComuneEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;

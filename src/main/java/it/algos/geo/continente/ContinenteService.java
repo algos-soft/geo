@@ -6,6 +6,7 @@ import it.algos.vbase.enumeration.RisultatoReset;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public class ContinenteService extends GeoModuloService<ContinenteEntity> {
      * @return enumeration di possibili risultati
      */
     @Override
-    public RisultatoReset reset() {
+    public RisultatoReset reset(MongoTemplate mongoTemplate) {
         String collectionName = getMongoTemplate().getCollectionName(ContinenteEntity.class);
         listaBeans = new ArrayList<>();
         ContinenteEntity newBean;

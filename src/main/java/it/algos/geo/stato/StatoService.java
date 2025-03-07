@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.*;
 import org.bson.types.*;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.*;
 
 import java.util.*;
@@ -125,7 +126,7 @@ public class StatoService extends GeoModuloService<StatoEntity> {
 
 
 
-    public RisultatoReset reset() {
+    public RisultatoReset reset(MongoTemplate mongoTemplate) {
         String collectionName = getMongoTemplate().getCollectionName(StatoEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;

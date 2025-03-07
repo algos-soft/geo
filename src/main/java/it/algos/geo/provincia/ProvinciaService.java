@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -101,7 +102,7 @@ public class ProvinciaService extends GeoModuloService<ProvinciaEntity> {
     }
 
 
-    public RisultatoReset reset() {
+    public RisultatoReset reset(MongoTemplate mongoTemplate) {
         String collectionName = getMongoTemplate().getCollectionName(ProvinciaEntity.class);
         if (!usaDirGeo) {
             return RisultatoReset.nonCostruito;
